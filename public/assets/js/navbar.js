@@ -5,7 +5,7 @@ export function createNavBar(){
     <div id="navbar-title">
         <h2>COGIP</h2>
     </div>
-    <div id="navbar-burge">
+    <div id="navbar-burger">
         <span></span>
     </div>
   
