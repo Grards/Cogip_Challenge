@@ -15,15 +15,19 @@ export function createNavBar(){
             <li><a href="./invoices.php">Invoices</a></li>
             <li><a href="./companies.php">Companies</a></li>
             <li><a href="./contacts.php">Contacts</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Login</a></li>
         </ul>
     </div>
-    <div id="navbar-buttons">
-        <button type="button">Sign up</button>
-        <button type="button">Login</button>
-    </div>
+
 
     `;
 
     navbarDiv.innerHTML += content;
 
 }
+
+// <div id="navbar-buttons">
+// <button type="button">Sign up</button>
+// <button type="button">Login</button>
+// </div>
