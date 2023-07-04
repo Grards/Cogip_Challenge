@@ -7,7 +7,7 @@
     <link href="assets/css/reset.css" rel="stylesheet" type="text/css">
     <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
     <script src="assets/js/script.js" type="module"></script>
-    <title>Cogip - Welcome</title>
+    <title>Cogip - Invoices</title>
 </head>
 <body>
     <nav id="navbar">
@@ -18,4 +18,3 @@
     </footer>
 </body>
 </html>
-
