@@ -6,5 +6,8 @@
     <footer id="footer">
     </footer>
 </body>
+<?php
+include 'includes/footer.php';
+?>
 </html>
 

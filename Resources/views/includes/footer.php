@@ -10,10 +10,10 @@
   </div>
 
   <div class="social-icons">
-    <a href="./" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="./public/assets//img/Platform=Facebook,Color=Original.svg" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="./public/assets//img/Platform=instagram,Color=Original.svg" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="./public/assets//img/Platform=linkedin,Color=Original.svg" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="./public/assets//img/Platform=twitter,Color=Original.svg" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
   <div class="address">
     Square des Martyrs, 6000 Charleroi
