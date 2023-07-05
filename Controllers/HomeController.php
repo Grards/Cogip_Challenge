@@ -13,4 +13,9 @@ class HomeController extends Controller
     {
         return $this->view('welcome',["name" => "Cogip"]);
     }
+
+    public function contacts()
+    {
+        return $this->view('contacts',["" => ""]);
+    }
 }

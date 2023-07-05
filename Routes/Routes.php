@@ -11,4 +11,8 @@ $router->get('/', function() {
     (new HomeController)->index();
 });
 
+$router->get('/contacts', function() {
+    (new HomeController)->contacts();
+});
+
 $router->run();
