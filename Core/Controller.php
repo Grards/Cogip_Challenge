@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-class Controller 
+class Controller
 {
     /*
     * @var $view, $data
