@@ -10,5 +10,7 @@
     <title>Cogip - Welcome</title>
 </head>
 <body>
-<nav id="navbar">
+<div id="navbar-container">
+    <nav id="navbar">
+</div>
 </nav>
