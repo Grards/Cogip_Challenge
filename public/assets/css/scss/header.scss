@@ -1,10 +1,15 @@
 @import "./colors.scss";
 @import "./fonts.scss";
 
-h2{
-	font-family: 'Inter', sans-serif;
-	font-weight: 900;
-	font-size: 48px;
+
+
+#navbar-title{
+	padding: 10px;
+	h2{
+		font-family: 'Inter', sans-serif;
+		font-weight: 900;
+		font-size: 48px;
+	}
 }
 
 #navbar-container{
@@ -16,10 +21,6 @@ h2{
 	display: flex;
 	justify-content: space-between;
 	height: 100px;
-}
-
-#navbar-menu{
-    display: flex;
 }
 
 //burger menu
