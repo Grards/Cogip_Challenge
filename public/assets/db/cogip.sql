@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 04, 2023 at 02:19 PM
+-- Generation Time: Jul 06, 2023 at 09:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `compagnies`
+-- Table structure for table `companies`
 --
 
-CREATE TABLE `compagnies` (
+CREATE TABLE `companies` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `type_id` int(11) NOT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE `compagnies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `compagnies`
+-- Dumping data for table `companies`
 --
 
-INSERT INTO `compagnies` (`id`, `name`, `type_id`, `country`, `tva`, `created_at`, `updated_at`) VALUES
+INSERT INTO `companies` (`id`, `name`, `type_id`, `country`, `tva`, `created_at`, `updated_at`) VALUES
 (11, 'Acme Corporation', 1, 'United States', 'US12345678', '2023-07-04 14:07:31', '2023-07-04 14:07:31'),
 (12, 'Global Widgets Inc.', 2, 'France', 'FR12345678901', '2023-07-04 14:07:31', '2023-07-04 14:07:31'),
 (13, 'Stellar Solutions Ltd.', 1, 'Germany', 'DE123456789', '2023-07-04 14:07:31', '2023-07-04 14:07:31'),
@@ -238,9 +238,9 @@ INSERT INTO `users` (`id`, `first_name`, `role_id`, `last_name`, `email`, `passw
 --
 
 --
--- Indexes for table `compagnies`
+-- Indexes for table `companies`
 --
-ALTER TABLE `compagnies`
+ALTER TABLE `companies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `type_id` (`type_id`);
 
@@ -296,9 +296,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `compagnies`
+-- AUTO_INCREMENT for table `companies`
 --
-ALTER TABLE `compagnies`
+ALTER TABLE `companies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
@@ -341,29 +341,29 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `compagnies`
+-- Constraints for table `companies`
 --
-ALTER TABLE `compagnies`
-  ADD CONSTRAINT `compagnies_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`);
+ALTER TABLE `companies`
+  ADD CONSTRAINT `companies_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`);
 
 --
 -- Constraints for table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `compagnies` (`id`);
+  ADD CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`);
 
 --
 -- Constraints for table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`id_company`) REFERENCES `compagnies` (`id`);
+  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`);
 
 --
 -- Constraints for table `role_permissions`
