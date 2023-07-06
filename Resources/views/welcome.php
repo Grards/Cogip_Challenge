@@ -7,8 +7,10 @@
 
       foreach($invoices as $invoice){
           echo "<li>$invoice[ref]</li>";
+          echo "<li>$invoice[updated_at]</li>";
+          echo "<li>$invoice[id_company]</li>";
+          echo "<li>$invoice[created_at]</li>";
         }
-
         // Accès autorisé pour invoices : id, ref, id_company, created_at, updated_at
 
         foreach($contacts as $contact){
@@ -25,11 +27,8 @@
 
       ?>
     </main>
-    <footer id="footer">
-    </footer>
 </body>
 <?php
 include 'includes/footer.php';
 ?>
-</html>
 
