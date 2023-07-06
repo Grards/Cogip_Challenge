@@ -12,5 +12,5 @@
 <body>
 <div id="navbar-container">
     <nav id="navbar">
+    </nav>
 </div>
-</nav>

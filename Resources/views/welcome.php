@@ -24,7 +24,6 @@
         // Accès autorisé pour companies : id, name, type_id, country, tva, created_at, updated_at
 
       ?>
-
     </main>
     <footer id="footer">
     </footer>
