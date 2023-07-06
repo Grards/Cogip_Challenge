@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Models\Company;
+use App\Models\Contact;
+use App\Models\Invoice;
 
 class HomeController extends Controller
 {
@@ -13,23 +15,31 @@ class HomeController extends Controller
     public function index()
     {
          // Création des instances des modèles
-        //  $invoiceModel = new Invoice();
+         $invoiceModel = new Invoice();
+         $contactModel = new Contact();
          $companyModel = new Company();
-        //  $contactModel = new Contact();
- 
+    
          // Récupérer les 5 derniers enregistrements de la table 'invoices'
-        //  $invoices = $invoiceModel->getLatestInvoices(5);
+         $invoices = $invoiceModel->getLatestInvoices(5);
+
+         // Récupérer les 5 derniers enregistrements de la table 'contacts'
+         $contacts = $contactModel->getLatestContacts(5);
  
          // Récupérer les 5 derniers enregistrements de la table 'companies'
          $companies = $companyModel->getLatestCompanies(5);
  
-         // Récupérer les 5 derniers enregistrements de la table 'contacts'
-        //  $contacts = $contactModel->getLatestContacts(5);
 
         return $this->view('welcome',[
             "name" => "Cogip",
-            "companies" => $companies 
+            "invoices" => $invoices,
+            "contacts" => $contacts,
+            "companies" => $companies
         ]);
+    }
+
+    public function invoices()
+    {
+        return $this->view('invoices',["" => ""]);
     }
 
     public function contacts()
@@ -42,6 +52,7 @@ class HomeController extends Controller
         return $this->view('companies',["" => ""]);
     }
 
+    
     // public function getCompanies(){
     //     $conn = $this->getConnectToDB();
     //     $datas = [];
