@@ -14,40 +14,40 @@
   // margin-left: ;
   // margin-right: ;
   font-size: 18px;
-  font-family: $font-family-title;
+//   font-family: $font-family-title;
   color: rgba(0, 0, 0, 0.4);
   // font-weight: $font-weight-footer;
   // border: 2px solid blue;
-  @include responsive-tablet {
-      justify-content: space-around;
-      padding: 100px 60px;
-  }
-  @include responsive-desktop {
-      justify-content: space-around;
-      height: 543px;
-      padding: 100px 180px;
-  }
+//   @include responsive-tablet {
+//       justify-content: space-around;
+//       padding: 100px 60px;
+//   }
+//   @include responsive-desktop {
+//       justify-content: space-around;
+//       height: 543px;
+//       padding: 100px 180px;
+//   }
   h4 {
       width: 165px;
       height: 63px;
       // border: 5px solid #f9de4e;
-      outline: 5px solid $yellow;
+      outline: 5px solid $Jaune;
       // outline-offset: 4px;
       // margin-right: 354px;
-      font-family: $font-family-text;
-      font-size: $font-size-name;
-      font-weight: $font-weight-title;
+    //   font-family: $font-family-text;
+    //   font-size: $font-size-name;
+    //   font-weight: $font-weight-title;
       color: rgb(0, 0, 0);
       text-align: center;
       line-height: 63px;
-      @include responsive-tablet {
-      }
-      @include responsive-desktop {
-      }
+    //   @include responsive-tablet {
+    //   }
+    //   @include responsive-desktop {
+    //   }
   }
   &_top_line {
       // margin-bottom: 88px;
-      border: 2px solid $yellow;
+      border: 2px solid $Jaune;
       // margin: 0;
       // padding: 0;
   }
@@ -57,12 +57,12 @@
       justify-content: space-between;
       padding: 40px 0px;
       gap: 60px;
-      @include responsive-tablet {
-          flex-direction: row;
-      }
-      @include responsive-desktop {
-          flex-direction: row;
-      }
+    //   @include responsive-tablet {
+    //       flex-direction: row;
+    //   }
+    //   @include responsive-desktop {
+    //       flex-direction: row;
+    //   }
   }
   &_name {
       width: 50%;
@@ -71,11 +71,11 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      @include responsive-tablet {
-      }
-      @include responsive-desktop {
-          width: 50%;
-      }
+    //   @include responsive-tablet {
+    //   }
+    //   @include responsive-desktop {
+    //       width: 50%;
+    //   }
       // &_div_logo {
       //     height: 20px;
       //     line-height: 20px;
@@ -105,12 +105,12 @@
               display: flex;
               border-spacing: 25px;
           }
-          @include responsive-tablet {
-          }
-          @include responsive-desktop {
-              flex-direction: row;
-              align-items: center;
-          }
+        //   @include responsive-tablet {
+        //   }
+        //   @include responsive-desktop {
+        //       flex-direction: row;
+        //       align-items: center;
+        //   }
       }
   }
   &_down_line {
@@ -122,23 +122,23 @@
       flex-direction: column;
       gap: 20px;
       box-sizing: border-box;
-      @include responsive-tablet {
-      }
-      @include responsive-desktop {
-          flex-direction: row;
-          justify-content: space-between;
-      }
+    //   @include responsive-tablet {
+    //   }
+    //   @include responsive-desktop {
+    //       flex-direction: row;
+    //       justify-content: space-between;
+    //   }
       ul {
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
           text-align: left;
           gap: 10px;
-          @include responsive-tablet {
-          }
-          @include responsive-desktop {
-              gap: 69px;
-          }
+        //   @include responsive-tablet {
+        //   }
+        //   @include responsive-desktop {
+        //       gap: 69px;
+        //   }
           a {
               text-decoration: none;
               color: rgba(0, 0, 0, 0.4);
