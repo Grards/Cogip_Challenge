@@ -1,7 +1,13 @@
-@import "./scss/header.scss";
-@import "./scss/colors.scss";
+@import "./layout/colors";
+@import "./layout/fonts";
+
+@import "./abstracts/mixin";
+
+@import "./layout/header";
+@import "./layout/footer";
 
 
+//test
 
 html,body{
     height: 100vh;
