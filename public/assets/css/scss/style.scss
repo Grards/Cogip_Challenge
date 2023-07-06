@@ -1,7 +1,7 @@
-@import "./scss/header.scss";
-@import "./scss/colors.scss";
-
-
+@import "./layout/header.scss";
+@import "./layout/colors.scss";
+@import "./layout/footer.scss";
+@import "./layout/fonts.scss";
 
 html,body{
     height: 100vh;
