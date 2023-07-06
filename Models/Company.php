@@ -21,7 +21,13 @@ class Company
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
-    }  
+    }
+
+    public function getAllCompanies() {
+        $query = "SELECT id, name, type_id, country, tva, created_at, updated_at FROM companies";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+    }
 
     // TEST
 
