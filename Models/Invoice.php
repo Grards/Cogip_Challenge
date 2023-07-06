@@ -20,4 +20,10 @@ class Invoice {
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getAllInvoices() {
+        $query = "SELECT id, ref, id_company, created_at, updated_at FROM invoices";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+    }
 }

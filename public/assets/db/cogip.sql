@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 06, 2023 at 09:01 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 06 juil. 2023 à 13:52
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cogip`
+-- Base de données : `cogip`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `companies`
+-- Structure de la table `companies`
 --
 
 CREATE TABLE `companies` (
@@ -38,7 +38,7 @@ CREATE TABLE `companies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `companies`
+-- Déchargement des données de la table `companies`
 --
 
 INSERT INTO `companies` (`id`, `name`, `type_id`, `country`, `tva`, `created_at`, `updated_at`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `companies` (`id`, `name`, `type_id`, `country`, `tva`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacts`
+-- Structure de la table `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -70,7 +70,7 @@ CREATE TABLE `contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `contacts`
+-- Déchargement des données de la table `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `name`, `company_id`, `email`, `phone`, `created_at`, `updated_at`) VALUES
@@ -88,7 +88,7 @@ INSERT INTO `contacts` (`id`, `name`, `company_id`, `email`, `phone`, `created_a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoices`
+-- Structure de la table `invoices`
 --
 
 CREATE TABLE `invoices` (
@@ -96,29 +96,31 @@ CREATE TABLE `invoices` (
   `ref` varchar(50) NOT NULL,
   `id_company` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `updated_at` datetime NOT NULL,
+  `due_date` datetime NOT NULL,
+  `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `invoices`
+-- Déchargement des données de la table `invoices`
 --
 
-INSERT INTO `invoices` (`id`, `ref`, `id_company`, `created_at`, `updated_at`) VALUES
-(11, 'INV-001', 11, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(12, 'INV-002', 11, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(13, 'INV-003', 13, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(14, 'INV-004', 13, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(15, 'INV-005', 13, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(16, 'INV-006', 14, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(17, 'INV-007', 17, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(18, 'INV-008', 18, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(19, 'INV-009', 18, '2023-07-04 14:17:27', '2023-07-04 14:17:27'),
-(20, 'INV-010', 19, '2023-07-04 14:17:27', '2023-07-04 14:17:27');
+INSERT INTO `invoices` (`id`, `ref`, `id_company`, `created_at`, `updated_at`, `due_date`, `price`) VALUES
+(11, 'INV-001', 11, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-07 16:55:49', 0),
+(12, 'INV-002', 11, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-08 15:35:12', 0),
+(13, 'INV-003', 13, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-09 11:31:59', 0),
+(14, 'INV-004', 13, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-10 09:41:31', 0),
+(15, 'INV-005', 13, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-11 10:09:01', 0),
+(16, 'INV-006', 14, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-12 08:13:40', 0),
+(17, 'INV-007', 17, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-13 16:10:25', 0),
+(18, 'INV-008', 18, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-14 14:20:12', 0),
+(19, 'INV-009', 18, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-15 13:59:02', 0),
+(20, 'INV-010', 19, '2023-07-04 14:17:27', '2023-07-04 14:17:27', '2023-07-16 17:33:16', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permissions`
+-- Structure de la table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -129,7 +131,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `permissions`
+-- Déchargement des données de la table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -141,7 +143,7 @@ INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Structure de la table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -152,7 +154,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `roles`
+-- Déchargement des données de la table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -163,7 +165,7 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role_permissions`
+-- Structure de la table `role_permissions`
 --
 
 CREATE TABLE `role_permissions` (
@@ -173,7 +175,7 @@ CREATE TABLE `role_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `role_permissions`
+-- Déchargement des données de la table `role_permissions`
 --
 
 INSERT INTO `role_permissions` (`id`, `permission_id`, `role_id`) VALUES
@@ -188,7 +190,7 @@ INSERT INTO `role_permissions` (`id`, `permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `types`
+-- Structure de la table `types`
 --
 
 CREATE TABLE `types` (
@@ -199,7 +201,7 @@ CREATE TABLE `types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `types`
+-- Déchargement des données de la table `types`
 --
 
 INSERT INTO `types` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -209,7 +211,7 @@ INSERT INTO `types` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -224,7 +226,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `role_id`, `last_name`, `email`, `password`, `created_at`, `updated_at`) VALUES
@@ -234,44 +236,44 @@ INSERT INTO `users` (`id`, `first_name`, `role_id`, `last_name`, `email`, `passw
 (6, 'Bob', 1, 'Brown', 'bob.brown@example.com', 'becode', '2023-07-04 12:27:21', '2023-07-04 12:27:21');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `companies`
+-- Index pour la table `companies`
 --
 ALTER TABLE `companies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `type_id` (`type_id`);
 
 --
--- Indexes for table `contacts`
+-- Index pour la table `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `company_id` (`company_id`);
 
 --
--- Indexes for table `invoices`
+-- Index pour la table `invoices`
 --
 ALTER TABLE `invoices`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_company` (`id_company`);
 
 --
--- Indexes for table `permissions`
+-- Index pour la table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `roles`
+-- Index pour la table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `role_permissions`
+-- Index pour la table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   ADD PRIMARY KEY (`id`),
@@ -279,101 +281,101 @@ ALTER TABLE `role_permissions`
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indexes for table `types`
+-- Index pour la table `types`
 --
 ALTER TABLE `types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `role_id` (`role_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `companies`
+-- AUTO_INCREMENT pour la table `companies`
 --
 ALTER TABLE `companies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `contacts`
+-- AUTO_INCREMENT pour la table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `invoices`
+-- AUTO_INCREMENT pour la table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `permissions`
+-- AUTO_INCREMENT pour la table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `role_permissions`
+-- AUTO_INCREMENT pour la table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `types`
+-- AUTO_INCREMENT pour la table `types`
 --
 ALTER TABLE `types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `companies`
+-- Contraintes pour la table `companies`
 --
 ALTER TABLE `companies`
   ADD CONSTRAINT `companies_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`);
 
 --
--- Constraints for table `contacts`
+-- Contraintes pour la table `contacts`
 --
 ALTER TABLE `contacts`
   ADD CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`);
 
 --
--- Constraints for table `invoices`
+-- Contraintes pour la table `invoices`
 --
 ALTER TABLE `invoices`
   ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`);
 
 --
--- Constraints for table `role_permissions`
+-- Contraintes pour la table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`),
   ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
 --
--- Constraints for table `users`
+-- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);

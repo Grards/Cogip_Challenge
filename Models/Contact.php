@@ -22,4 +22,10 @@ class Contact {
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
 
     }
+
+    public function getAllContacts() {
+        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at country FROM contacts";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+    }
 }
