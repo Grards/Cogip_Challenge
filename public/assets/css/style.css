@@ -101,9 +101,9 @@ main {
 #navbar-burger span:after {
   background: black;
   display: block;
-  height: 2px;
+  height: 3px;
   opacity: 1;
-  position: absolute;
+  position: relative;
   transition: 0.3s ease-in-out;
 }
 #navbar-burger span:before,
@@ -122,20 +122,23 @@ main {
 }
 #navbar-burger span:after {
   left: 0px;
-  top: 10px;
+  top: 7px;
   width: 27px;
 }
 #navbar-burger.close span:before {
+  background: #F9DE4E;
   top: 0px;
   transform: rotate(90deg);
   width: 27px;
 }
 #navbar-burger.close span {
+  background: #F9DE4E;
   transform: rotate(-45deg);
   top: 13px;
   width: 27px;
 }
 #navbar-burger.close span:after {
+  background: #F9DE4E;
   top: 0px;
   left: 0;
   transform: rotate(90deg);
