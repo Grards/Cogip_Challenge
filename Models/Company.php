@@ -23,6 +23,8 @@ class Company
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }  
 
+    // TEST
+
     // public int $id;
     // public string $name;
     // public int $typeId;
