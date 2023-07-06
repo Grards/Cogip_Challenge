@@ -15,7 +15,7 @@ class Company
 
     public function getLatestCompanies($limit)
     {
-        $query = "SELECT * FROM compagnies ORDER BY created_at DESC LIMIT :limit";
+        $query = "SELECT * FROM companies ORDER BY created_at DESC LIMIT :limit";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
         $statement->execute();
