@@ -15,13 +15,15 @@ class Company
 
     public function getLatestCompanies($limit)
     {
-        $query = "SELECT * FROM compagnies ORDER BY created_at DESC LIMIT :limit";
+        $query = "SELECT id, name, type_id, country, tva, created_at, updated_at FROM companies ORDER BY created_at DESC LIMIT :limit";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }  
+
+    // TEST
 
     // public int $id;
     // public string $name;
