@@ -1,4 +1,5 @@
 <div id="slogan-container">
+    <div id="slogan-clip"></div>
     <div id="slogan-text">
         <p>Manage your customers and invoices easly</p>
     </div>
