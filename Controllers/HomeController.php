@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Models\Company;
-use App\Models\Contact;
 use App\Models\Invoice;
+use App\Models\Contact;
+use App\Models\Company;
 
 class HomeController extends Controller
 {
