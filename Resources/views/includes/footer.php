@@ -1,4 +1,4 @@
-<footer class="footer">
+ <footer class="footer">
     <span><hr class="footer_top_line"></span>
     <section class="footer_section ">
         <div class="footer_name">
