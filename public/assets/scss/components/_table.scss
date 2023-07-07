@@ -1,0 +1,46 @@
+@import "../abstracts/fonts";
+@import "../abstracts/colors";
+
+#test-clip{
+    background-color: $Blanc;
+    width: 100%;
+    height: 200px;
+    clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
+}
+
+#invoices-container{
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin: -200px 20px ;
+}
+
+#invoices-title h2{
+        font-family: Inter, sans serif;
+        font-weight: 900;
+        font-size: 60px;
+        color:$Noir;
+        background-color: $Blanc;
+        text-align: left;
+        padding-left: 15px;
+}
+
+#invoices-table{
+    margin: 20px 15px;
+    width: 100%;
+    tr:nth-child(odd){
+        background-color: $Gris;
+    }
+    td{
+        padding: 5px;
+        text-align: justify;
+        font-size: 20px;
+    }
+}
+
+thead th{
+    background-color: $Jaune;
+    padding: 5px;
+    text-align: justify;
+    font-size: 20px;
+}
