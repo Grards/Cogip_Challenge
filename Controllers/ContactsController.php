@@ -12,9 +12,14 @@ class ContactsController extends Controller
         $contactsModel = new Contact();
 
         $allContacts = $contactsModel->getAllContacts();
-
+        $countOfContacts = $contactsModel->getCountOfContacts();
+        $currentPage = (int)($_GET['page'] ?? 1); // ?? -> if doesn't exist.
+        // if($currentPage <= 0){
+        //     header("Location : ")
+        // }
         return $this->view('contacts',[
-            'allContacts' => $allContacts
+            'allContacts' => $allContacts,
+            'countOfContacts' => $countOfContacts
         ]);
     }
 }

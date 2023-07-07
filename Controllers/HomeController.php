@@ -37,51 +37,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function invoices()
-    {
-        return $this->view('invoices',["" => ""]);
+    public function error404(){
+        return $this->view('404');
     }
-
-    public function contacts()
-    {
-        return $this->view('contacts',["" => ""]);
-    }
-
-    public function companies()
-    {
-        return $this->view('companies',["" => ""]);
-    }
-
-    
-    // public function getCompanies(){
-    //     $conn = $this->getConnectToDB();
-    //     $datas = [];
-    //     try {
-    //         $query = $conn->prepare('SELECT id, name, type_id, country, tva, created_at, updated_at FROM cogip' );
-    //         $query->execute();
-    //         $datas = $query->fetchAll();
-    //     } catch (Exception $e) {
-    //         die("<p>Oh noes! There's an error in the query!</p>");
-    //     }
-
-    //     $rawCompanies = [];
-    //     foreach ($datas as $data){
-    //         $rawCompanies[] = [
-    //             'id' => $data['id'],
-    //             'name' => $data['name'],
-    //             'type_id' => $data['type_id'],
-    //             'country' => $data['country'],
-    //             'tva' => $data['tva'],
-    //             'created_at' => $data['created_at'],
-    //             'updated_at' => $data['updated_at']
-    //         ];
-    //     }
-
-    //     $companies = [];
-    //     foreach ($rawCompanies as $rawCompanie) {
-    //         $companies[] = new Company($rawCompanie['id'], $rawCompanie['name'], $rawCompanie['type_id'], $rawCompanie['country'], $rawCompanie['tva'], $rawCompanie['created_at'], $rawCompanie['updated_at']);
-    //     }
-
-    //     return $companies;
-    // }
 }

@@ -25,5 +25,7 @@ class Invoice {
         $query = "SELECT id, ref, id_company, created_at, updated_at FROM invoices";
         $statement = $this->db->prepare($query);
         $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_NUM)[0];
     }
 }

@@ -14,6 +14,7 @@
                 echo "</ul>";
             }
         
+            dd($countOfContacts);
             // Accès autorisé pour contacts : id, name, company_id, email, phone, created_at, updated_at
         ?>
     </main>

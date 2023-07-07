@@ -16,6 +16,10 @@ $router->get('/contacts', function() {
     (new ContactsController)->allContacts();
 });
 
+$router->set404(function() {
+    (new HomeController)->error404();
+});
+
 // $router->get('/companies', function() {
 //     (new HomeController)->companies();
 // });

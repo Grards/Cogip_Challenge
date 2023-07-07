@@ -30,4 +30,12 @@ class Contact {
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getCountOfContacts() {
+        $query = "SELECT COUNT(id) FROM contacts";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_NUM);
+    }
 }
