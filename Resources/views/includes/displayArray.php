@@ -1,6 +1,11 @@
 <?php
 
 ?>
+
+<!-- Côté version mobile, comme dit, on devra pouvoir voir le reste du tableau (scroll horizontal). -->
+<!-- Du coup, la première colonne (invoice number) devra suivre en mode sticky -->
+
+
 <div id="invoices-container">
 <div id="test-clip">
         dfsdfsdfsdfsd

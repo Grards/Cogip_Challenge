@@ -72,21 +72,24 @@ main {
   line-height: 3em;
 }
 
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #F9DE4E;
+  height: 80px;
+  z-index: 1;
+}
+
 #navbar-title h2 {
   font-family: "Inter", sans-serif;
   font-weight: 900;
   font-size: 48px;
   margin: 15px;
-}
-
-#navbar-container {
-  background-color: #F9DE4E;
-}
-
-#navbar {
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
 }
 
 #navbar-burger {
@@ -184,15 +187,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0px auto;
+  margin: 80px auto;
   height: 100vh;
 }
 
 #slogan-text p {
   font-family: Inter, sans-serif;
-  font-size: 65px;
+  font-size: 50px;
   margin: 20px auto 0px 15px;
-  text-justify: left;
+  text-align: left;
 }
 
 #slogan-img img {
@@ -301,21 +304,20 @@ main {
 #invoices-container {
   display: flex;
   flex-direction: column;
-  margin: -200px 20px;
+  margin: -275px 20px;
 }
 
 #invoices-title h2 {
   font-family: Inter, sans serif;
   font-weight: 900;
-  font-size: 60px;
+  font-size: 30px;
   color: #000;
   background-color: #FFF;
   text-align: left;
-  padding-left: 15px;
+  margin: 20px 0px;
 }
 
 #invoices-table {
-  margin: 20px 15px;
   width: 100%;
 }
 #invoices-table tr:nth-child(odd) {
@@ -324,12 +326,12 @@ main {
 #invoices-table td {
   padding: 5px;
   text-align: justify;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 thead th {
   background-color: #F9DE4E;
   padding: 5px;
   text-align: justify;
-  font-size: 20px;
+  font-size: 14px;
 }/*# sourceMappingURL=style.css.map */

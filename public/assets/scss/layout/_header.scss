@@ -2,6 +2,18 @@
 @import "../abstracts/fonts";
 
 
+#navbar{
+	display: flex;
+	justify-content: space-between;
+	height: 100px;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: $Jaune;
+	height: 80px;
+	z-index: 1;
+}
 
 #navbar-title{
 	h2{
@@ -10,16 +22,6 @@
 		font-size: 48px;
 		margin: 15px;
 	}
-}
-
-#navbar-container{
-	background-color: $Jaune;
-}
-
-#navbar{
-	display: flex;
-	justify-content: space-between;
-	height: 100px;
 }
 
 //burger menu
