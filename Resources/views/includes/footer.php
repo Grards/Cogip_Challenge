@@ -2,7 +2,7 @@
     <span><hr class="footer_top_line"></span>
     <section class="footer_section ">
         <div class="footer_name">
-            <h4>Cogip_challenge</h4>
+            <h4>COGIP</h4>
         </div>
         <div class="footer_contact">
             <div class="footer_contact_div_logo">
