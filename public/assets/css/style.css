@@ -1,17 +1,85 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
-#navbar-title {
-  padding: 10px;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html, body {
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  line-height: 3em;
+}
+
 #navbar-title h2 {
   font-family: "Inter", sans-serif;
   font-weight: 900;
   font-size: 48px;
+  margin: 15px;
 }
 
 #navbar-container {
   background-color: #F9DE4E;
-  height: 500px;
 }
 
 #navbar {
@@ -33,9 +101,9 @@
 #navbar-burger span:after {
   background: black;
   display: block;
-  height: 2px;
+  height: 3px;
   opacity: 1;
-  position: absolute;
+  position: relative;
   transition: 0.3s ease-in-out;
 }
 #navbar-burger span:before,
@@ -54,20 +122,23 @@
 }
 #navbar-burger span:after {
   left: 0px;
-  top: 10px;
+  top: 7px;
   width: 27px;
 }
 #navbar-burger.close span:before {
+  background: #F9DE4E;
   top: 0px;
   transform: rotate(90deg);
   width: 27px;
 }
 #navbar-burger.close span {
+  background: #F9DE4E;
   transform: rotate(-45deg);
   top: 13px;
   width: 27px;
 }
 #navbar-burger.close span:after {
+  background: #F9DE4E;
   top: 0px;
   left: 0;
   transform: rotate(90deg);
@@ -92,20 +163,39 @@
   visibility: visible;
   opacity: 1;
   padding-top: 100px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.95);
 }
 #navbar-menu ul {
   padding: 0;
-}
-#navbar-menu li {
   list-style: none;
 }
 #navbar-menu a {
-  color: orange;
+  color: #F9DE4E;
   display: block;
-  font-size: 32px;
+  font-size: 57px;
+  font-weight: 900;
   margin-bottom: 30px;
   text-decoration: none;
+}
+
+#slogan-container {
+  background-color: #F9DE4E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
+  height: 100vh;
+}
+
+#slogan-text p {
+  font-family: Inter, sans-serif;
+  font-size: 65px;
+  margin: 20px auto 0px 15px;
+  text-justify: left;
+}
+
+#slogan-img img {
+  height: 400px;
 }
 
 .footer {
@@ -199,19 +289,4 @@
 .footer_nav-footer ul li:hover {
   outline: 2px solid rgba(0, 0, 0, 0.4);
   outline-offset: 5px;
-}
-html, body {
-  height: 100vh;
-  font-family: "Roboto", sans-serif;
-  color: #000;
-  overflow-x: hidden;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  line-height: 3em;
 }/*# sourceMappingURL=style.css.map */

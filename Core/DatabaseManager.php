@@ -12,7 +12,7 @@ class DatabaseManager{
             $dbHost = 'localhost';
             $dbName = 'cogip';
             $dbUser = 'root';
-            $dbPass = '';
+            include 'Config.php';
 
             self::$instance = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
         }

@@ -1,2 +1,3 @@
 /vendor
 /.vscode
+/Core/Config.php
