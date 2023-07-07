@@ -1,0 +1,25 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+
+#slogan-container{
+    background-color: $Jaune;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:  0px auto;
+    height: 100vh;
+}
+#slogan-text{
+    p{
+        font-family: Inter, sans-serif;
+        font-size: 65px;
+        margin: 20px auto 0px 15px;
+        text-justify: left;
+    }
+}
+
+#slogan-img{
+    img{
+        height: 400px;
+    }
+}

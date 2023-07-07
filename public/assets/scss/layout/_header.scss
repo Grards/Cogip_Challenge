@@ -1,20 +1,19 @@
-@import "./colors.scss";
-@import "./fonts.scss";
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
 
 
 
 #navbar-title{
-	padding: 10px;
 	h2{
 		font-family: 'Inter', sans-serif;
 		font-weight: 900;
 		font-size: 48px;
+		margin: 15px;
 	}
 }
 
 #navbar-container{
-	background-color: #F9DE4E;
-	height: 500px;
+	background-color: $Jaune;
 }
 
 #navbar{
@@ -38,9 +37,9 @@
 	span:after {
 		background: black;
 		display: block;
-		height: 2px;
+		height: 3px;
 		opacity: 1;
-		position: absolute;
+		position: relative;
 		transition: 0.3s ease-in-out;
 	}
 
@@ -66,7 +65,7 @@
 	// BOTTOM
 	span:after {
 		left: 0px;
-		top: 10px;
+		top: 7px;
 		width: 27px;
 	}
 
@@ -74,6 +73,7 @@
 	&.close {
 		// TOP
 		span:before {
+			background: $Jaune;
 			top: 0px;
 			transform: rotate(90deg);
 			width: 27px;
@@ -81,6 +81,7 @@
 
 		// MIDDLE
 		span {
+			background: $Jaune;
 			transform: rotate(-45deg);
 			top: 13px;
 			width: 27px;
@@ -88,6 +89,7 @@
 
 		// BOTTOM
 		span:after {
+			background: $Jaune;
 			top: 0px;
 			left: 0;
 			transform: rotate(90deg);
@@ -114,21 +116,19 @@
 		visibility: visible;
 		opacity: 1;
 		padding-top: 100px;
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.95);
 	}
 
 	ul {
 		padding: 0;
-	}
-
-	li {
 		list-style: none;
 	}
 
 	a {
-		color: orange;
+		color: $Jaune;
 		display: block;
-		font-size: 32px;
+		font-size: 57px;
+		font-weight: 900;
 		margin-bottom: 30px;
 		text-decoration: none;
 	}
