@@ -13,7 +13,7 @@ class Invoice {
     }
 
     public function getLatestInvoices($limit) {
-        $query = "SELECT id, ref, id_company, created_at, updated_at FROM invoices ORDER BY created_at DESC LIMIT :limit";
+        $query = "SELECT id, ref, id_company, created_at, updated_at, due_date, price FROM invoices ORDER BY due_date DESC LIMIT :limit";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
         $statement->execute();
