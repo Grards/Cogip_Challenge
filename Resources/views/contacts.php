@@ -3,6 +3,10 @@
 ?> 
     <main id="main">
         <?php 
+            if(isset($_GET['error_page'])){
+                echo ERROR_PAGE;
+            }
+
             foreach($allContacts as $contact){
                 echo "<ul>";
                     echo "<li>$contact[name]</li>";
@@ -13,8 +17,6 @@
                     echo "<li>$contact[updated_at]</li>";
                 echo "</ul>";
             }
-        
-            dd($countOfContacts);
             // Accès autorisé pour contacts : id, name, company_id, email, phone, created_at, updated_at
         ?>
     </main>
