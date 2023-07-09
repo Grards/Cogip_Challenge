@@ -29,7 +29,7 @@ class ContactsController extends Controller
         }
 
         $countOfContacts = $contactsModel->getCountOfContacts();
-        $contactsPerPage = 3;
+        $contactsPerPage = 10;
          
         $pages = ceil($countOfContacts[0] / $contactsPerPage);
         if($currentPage > $pages){
