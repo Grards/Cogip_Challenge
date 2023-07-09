@@ -12,11 +12,11 @@ export function createNavBar(){
     <div id="navbar-menu">
         <ul>
             <li><a href="./">Home</a></li>
-            <li><a href="./invoices.php">Invoices</a></li>
-            <li><a href="./companies.php">Companies</a></li>
-            <li><a href="./contacts.php">Contacts</a></li>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="./invoices">Invoices</a></li>
+            <li><a href="./companies">Companies</a></li>
+            <li><a href="./contacts">Contacts</a></li>
+            <li><a href="./sign">Sign Up</a></li>
+            <li><a href="./login">Login</a></li>
         </ul>
     </div>
 
