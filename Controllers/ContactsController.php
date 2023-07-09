@@ -8,27 +8,42 @@ use App\Models\Contact;
 
 class ContactsController extends Controller
 {
-    function allContacts(){
+    function listsOfContacts(){
         $contactsModel = new Contact();
-        $allContacts = $contactsModel->getAllContacts();
         
-        
-        $currentPage = (int)($_GET['page'] ?? 1); // ?? -> if doesn't exist.
-        if($currentPage <= 0){
+        $page = ($_GET['page'] ?? 1); // ?? -> if doesn't exist.
+        if(!filter_var($page, FILTER_VALIDATE_INT)){
             header("Location: ".BASE_URL."contacts?error_page");
+            exit();
+        }
+        if($page === '1'){
+            header("Location: ".BASE_URL."contacts");
+            exit();
+        }
+
+
+        $currentPage = (int)$page;
+        if($currentPage <= 0){
+            header("Location: ".BASE_URL."contacts?&error_page");
+            exit();
         }
 
         $countOfContacts = $contactsModel->getCountOfContacts();
-        $contactsPerPage = 10;
-  
+        $contactsPerPage = 3;
+         
         $pages = ceil($countOfContacts[0] / $contactsPerPage);
         if($currentPage > $pages){
-            header("Location: ".BASE_URL."contacts?error_page");
-        }  
+            header("Location: ".BASE_URL."contacts?&error_page");
+            exit();
+        }
+        
+        $offset = $contactsPerPage * ($currentPage-1);
+        $contactsLimitedPerPage = $contactsModel->getContactsLimitedPerPage($contactsPerPage, $offset);
 
         return $this->view('contacts',[
-            'allContacts' => $allContacts,
-            'countOfContacts' => $countOfContacts
+            'currentPage' => $currentPage,
+            'pages' => $pages,
+            'contactsLimitedPerPage' => $contactsLimitedPerPage
         ]);
     }
 }

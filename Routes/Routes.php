@@ -7,6 +7,7 @@ use App\Controllers\HomeController;
 use App\Controllers\ContactsController;
 
 define('BASE_URL', "/Cogip_Challenge/public/"); 
+define('VIEWS', __ROOT__."/Resources/views/"); 
 define('ERROR_PAGE', "<p class='error_page'>This page doesn't exist</p>");
 
 $router = new Router();
@@ -16,7 +17,7 @@ $router->get('/', function() {
 });
 
 $router->get('/contacts', function() {
-    (new ContactsController)->allContacts();
+    (new ContactsController)->listsOfContacts();
 });
 
 $router->set404(function() {
