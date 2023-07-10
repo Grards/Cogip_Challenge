@@ -5,6 +5,7 @@ namespace App\Routes;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
 use App\Controllers\ContactsController;
+use App\Controllers\FakersController;
 
 define('BASE_URL', "/Cogip_Challenge/public/"); 
 define('VIEWS', __ROOT__."/Resources/views/"); 
@@ -18,6 +19,10 @@ $router->get('/', function() {
 
 $router->get('/contacts', function() {
     (new ContactsController)->listsOfContacts();
+});
+
+$router->get('/fakers', function() {
+    (new FakersController)->index();
 });
 
 $router->set404(function() {
