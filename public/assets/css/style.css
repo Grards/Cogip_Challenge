@@ -2,9 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -232,6 +232,7 @@ main {
   }
 }
 .footer h4 {
+  flex-direction: column;
   width: 165px;
   height: 63px;
   outline: 5px solid #F9DE4E;
@@ -262,16 +263,39 @@ main {
 }
 .footer_name {
   width: 50%;
-  margin-right: auto;
+}
+.footer_footer_contact_social_media_footer_contact_div_logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_footer_contact_social_media_logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .footer_contact {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: start;
-  gap: 10px;
+  gap: 20px;
+}
+@media screen and (min-width: 1440px) {
+  .footer_contact {
+    width: 50%;
+  }
+}
+.footer_contact_number {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.footer_contact_div_logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 .footer_contact_social_media {
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -290,7 +314,6 @@ main {
   .footer_contact_social_media {
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
   }
 }
 .footer_down_line {
@@ -329,6 +352,7 @@ main {
   outline: 2px solid rgba(0, 0, 0, 0.4);
   outline-offset: 5px;
 }
+
 #test-clip {
   background-color: #FFF;
   width: 100%;

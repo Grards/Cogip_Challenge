@@ -29,6 +29,7 @@
     padding: 100px 180px;
   }
   h4 {
+    flex-direction: column;
     width: 165px;
     height: 63px;
     outline: 5px solid $Jaune;
@@ -63,18 +64,45 @@
 
   &_name {
     width: 50%;
-    margin-right: auto;
+  }
+  
+  &_footer_contact_social_media_footer_contact_div_logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
   }
 
-  &_contact {
+&_footer_contact_social_media_logo{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+}
+
+  &_contact {
     display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: start;
-      gap: 10px;
-       
+    flex-direction: column;
+    gap: 20px;
+    @include responsive-tablet {
+    }
+    @include responsive-desktop {
+      width: 50%;
+    }
+   
+    &_number {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+    &_div_logo {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
     &_social_media {
+      margin-right: 10px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -84,71 +112,56 @@
         margin: 0px 5px;
         align-items: center;
       }
-
       &_logo {
         display: flex;
         border-spacing: 25px;
       }
-
       @include responsive-tablet {
-        
       }
-
       @include responsive-desktop {
         flex-direction: row;
         align-items: center;
-        justify-content: flex-end;
       }
     }
   }
-
   &_down_line {
     margin-bottom: 24px;
     border: 1px solid #7bb9fc20;
   }
-
   &_nav-footer {
     display: flex;
     flex-direction: column;
     gap: 20px;
     box-sizing: border-box;
-
     @include responsive-tablet {
-      
     }
-
     @include responsive-desktop {
       flex-direction: row;
       justify-content: space-between;
     }
-
     ul {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       text-align: left;
       gap: 10px;
-
       @include responsive-tablet {
-        
       }
-
       @include responsive-desktop {
         gap: 69px;
       }
-
       a {
         text-decoration: none;
         color: rgba(0, 0, 0, 0.4);
       }
-
       li:hover {
         outline: 2px solid rgba(0, 0, 0, 0.4);
         outline-offset: 5px;
       }
     }
-
-    span {
-    }
+    // span {
+    //   // display: flex;
+    //   // text-align: right;
+    // }
   }
 }
