@@ -27,7 +27,6 @@ class HomeController extends Controller
  
          // Récupérer les 5 derniers enregistrements de la table 'companies'
          $companies = $companyModel->getLatestCompanies(5);
- 
 
         return $this->view('welcome',[
             "name" => "Cogip",

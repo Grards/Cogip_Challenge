@@ -19,6 +19,7 @@
             <th>Created at</th>
           </thead>
           <?php
+
             foreach($invoices as $invoice){
               echo "<tr>";
               echo "<td>$invoice[ref]</td>";
@@ -40,6 +41,7 @@
       </div>
         <table class="table">
           <thead class="tableHead">
+            <th>Id</th>
             <th>Name</th>
             <th>Phone</th>
             <th>Mail</th>
@@ -49,11 +51,12 @@
           <?php
             foreach($contacts as $contact){
               echo "<tr>";
-              echo "<td>$contact[name]</td>";
-              echo "<td>$contact[phone]</td>";
-              echo "<td>$contact[email]</td>";
-              echo "<td>$contact[company_id]</td>";
-              echo "<td>$contact[created_at]</td>";
+              echo "<td>$contact[contacts_id]</td>";
+              echo "<td>$contact[contacts_name]</td>";
+              echo "<td>$contact[contacts_phone]</td>";
+              echo "<td>$contact[contacts_email]</td>";
+              echo "<td>$contact[companies_name]</td>";
+              echo "<td>$contact[contacts_created_at]</td>";
               echo "</tr>";
             }
           ?>
