@@ -13,7 +13,7 @@ $router->get('/', function() {
 });
 
 $router->get('/contacts', function() {
-    (new ContactsController)->allContacts();
+    (new ContactsController)->show();
 });
 
 $router->set404(function() {

@@ -22,5 +22,9 @@ class ContactsController extends Controller
             'countOfContacts' => $countOfContacts
         ]);
     }
+
+    public function show(){
+        require '../Resources/views/contacts.php';
+    }
 }
 ?>

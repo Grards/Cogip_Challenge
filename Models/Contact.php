@@ -38,4 +38,6 @@ class Contact {
 
         return $statement->fetch(\PDO::FETCH_NUM);
     }
+
+    
 }
