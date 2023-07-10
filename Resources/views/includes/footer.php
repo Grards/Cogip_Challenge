@@ -1,8 +1,8 @@
-<footer class="footer">
+ <footer class="footer">
     <span><hr class="footer_top_line"></span>
     <section class="footer_section ">
         <div class="footer_name">
-            <h4>Cogip_challenge</h4>
+            <h4>COGIP</h4>
         </div>
         <div class="footer_contact">
             <div class="footer_contact_div_logo">
@@ -22,7 +22,7 @@
                     </svg> (123) 456-7890
                 </div>
             </div>
-            <div class="footer_contact_social_media footer_contact_div_logo">
+            <div class="footer_contact_social_media_footer_contact_div_logo">
                 <div>Social Media</div>
                 <div class="footer_contact_social_media_logo">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -41,25 +41,4 @@ class HomeController extends Controller
     {
         return $this->view('404');
     }
-
-    public function searchRequest()
-    {
-        if (isset($_GET['page'])) {
-            $page = $_GET['page'];
-
-            if ($page === 'contacts') {
-                $contactController = new ContactsController();
-                $contactController->show();
-            } else if ($page === 'companies') {
-                return $this->view('companies');
-            } else if ($page === 'invoices') {
-
-                return $this->view('invoices');
-            } else {
-                return $this->view('404');
-            }
-        } else {
-            return $this->view('welcome');
-        }
-    }
 }
