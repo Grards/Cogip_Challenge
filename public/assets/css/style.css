@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -61,6 +66,8 @@ table {
 
 html, body {
   font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
   color: #000;
 }
 
@@ -194,9 +201,11 @@ main {
 
 #slogan-text p {
   font-family: Inter, sans-serif;
-  font-size: 50px;
+  font-size: 40px;
+  font-weight: 900;
   margin: 20px auto 0px 15px;
   text-align: left;
+  text-transform: uppercase;
 }
 
 #slogan-img img {
@@ -361,15 +370,15 @@ main {
   clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
 }
 
-.table-container top {
-  display: flex;
-  flex-direction: column;
-}
-
 .table-container {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  width: 375px;
+  overflow-x: auto;
+  margin-bottom: 50px;
+}
+.table-container.withoutSlogan {
+  margin-top: 80px;
 }
 
 .table-title h2 {
@@ -390,7 +399,8 @@ main {
 }
 .table td {
   padding: 5px;
-  text-align: justify;
+  text-align: center;
+  vertical-align: middle;
   font-size: 14px;
 }
 
@@ -398,5 +408,23 @@ thead th {
   background-color: #F9DE4E;
   padding: 5px;
   text-align: justify;
-  font-size: 14px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.pagination {
+  display: inline-block;
+}
+.pagination a {
+  color: #000;
+  float: left;
+  padding: 8px 14px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.pagination a:hover {
+  background-color: #F5F5F5;
+}
+.pagination a:active {
+  background-color: #F9DE4E;
 }/*# sourceMappingURL=style.css.map */

@@ -11,16 +11,23 @@
     clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
 }
 
-.table-container top{
-    display: flex;
-    flex-direction: column;
-    // margin: -100px 20px ;
-}
+// .table-container top{
+//     display: flex;
+//     flex-direction: column;
+//     overflow-x: auto;
+    
+// }
 
 .table-container{
     display: flex;
     flex-direction: column;
-    margin: auto;
+    width: 375px;
+    overflow-x: auto;
+    margin-bottom: 50px;
+    &.withoutSlogan{
+        margin-top: 80px;
+    }
+
 }
 
 .table-title h2{
@@ -41,7 +48,8 @@
     }
     td{
         padding: 5px;
-        text-align: justify;
+        text-align: center;
+        vertical-align: middle;
         font-size: 14px;
     }
 }
@@ -50,5 +58,6 @@ thead th{
     background-color: $Jaune;
     padding: 5px;
     text-align: justify;
-    font-size: 14px;
+    font-size: 16px;
+    vertical-align: middle;
 }

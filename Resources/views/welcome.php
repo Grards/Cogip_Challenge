@@ -33,8 +33,6 @@
     
     <!-- Last Contacts -->
     <div class="table-container">
-        <div id="test-clip">
-        </div>
       <div class="table-title">
           <h2>Last contacts</h2>
       </div>
@@ -62,8 +60,6 @@
 
     <!-- Last companies -->
     <div class="table-container">
-        <div id="test-clip">
-        </div>
       <div class="table-title">
           <h2>Last companies</h2>
       </div>
