@@ -11,4 +11,21 @@
 </head>
 <body>
     <nav id="navbar">
+        <div id="navbar-title">
+            <h2>COGIP</h2>
+        </div>
+        <div id="navbar-burger">
+            <span></span>
+        </div>
+    
+        <div id="navbar-menu">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="./invoices">Invoices</a></li>
+                <li><a href="./companies">Companies</a></li>
+                <li><a href="./contacts">Contacts</a></li>
+                <li><a href="./sign">Sign Up</a></li>
+                <li><a href="./login">Login</a></li>
+            </ul>
+        </div>
     </nav>
