@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -61,7 +66,10 @@ table {
 
 html, body {
   font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
   color: #000;
+  width: 100%;
 }
 
 main {
@@ -77,6 +85,7 @@ main {
   display: flex;
   justify-content: space-between;
   height: 100px;
+  width: 100%;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -87,7 +96,7 @@ main {
 }
 
 #navbar-title h2 {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-size: 48px;
   margin: 15px;
@@ -193,9 +202,12 @@ main {
 
 #slogan-text p {
   font-family: Inter, sans-serif;
-  font-size: 50px;
+  font-size: 40px;
+  font-weight: 900;
   margin: 20px auto 0px 15px;
   text-align: left;
+  text-transform: uppercase;
+  line-height: 45px;
 }
 
 #slogan-img img {
@@ -365,22 +377,24 @@ main {
 }
 #test-clip {
   background-color: #FFF;
-  width: 100%;
   height: 200px;
   clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
-}
-
-.table-container top {
-  display: flex;
-  flex-direction: column;
 }
 
 .table-container {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  width: 375px;
+  overflow-x: auto;
+  margin-bottom: 50px;
+}
+.table-container.withoutSlogan {
+  margin-top: 80px;
 }
 
+.table-title {
+  position: relative;
+}
 .table-title h2 {
   font-family: Inter, sans serif;
   font-weight: 900;
@@ -389,6 +403,7 @@ main {
   background-color: #FFF;
   text-align: left;
   margin: 20px 0px;
+  position: sticky;
 }
 
 .table {
@@ -399,7 +414,8 @@ main {
 }
 .table td {
   padding: 5px;
-  text-align: justify;
+  text-align: center;
+  vertical-align: middle;
   font-size: 14px;
 }
 
@@ -407,5 +423,36 @@ thead th {
   background-color: #F9DE4E;
   padding: 5px;
   text-align: justify;
-  font-size: 14px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+tr > th:first-child, tr > td:first-child {
+  position: sticky;
+  left: 0;
+}
+
+tr:nth-child(odd) td {
+  background: #F5F5F5;
+}
+
+tr:nth-child(even) td {
+  background: #FFF;
+}
+
+.pagination {
+  display: inline-block;
+}
+.pagination a {
+  color: #000;
+  float: left;
+  padding: 8px 14px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.pagination a:hover {
+  background-color: #F5F5F5;
+}
+.pagination a:active {
+  background-color: #F9DE4E;
 }/*# sourceMappingURL=style.css.map */

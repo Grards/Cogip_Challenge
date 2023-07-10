@@ -14,22 +14,22 @@ class HomeController extends Controller
     */
     public function index()
     {
-         // Création des instances des modèles
-         $invoiceModel = new Invoice();
-         $contactModel = new Contact();
-         $companyModel = new Company();
-    
-         // Récupérer les 5 derniers enregistrements de la table 'invoices'
-         $invoices = $invoiceModel->getLatestInvoices(5);
+        // Création des instances des modèles
+        $invoiceModel = new Invoice();
+        $contactModel = new Contact();
+        $companyModel = new Company();
 
-         // Récupérer les 5 derniers enregistrements de la table 'contacts'
-         $contacts = $contactModel->getLatestContacts(5);
- 
-         // Récupérer les 5 derniers enregistrements de la table 'companies'
-         $companies = $companyModel->getLatestCompanies(5);
- 
+        // Récupérer les 5 derniers enregistrements de la table 'invoices'
+        $invoices = $invoiceModel->getLatestInvoices(5);
 
-        return $this->view('welcome',[
+        // Récupérer les 5 derniers enregistrements de la table 'contacts'
+        $contacts = $contactModel->getLatestContacts(5);
+
+        // Récupérer les 5 derniers enregistrements de la table 'companies'
+        $companies = $companyModel->getLatestCompanies(5);
+
+
+        return $this->view('welcome', [
             "name" => "Cogip",
             "invoices" => $invoices,
             "contacts" => $contacts,
@@ -37,7 +37,8 @@ class HomeController extends Controller
         ]);
     }
 
-    public function error404(){
+    public function error404()
+    {
         return $this->view('404');
     }
 }

@@ -1,10 +1,13 @@
 <?php
+
+use App\Core\DatabaseManager;
+
     include '../Resources/views/includes/header.php';
     include VIEWS.'includes/errors.php';
 ?> 
     <main>
 
-    <div class="table-container">
+    <div class="table-container withoutSlogan">
         <div id="test-clip">
         </div>
       <div class="table-title">
@@ -30,10 +33,10 @@
             }
           ?>
         </table>
-        <?php
-            include VIEWS.'includes/pagination.php'; 
-        ?>
     </div>
+    <?php
+      include VIEWS.'includes/pagination.php'; 
+    ?>
 
 
 
@@ -58,6 +61,22 @@
             
             // include VIEWS.'includes/pagination.php';           
         ?>
+
+        <form action="contacts" method="GET">
+            <input type="text" name="search" placeholder="Search contact name">
+            <input type="submit" id="submit_btn">
+        </form>
+        <?php if (!is_null($contactsLimitedPerPage) && (is_array($contactsLimitedPerPage) || $contactsLimitedPerPage instanceof Countable) && count($contactsLimitedPerPage) > 1): ?>
+        <ul>
+            <?php foreach ($contactsLimitedPerPage as $result): ?>
+                <li>
+                    <p><?php echo $result['name']; ?></p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>No results found.</p>
+    <?php endif; ?>
     </main>
     <footer id="footer">
     </footer>

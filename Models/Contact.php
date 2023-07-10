@@ -4,7 +4,8 @@ namespace App\Models;
 
 use App\Core\DatabaseManager;
 
-class Contact {
+class Contact 
+{
     private $db;
 
     public function __construct()
@@ -14,7 +15,11 @@ class Contact {
 
     public function getLatestContacts($limit) {
 
-        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at FROM contacts ORDER BY created_at DESC LIMIT :limit";
+        $query = "SELECT contacts.id as contacts_id, contacts.name  as contacts_name, contacts.company_id as contacts_company_id, contacts.email as contacts_email, contacts.phone as contacts_phone, contacts.created_at as contacts_created_at, contacts.updated_at as contacts_updated_at, companies.id as companies_id, companies.name as companies_name
+        FROM contacts 
+        INNER JOIN companies ON contacts.company_id = companies.id 
+        ORDER BY contacts.created_at DESC 
+        LIMIT :limit";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
         $statement->execute();
@@ -39,11 +44,13 @@ class Contact {
         return $statement->fetch(\PDO::FETCH_NUM);
     }
 
-    public function getContactsLimitedPerPage($contactsPerPage, $offset){
-        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at FROM contacts ORDER BY name DESC LIMIT $contactsPerPage OFFSET $offset";
+    public function getContactsLimitedPerPage($contactsPerPage, $offset, $searchQuery){
+        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at FROM contacts WHERE name LIKE :query ORDER BY name DESC LIMIT $contactsPerPage OFFSET $offset";
         $statement = $this->db->prepare($query);
+        $statement->bindValue(':query', '%' . $searchQuery . '%');
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
 }

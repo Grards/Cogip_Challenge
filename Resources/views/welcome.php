@@ -1,6 +1,7 @@
   <?php
     include 'includes/header.php';
     include 'includes/slogan.php';
+    include 'includes/dateFormat.php';
   ?>  
     <main id="main">
     
@@ -19,12 +20,15 @@
             <th>Created at</th>
           </thead>
           <?php
+
             foreach($invoices as $invoice){
+              $dateFormated_due = dateFormat($invoice['invoices_due_date']);
+              $dateFormated_created = dateFormat($invoice['invoices_created_at']);
               echo "<tr>";
-              echo "<td>$invoice[ref]</td>";
-              echo "<td>$invoice[due_date]</td>";
-              echo "<td>$invoice[id_company]</td>";
-              echo "<td>$invoice[created_at]</td>";
+              echo "<td>$invoice[invoices_ref]</td>";
+              echo "<td>$dateFormated_due</td>";
+              echo "<td>$invoice[companies_name]</td>";
+              echo "<td>$dateFormated_created</td>";
               echo "</tr>";
             }
           ?>
@@ -33,8 +37,6 @@
     
     <!-- Last Contacts -->
     <div class="table-container">
-        <div id="test-clip">
-        </div>
       <div class="table-title">
           <h2>Last contacts</h2>
       </div>
@@ -48,12 +50,13 @@
           </thead>
           <?php
             foreach($contacts as $contact){
+              $dateFormated = dateFormat($contact['contacts_created_at']);
               echo "<tr>";
-              echo "<td>$contact[name]</td>";
-              echo "<td>$contact[phone]</td>";
-              echo "<td>$contact[email]</td>";
-              echo "<td>$contact[company_id]</td>";
-              echo "<td>$contact[created_at]</td>";
+              echo "<td>$contact[contacts_name]</td>";
+              echo "<td>$contact[contacts_phone]</td>";
+              echo "<td>$contact[contacts_email]</td>";
+              echo "<td>$contact[companies_name]</td>";
+              echo "<td>$dateFormated</td>";
               echo "</tr>";
             }
           ?>
@@ -62,8 +65,6 @@
 
     <!-- Last companies -->
     <div class="table-container">
-        <div id="test-clip">
-        </div>
       <div class="table-title">
           <h2>Last companies</h2>
       </div>
@@ -77,12 +78,13 @@
           </thead>
           <?php
             foreach($companies as $company){
+              $dateFormated = dateFormat($company['companies_created_at']);
               echo "<tr>";
-              echo "<td>$company[name]</td>";
-              echo "<td>$company[tva]</td>";
-              echo "<td>$company[country]</td>";
-              echo "<td>$company[type_id]</td>";
-              echo "<td>$company[created_at]</td>";
+              echo "<td>$company[companies_name]</td>";
+              echo "<td>$company[companies_tva]</td>";
+              echo "<td>$company[companies_country]</td>";
+              echo "<td>$company[types_name]</td>";
+              echo "<td>$dateFormated</td>";
               echo "</tr>";
             }
           ?>
@@ -94,24 +96,9 @@
       
       
       <?php 
-
-        foreach($invoices as $invoice){
-          // echo "<li>$invoice[ref]</li>";
-          // echo "<li>$invoice[updated_at]</li>";
-          // echo "<li>$invoice[id_company]</li>";
-          // echo "<li>$invoice[created_at]</li>";
-        }
         // Accès autorisé pour invoices : id, ref, id_company, created_at, updated_at, due_date, price
 
-        foreach($contacts as $contact){
-          // echo "<li>$contact[name]</li>";
-        }
-
         // Accès autorisé pour contacts : id, name, company_id, email, phone, created_at, updated_at
-
-        foreach($companies as $company){
-          // echo "<li>$company[name]</li>";
-        }
 
         // Accès autorisé pour companies : id, name, type_id, country, tva, created_at, updated_at
       ?>
