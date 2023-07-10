@@ -4,7 +4,8 @@ namespace App\Models;
 
 use App\Core\DatabaseManager;
 
-class Contact {
+class Contact 
+{
     private $db;
 
     public function __construct()

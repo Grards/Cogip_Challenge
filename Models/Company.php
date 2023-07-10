@@ -15,7 +15,11 @@ class Company
 
     public function getLatestCompanies($limit)
     {
-        $query = "SELECT id, name, type_id, country, tva, created_at, updated_at FROM companies ORDER BY created_at DESC LIMIT :limit";
+        $query = "SELECT companies.id as companies_id, companies.name as companies_name, companies.type_id as companies_type_id, companies.country as companies_country, companies.tva as companies_tva, companies.created_at as companies_created_at, companies.updated_at as companies_updated_at, types.id as types_id, types.name as types_name 
+        FROM companies 
+        INNER JOIN types ON companies.type_id = types.id  
+        ORDER BY companies.created_at DESC 
+        LIMIT :limit";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
         $statement->execute();
@@ -28,40 +32,6 @@ class Company
         $statement = $this->db->prepare($query);
         $statement->execute();
     }
-
-    // TEST
-
-    // public int $id;
-    // public string $name;
-    // public int $typeId;
-    // public string $tva;
-    // public string $createAt;
-    // public string $updateAt;
-
-    // public function __construct(int $id, string $name, int $typeId, string $tva, string $createAt, int $updateAt)
-    // {
-    //     $this->id = $id;
-    //     $this->name = $name;
-    //     $this->typeId = $typeId;
-    //     $this->tva = $tva;
-    //     $this->createAt = $createAt;
-    //     $this->updateAt = $updateAt;
-    // }
-
-    // // public function formatPublishDate($format = 'd-m-Y')
-    // // {
-    // //     // TODO: return the date in the required format
-    // //     $formatedDate = date($format, strtotime($this->publishDate));
-    // //     return $formatedDate;
-    // // }
-
-    // public function getId(){
-    //     return $this->id;
-    // }
-
-    // public function getImg(){
-    //     return isset($this->urlImg) ? "View/img/" . $this->urlImg : "" ;
-    // }
 }
 
 ?>
