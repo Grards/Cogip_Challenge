@@ -1,0 +1,18 @@
+@import "../abstracts/colors";
+
+.pagination{
+        display: inline-block;
+       a {
+        color: $Noir;
+        float: left;
+        padding: 8px 14px;
+        text-decoration: none;
+        border-radius: 5px;
+        &:hover{
+            background-color: $Gris;
+        }
+        &:active{
+            background-color: $Jaune;
+        }
+      }
+}

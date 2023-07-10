@@ -7,7 +7,7 @@ use App\Core\DatabaseManager;
 ?> 
     <main>
 
-    <div class="table-container">
+    <div class="table-container withoutSlogan">
         <div id="test-clip">
         </div>
       <div class="table-title">
@@ -33,10 +33,10 @@ use App\Core\DatabaseManager;
             }
           ?>
         </table>
-        <?php
-            include VIEWS.'includes/pagination.php'; 
-        ?>
     </div>
+    <?php
+      include VIEWS.'includes/pagination.php'; 
+    ?>
 
 
 
