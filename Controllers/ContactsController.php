@@ -21,7 +21,6 @@ class ContactsController extends Controller
             exit();
         }
 
-
         $currentPage = (int)$page;
         if($currentPage <= 0){
             header("Location: ".BASE_URL."contacts?&error_page");
@@ -38,7 +37,9 @@ class ContactsController extends Controller
         }
         
         $offset = $contactsPerPage * ($currentPage-1);
-        $contactsLimitedPerPage = $contactsModel->getContactsLimitedPerPage($contactsPerPage, $offset);
+        $searchQuery = $_GET['search'] ?? '';
+    
+        $contactsLimitedPerPage = $contactsModel->getContactsLimitedPerPage($contactsPerPage, $offset, $searchQuery);
 
         return $this->view('contacts',[
             'currentPage' => $currentPage,

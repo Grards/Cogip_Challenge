@@ -4,8 +4,7 @@
     include 'includes/displayArray.php';
   ?>  
     <main id="main">
-      <?php 
-
+      <?php
         foreach($invoices as $invoice){
           // echo "<li>$invoice[ref]</li>";
           // echo "<li>$invoice[updated_at]</li>";

@@ -23,22 +23,11 @@ use App\Core\DatabaseManager;
             include VIEWS.'includes/pagination.php';           
         ?>
 
-        <form action="contacts.php" method="GET">
+        <form action="Contact.php" method="GET">
             <input type="text" name="search" placeholder="Search contact name">
             <input type="submit" id="submit_btn">
         </form>
-
-        <?php
-        $db = new DatabaseManager();
-
-        $query = $_GET['query'];
-        
-        $sql = "SELECT name FROM contacts WHERE name LIKE :query";
-        $stmt = $this->db->prepare($sql, ['query' => '%' . $query . '%']);
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        ?>
-
-        <?php if (count($results) > 0): ?>
+        <?php if (!is_null($results) && (is_array($results) || $results instanceof Countable) && count($results) > 1): ?>
         <ul>
             <?php foreach ($results as $result): ?>
                 <li>
