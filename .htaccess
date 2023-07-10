@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/Cogip_Challenge/public/
+RewriteRule ^(.*)$ /Cogip_Challenge/public/$1 [L]

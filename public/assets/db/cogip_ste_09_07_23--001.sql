@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 06 juil. 2023 à 13:52
+-- Généré le : dim. 09 juil. 2023 à 15:52
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -66,24 +66,86 @@ CREATE TABLE `contacts` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(50) DEFAULT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `updated_at` datetime NOT NULL,
+  `picture` varchar(255) NOT NULL DEFAULT '_default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `contacts`
 --
 
-INSERT INTO `contacts` (`id`, `name`, `company_id`, `email`, `phone`, `created_at`, `updated_at`) VALUES
-(1, 'John Doe', 11, 'john.doe@example.com', '1234567890', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(2, 'Jane Smith', 12, 'jane.smith@example.com', '9876543210', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(3, 'Michael Johnson', 12, 'michael.johnson@example.com', '5555555555', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(4, 'Emily Davis', 14, 'emily.davis@example.com', '9999999999', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(5, 'David Wilson', 15, 'david.wilson@example.com', '1111111111', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(6, 'Sarah Brown', 16, 'sarah.brown@example.com', '2222222222', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(7, 'Robert Taylor', 17, 'robert.taylor@example.com', '3333333333', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(8, 'Jessica Clark', 17, 'jessica.clark@example.com', '4444444444', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(9, 'William Anderson', 17, 'william.anderson@example.com', '6666666666', '2023-07-04 14:19:14', '2023-07-04 14:19:14'),
-(10, 'Olivia Martinez', 19, 'olivia.martinez@example.com', '7777777777', '2023-07-04 14:19:14', '2023-07-04 14:19:14');
+INSERT INTO `contacts` (`id`, `name`, `company_id`, `email`, `phone`, `created_at`, `updated_at`, `picture`) VALUES
+(1, 'John Doe', 11, 'john.doe@example.com', '1234567890', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(2, 'Jane Smith', 12, 'jane.smith@example.com', '9876543210', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(3, 'Michael Johnson', 12, 'michael.johnson@example.com', '5555555555', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(4, 'Emily Davis', 14, 'emily.davis@example.com', '9999999999', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(5, 'David Wilson', 15, 'david.wilson@example.com', '1111111111', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(6, 'Sarah Brown', 16, 'sarah.brown@example.com', '2222222222', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(7, 'Robert Taylor', 17, 'robert.taylor@example.com', '3333333333', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(8, 'Jessica Clark', 17, 'jessica.clark@example.com', '4444444444', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(9, 'William Anderson', 17, 'william.anderson@example.com', '6666666666', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(10, 'Olivia Martinez', 19, 'olivia.martinez@example.com', '7777777777', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(11, 'Joe Dalton', 15, 'joe.dalton@example.com', '15555452222', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(12, 'Kelly Samson', 17, 'kelly.samson@example.com', '44444444444', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(13, 'Michael Bourbon', 20, 'michael.bourbon@example.com', '5555555555', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(14, 'Noah Vals', 16, 'noah.vals@example.com', '1212121212', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(15, 'Emile Gild', 15, 'emile.gild@example.com', '14141454545', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(16, 'Sarah Connor', 18, 'sarah.connor@example.com', '00000000000', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(17, 'Robert Michel', 19, 'robert.michel@example.com', '361436143614', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(18, 'Clark Kent', 14, 'clark.kent@example.com', '11111111111', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(19, 'Smith Anderson', 12, 'smith.anderson@example.com', '212121241241', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(20, 'Jacquo Martinez', 19, 'jacquo.martinez@example.com', '7171717171', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(21, 'Nikko Varda', 11, 'nikko.varda@example.com', '3344556677', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(22, 'Julio Naga', 14, 'julio.naga@example.com', '515142424251', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(23, 'Christian Albany', 15, 'christian.albany@example.com', '666666666666', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(24, 'John Doe', 11, 'john.doe@example.com', '1234567890', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(25, 'Jane Smith', 12, 'jane.smith@example.com', '9876543210', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(26, 'Michael Johnson', 12, 'michael.johnson@example.com', '5555555555', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(27, 'Emily Davis', 14, 'emily.davis@example.com', '9999999999', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(28, 'David Wilson', 15, 'david.wilson@example.com', '1111111111', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(29, 'Sarah Brown', 16, 'sarah.brown@example.com', '2222222222', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(30, 'Robert Taylor', 17, 'robert.taylor@example.com', '3333333333', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(31, 'Jessica Clark', 17, 'jessica.clark@example.com', '4444444444', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(32, 'William Anderson', 17, 'william.anderson@example.com', '6666666666', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(33, 'Olivia Martinez', 19, 'olivia.martinez@example.com', '7777777777', '2023-07-04 14:19:14', '2023-07-04 14:19:14', '_default.png'),
+(34, 'Joe Dalton', 15, 'joe.dalton@example.com', '15555452222', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(35, 'Kelly Samson', 17, 'kelly.samson@example.com', '44444444444', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(36, 'Michael Bourbon', 20, 'michael.bourbon@example.com', '5555555555', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(37, 'Noah Vals', 16, 'noah.vals@example.com', '1212121212', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(38, 'Emile Gild', 15, 'emile.gild@example.com', '14141454545', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(39, 'Sarah Connor', 18, 'sarah.connor@example.com', '00000000000', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(40, 'Robert Michel', 19, 'robert.michel@example.com', '361436143614', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(41, 'Clark Kent', 14, 'clark.kent@example.com', '11111111111', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(42, 'Smith Anderson', 12, 'smith.anderson@example.com', '212121241241', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(43, 'Jacquo Martinez', 19, 'jacquo.martinez@example.com', '7171717171', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(44, 'Nikko Varda', 11, 'nikko.varda@example.com', '3344556677', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(45, 'Julio Naga', 14, 'julio.naga@example.com', '515142424251', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(46, 'Christian Albany', 15, 'christian.albany@example.com', '666666666666', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(47, 'Joe Dalton', 15, 'joe.dalton@example.com', '15555452222', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(48, 'Kelly Samson', 17, 'kelly.samson@example.com', '44444444444', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(49, 'Michael Bourbon', 20, 'michael.bourbon@example.com', '5555555555', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(50, 'Noah Vals', 16, 'noah.vals@example.com', '1212121212', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(51, 'Emile Gild', 15, 'emile.gild@example.com', '14141454545', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(52, 'Sarah Connor', 18, 'sarah.connor@example.com', '00000000000', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(53, 'Robert Michel', 19, 'robert.michel@example.com', '361436143614', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(54, 'Clark Kent', 14, 'clark.kent@example.com', '11111111111', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(55, 'Smith Anderson', 12, 'smith.anderson@example.com', '212121241241', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(56, 'Jacquo Martinez', 19, 'jacquo.martinez@example.com', '7171717171', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(57, 'Nikko Varda', 11, 'nikko.varda@example.com', '3344556677', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(58, 'Julio Naga', 14, 'julio.naga@example.com', '515142424251', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(59, 'Christian Albany', 15, 'christian.albany@example.com', '666666666666', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(60, 'Kelly Samson', 17, 'kelly.samson@example.com', '44444444444', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(61, 'Michael Bourbon', 20, 'michael.bourbon@example.com', '5555555555', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(62, 'Noah Vals', 16, 'noah.vals@example.com', '1212121212', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(63, 'Emile Gild', 15, 'emile.gild@example.com', '14141454545', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(64, 'Sarah Connor', 18, 'sarah.connor@example.com', '00000000000', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(65, 'Robert Michel', 19, 'robert.michel@example.com', '361436143614', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(66, 'Clark Kent', 14, 'clark.kent@example.com', '11111111111', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(67, 'Smith Anderson', 12, 'smith.anderson@example.com', '212121241241', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(68, 'Jacquo Martinez', 19, 'jacquo.martinez@example.com', '7171717171', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(69, 'Nikko Varda', 11, 'nikko.varda@example.com', '3344556677', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(70, 'Julio Naga', 14, 'julio.naga@example.com', '515142424251', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png'),
+(71, 'Christian Albany', 15, 'christian.albany@example.com', '666666666666', '2023-07-09 14:19:14', '2023-07-09 14:19:14', '_default.png');
 
 -- --------------------------------------------------------
 
@@ -307,7 +369,7 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT pour la table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT pour la table `invoices`

@@ -39,5 +39,11 @@ class Contact {
         return $statement->fetch(\PDO::FETCH_NUM);
     }
 
-    
+    public function getContactsLimitedPerPage($contactsPerPage, $offset){
+        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at FROM contacts ORDER BY name DESC LIMIT $contactsPerPage OFFSET $offset";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

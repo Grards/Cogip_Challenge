@@ -6,7 +6,9 @@ use App\Core\DatabaseManager;
 ?> 
     <main id="main">
         <?php 
-            foreach($allContacts as $contact){
+            include VIEWS.'includes/errors.php';
+
+            foreach($contactsLimitedPerPage as $contact){
                 echo "<ul>";
                     echo "<li>$contact[name]</li>";
                     echo "<li>$contact[company_id]</li>";
@@ -16,9 +18,9 @@ use App\Core\DatabaseManager;
                     echo "<li>$contact[updated_at]</li>";
                 echo "</ul>";
             }
-        
-            dd($countOfContacts);
             // Accès autorisé pour contacts : id, name, company_id, email, phone, created_at, updated_at
+            
+            include VIEWS.'includes/pagination.php';           
         ?>
 
         <form action="contacts.php" method="GET">

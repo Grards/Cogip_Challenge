@@ -6,7 +6,7 @@
     <main id="main">
       <?php 
 
-      foreach($invoices as $invoice){
+        foreach($invoices as $invoice){
           // echo "<li>$invoice[ref]</li>";
           // echo "<li>$invoice[updated_at]</li>";
           // echo "<li>$invoice[id_company]</li>";
@@ -25,7 +25,6 @@
         }
 
         // Accès autorisé pour companies : id, name, type_id, country, tva, created_at, updated_at
-
       ?>
     </main>
 </body>
