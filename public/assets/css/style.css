@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -202,30 +205,44 @@ main {
 
 .footer {
   box-sizing: border-box;
-  position: fixed;
+  position: left;
   bottom: 0px;
-  height: 128px;
-  width: 460px;
+  height: 543px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
   justify-content: space-around;
   padding: 40px;
-  margin-top: 100px;
-  margin-bottom: 183px;
-  font-size: 18px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
   color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+}
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  .footer {
+    justify-content: space-around;
+    padding: 100px 60px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .footer {
+    justify-content: space-around;
+    height: 543px;
+    padding: 100px 180px;
+  }
 }
 .footer h4 {
+  flex-direction: column;
   width: 165px;
   height: 63px;
   outline: 5px solid #F9DE4E;
+  font-family: "Roboto", serif;
+  font-size: 48px;
+  font-weight: 900;
   color: rgb(0, 0, 0);
   text-align: center;
   line-height: 63px;
-}
-.footer_top_line {
-  border: 2px solid #F9DE4E;
 }
 .footer_section {
   display: flex;
@@ -234,13 +251,39 @@ main {
   padding: 40px 0px;
   gap: 60px;
 }
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  .footer_section {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .footer_section {
+    flex-direction: row;
+    gap: 100px;
+  }
+}
 .footer_name {
   width: 50%;
+}
+.footer_footer_contact_social_media_footer_contact_div_logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_footer_contact_social_media_logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .footer_contact {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+@media screen and (min-width: 1440px) {
+  .footer_contact {
+    width: 50%;
+  }
 }
 .footer_contact_number {
   display: flex;
@@ -253,6 +296,7 @@ main {
   gap: 16px;
 }
 .footer_contact_social_media {
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -267,6 +311,12 @@ main {
   display: flex;
   border-spacing: 25px;
 }
+@media screen and (min-width: 1440px) {
+  .footer_contact_social_media {
+    flex-direction: row;
+    align-items: center;
+  }
+}
 .footer_down_line {
   margin-bottom: 24px;
   border: 1px solid rgba(123, 185, 252, 0.1254901961);
@@ -277,12 +327,23 @@ main {
   gap: 20px;
   box-sizing: border-box;
 }
+@media screen and (min-width: 1440px) {
+  .footer_nav-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 .footer_nav-footer ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: left;
   gap: 10px;
+}
+@media screen and (min-width: 1440px) {
+  .footer_nav-footer ul {
+    gap: 69px;
+  }
 }
 .footer_nav-footer ul a {
   text-decoration: none;
@@ -292,6 +353,7 @@ main {
   outline: 2px solid rgba(0, 0, 0, 0.4);
   outline-offset: 5px;
 }
+
 #test-clip {
   background-color: #FFF;
   width: 100%;

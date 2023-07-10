@@ -118,6 +118,6 @@
     </main>
 </body>
 <?php
-// include 'includes/footer.php';
+include 'includes/footer.php';
 ?>
 
