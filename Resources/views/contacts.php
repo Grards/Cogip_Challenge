@@ -62,13 +62,13 @@ use App\Core\DatabaseManager;
             // include VIEWS.'includes/pagination.php';           
         ?>
 
-        <form action="Contact.php" method="GET">
+        <form action="contacts" method="GET">
             <input type="text" name="search" placeholder="Search contact name">
             <input type="submit" id="submit_btn">
         </form>
-        <?php if (!is_null($results) && (is_array($results) || $results instanceof Countable) && count($results) > 1): ?>
+        <?php if (!is_null($contactsLimitedPerPage) && (is_array($contactsLimitedPerPage) || $contactsLimitedPerPage instanceof Countable) && count($contactsLimitedPerPage) > 1): ?>
         <ul>
-            <?php foreach ($results as $result): ?>
+            <?php foreach ($contactsLimitedPerPage as $result): ?>
                 <li>
                     <p><?php echo $result['name']; ?></p>
                 </li>
