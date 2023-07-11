@@ -27,7 +27,9 @@ class InvoicesController extends Controller
             exit();
         }
 
-        $countOfInvoices = $invoicesModel->getCountOfInvoices();
+        $searchQuery = $_GET['search'] ?? '';
+
+        $countOfInvoices = $invoicesModel->getCountOfInvoices($searchQuery);
         $invoicesPerPage = 10;
          
         $pages = ceil($countOfInvoices[0] / $invoicesPerPage);
@@ -37,14 +39,14 @@ class InvoicesController extends Controller
         }
         
         $offset = $invoicesPerPage * ($currentPage-1);
-        $searchQuery = $_GET['search'] ?? '';
-    
+       
         $invoicesLimitedPerPage = $invoicesModel->getInvoicesLimitedPerPage($invoicesPerPage, $offset, $searchQuery);
 
         return $this->view('invoices',[
             'currentPage' => $currentPage,
             'pages' => $pages,
-            'invoicesLimitedPerPage' => $invoicesLimitedPerPage
+            'invoicesLimitedPerPage' => $invoicesLimitedPerPage,
+            'searchQuery' => $searchQuery
         ]);
     }
 

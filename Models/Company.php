@@ -31,11 +31,14 @@ class Company
         $query = "SELECT id, name, type_id, country, tva, created_at, updated_at FROM companies";
         $statement = $this->db->prepare($query);
         $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function getCountOfCompanies() {
-        $query = "SELECT COUNT(id) FROM companies";
+    public function getCountOfCompanies($searchQuery) {
+        $query = "SELECT COUNT(id) FROM companies WHERE name LIKE :query ORDER BY name";
         $statement = $this->db->prepare($query);
+        $statement->bindValue(':query', '%' . $searchQuery . '%');
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_NUM);

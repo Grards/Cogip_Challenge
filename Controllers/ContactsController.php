@@ -30,7 +30,7 @@ class ContactsController extends Controller
         $searchQuery = $_GET['search'] ?? '';
 
         $countOfContacts = $contactsModel->getCountOfContacts($searchQuery);
-        $contactsPerPage = 4;
+        $contactsPerPage = 10;
          
         $pages = ceil($countOfContacts[0] / $contactsPerPage);
         if($currentPage > $pages){
