@@ -196,11 +196,6 @@ main {
   padding-top: 100px;
   background: rgba(0, 0, 0, 0.95);
 }
-@media screen and (min-width: 1280px) {
-  #navbar-menu.overlay {
-    visibility: hidden;
-  }
-}
 #navbar-menu ul {
   padding: 0;
   list-style: none;
@@ -224,6 +219,7 @@ main {
     color: #000;
     font-size: 20px;
     font-weight: 600;
+    margin-bottom: 0px;
     margin-right: 40px;
   }
   #navbar-menu a:hover {

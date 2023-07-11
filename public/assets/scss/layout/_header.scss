@@ -135,9 +135,6 @@
 		opacity: 1;
 		padding-top: 100px;
 		background: rgba(0, 0, 0, 0.95);
-		@include responsive-desktop{
-			visibility: hidden;
-		}
 	}
 
 	ul {
@@ -160,6 +157,7 @@
 			color: $Noir;
 			font-size: 20px;
 			font-weight: 600;
+			margin-bottom: 0px;
 			margin-right: 40px;
 			&:hover{
 				border: 2px solid $Noir;
