@@ -57,4 +57,3 @@ use App\Core\DatabaseManager;
     <footer id="footer">
     </footer>
     </body>
-</html>
