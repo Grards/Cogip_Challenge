@@ -69,7 +69,7 @@ html, body {
   font-size: 10px;
   font-weight: 600;
   color: #000;
-  background-color: #FFF;
+  background-color: pink;
 }
 
 main {
@@ -81,10 +81,16 @@ main {
   margin: -200px;
   width: auto;
 }
+@media screen and (min-width: 1080px) {
+  main {
+    margin: -275px;
+  }
+}
 
 #navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 100px;
   width: auto;
   overflow: hidden;
@@ -95,12 +101,18 @@ main {
   height: 80px;
   z-index: 1;
 }
+@media screen and (min-width: 1080px) {
+  #navbar {
+    height: 80px;
+  }
+}
 
 #navbar-title h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-size: 48px;
   margin: 15px;
+  text-transform: uppercase;
 }
 
 #navbar-burger {
@@ -168,8 +180,8 @@ main {
 
 #navbar-menu {
   z-index: 1;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 80px;
   position: fixed;
   top: 0;
   height: 0;
@@ -190,7 +202,7 @@ main {
     transition: none;
     color: #000;
     min-width: 100%;
-    min-height: 80px;
+    height: 80px;
     padding-top: 0px;
   }
 }
@@ -199,6 +211,7 @@ main {
   opacity: 1;
   padding-top: 100px;
   background: rgba(0, 0, 0, 0.95);
+  min-height: 100%;
 }
 #navbar-menu ul {
   padding: 0;
@@ -210,11 +223,12 @@ main {
     justify-content: space-between;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1080px) {
   #navbar-menu li {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
   }
 }
 #navbar-menu a {
@@ -241,7 +255,7 @@ main {
     border-radius: 5px;
     padding: 5px 10px;
     border: none;
-    margin-left: 400px;
+    margin: auto;
   }
 }
 
@@ -301,7 +315,7 @@ img {
   color: rgba(0, 0, 0, 0.4);
   font-weight: 400;
 }
-@media screen and (min-width: 376px) and (max-width: 1280px) {
+@media screen and (min-width: 780px) and (max-width: 1080px) {
   .footer {
     justify-content: space-around;
     padding: 100px 60px;
@@ -363,7 +377,7 @@ img {
   padding: 40px 0px;
   gap: 60px;
 }
-@media screen and (min-width: 376px) and (max-width: 1280px) {
+@media screen and (min-width: 780px) and (max-width: 1080px) {
   .footer_section {
     flex-direction: row;
   }
@@ -443,11 +457,17 @@ img {
   outline: 2px solid rgba(0, 0, 0, 0.4);
   outline-offset: 5px;
 }
-#test-clip {
+.test-clip {
   background-color: #FFF;
   height: 200px;
   margin-top: -5px;
   clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
+  z-index: 2;
+}
+
+.yellow-submarine {
+  background-color: #F9DE4E;
+  height: 100px;
 }
 
 .table-container {
@@ -466,6 +486,12 @@ img {
     overflow: hidden;
   }
 }
+@media screen and (min-width: 780px) and (max-width: 1080px) {
+  .table-container {
+    width: 700px;
+  }
+}
+
 .table-title {
   display: flex;
   flex-direction: column;
@@ -495,13 +521,13 @@ img {
 }
 .table td {
   padding: 5px;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   font-size: 14px;
 }
 @media screen and (min-width: 1080px) {
   .table td {
-    ont-size: 20px;
+    font-size: 20px;
   }
 }
 

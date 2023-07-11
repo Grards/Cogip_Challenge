@@ -12,7 +12,7 @@ use App\Core\DatabaseManager;
             <div id="test-clip">
             </div>
             <div class="table-title">
-                <h2>All contacts</h2>
+                <h2>All companies</h2>
             </div>
             <table class="table">
                 <thead class="tableHead">
