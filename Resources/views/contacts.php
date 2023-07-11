@@ -14,18 +14,19 @@ include VIEWS . 'includes/errors.php';
       <h2>All contacts</h2>
     </div>
     <form action="contacts" method="GET">
-      <input type="text" name="search" placeholder="Search contact name">
+      <input type="text" name="search" placeholder="Search contact">
       <input type="submit" id="submit_btn">
+      <!-- Bouton submit à cacher en CSS -->
     </form>
     
     <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 1) : ?>
-      <ul>
         <?php foreach ($contactsLimitedPerPage as $result) : ?>
+          <?php var_dump($contactsLimitedPerPage); ?>
         <?php endforeach; ?>
-      </ul>
     <?php else : ?>
       <p>No results found.</p>
     <?php endif; ?>
+    
     <table class="table">
       <thead class="tableHead">
         <th>Name</th>
