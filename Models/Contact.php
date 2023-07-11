@@ -45,7 +45,7 @@ class Contact
     }
 
     public function getContactsLimitedPerPage($contactsPerPage, $offset, $searchQuery){
-        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at FROM contacts WHERE name LIKE :query ORDER BY name DESC LIMIT $contactsPerPage OFFSET $offset";
+        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at FROM contacts WHERE name LIKE :query ORDER BY name LIMIT $contactsPerPage OFFSET $offset";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':query', '%' . $searchQuery . '%');
         $statement->execute();
