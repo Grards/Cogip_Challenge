@@ -8,6 +8,7 @@ use App\Controllers\ContactsController;
 use App\Controllers\CompaniesController;
 use App\Controllers\InvoicesController;
 use App\Controllers\FakersController;
+use App\Controllers\AdminsController;
 
 define('BASE_URL', "/Cogip_Challenge/public/"); 
 define('VIEWS', __ROOT__."/Resources/views/"); 
@@ -31,6 +32,9 @@ $router->get('/invoices', function() {
     (new InvoicesController)->listsOfInvoices();
 });
 
+$router->get('/dashboard', function() {
+    (new AdminsController)->index();
+});
 
 $router->get('/fakers', function() {
     (new FakersController)->index();

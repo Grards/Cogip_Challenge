@@ -2,10 +2,10 @@
 
 use App\Core\DatabaseManager;
 
-    include '../Resources/views/includes/header.php';
+    include VIEWS.'includes/header.php';
     include VIEWS.'includes/pagination.php'; 
     include VIEWS.'includes/errors.php';
-    include 'includes/dateFormat.php';
+    include VIEWS.'includes/dateFormat.php';
 ?> 
     <main>
         <div class="table-container withoutSlogan">

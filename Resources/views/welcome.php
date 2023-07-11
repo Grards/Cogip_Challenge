@@ -1,7 +1,7 @@
   <?php
-    include 'includes/header.php';
-    include 'includes/slogan.php';
-    include 'includes/dateFormat.php';
+    include VIEWS.'includes/header.php';
+    include VIEWS.'includes/slogan.php';
+    include VIEWS.'includes/dateFormat.php';
   ?>  
     <main id="main">
     

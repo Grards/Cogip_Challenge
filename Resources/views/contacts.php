@@ -2,8 +2,8 @@
 
 use App\Core\DatabaseManager;
 
-include '../Resources/views/includes/header.php';
-include VIEWS . 'includes/errors.php';
+include VIEWS.'includes/header.php';
+include VIEWS.'includes/errors.php';
 ?>
 <main>
 
