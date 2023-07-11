@@ -32,6 +32,23 @@ class Company
         $statement = $this->db->prepare($query);
         $statement->execute();
     }
+
+    public function getCountOfEntries() {
+        $query = "SELECT COUNT(id) FROM contacts";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_NUM);
+    }
+
+    public function getCompaniesLimitedPerPage($contactsPerPage, $offset, $searchQuery){
+        $query = "SELECT id, name, company_id, email, phone, created_at, updated_at FROM contacts WHERE name LIKE :query ORDER BY name DESC LIMIT $contactsPerPage OFFSET $offset";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':query', '%' . $searchQuery . '%');
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

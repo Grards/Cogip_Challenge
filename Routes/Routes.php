@@ -5,6 +5,7 @@ namespace App\Routes;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
 use App\Controllers\ContactsController;
+use App\Controllers\CompaniesController;
 use App\Controllers\FakersController;
 
 define('BASE_URL', "/Cogip_Challenge/public/"); 
@@ -21,6 +22,10 @@ $router->get('/contacts', function() {
     (new ContactsController)->listsOfContacts();
 });
 
+$router->get('/companies', function() {
+    (new CompaniesController)->listsOfCompagnies();
+});
+
 $router->get('/fakers', function() {
     (new FakersController)->index();
 });
@@ -28,11 +33,5 @@ $router->get('/fakers', function() {
 $router->set404(function() {
     (new HomeController)->error404();
 });
-
-
-
-// $router->get('/companies', function() {
-//     (new HomeController)->companies();
-// });
 
 $router->run();
