@@ -96,7 +96,6 @@ main {
   height: 80px;
   z-index: 1;
 }
-
 #navbar-title h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
@@ -111,6 +110,11 @@ main {
   margin: 20px 20px 0px 0px;
   overflow: visible;
   z-index: 2;
+}
+@media screen and (min-width: 1280px) {
+  #navbar-burger {
+    display: none;
+  }
 }
 #navbar-burger span,
 #navbar-burger span:before,
@@ -175,15 +179,37 @@ main {
   padding-top: 20px;
   transition: all 0.3s ease-in-out;
 }
+@media screen and (min-width: 1280px) {
+  #navbar-menu {
+    display: flex;
+    justify-content: flex-end;
+    visibility: visible;
+    z-index: 0;
+    opacity: 100;
+    transition: none;
+    color: #000;
+  }
+}
 #navbar-menu.overlay {
   visibility: visible;
   opacity: 1;
   padding-top: 100px;
   background: rgba(0, 0, 0, 0.95);
 }
+@media screen and (min-width: 1280px) {
+  #navbar-menu.overlay {
+    visibility: hidden;
+  }
+}
 #navbar-menu ul {
   padding: 0;
   list-style: none;
+}
+@media screen and (min-width: 1280px) {
+  #navbar-menu ul {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 #navbar-menu a {
   color: #F9DE4E;
@@ -193,6 +219,18 @@ main {
   margin-bottom: 30px;
   text-decoration: none;
 }
+@media screen and (min-width: 1280px) {
+  #navbar-menu a {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 40px;
+  }
+  #navbar-menu a:hover {
+    border: 2px solid #000;
+    padding: 4px;
+  }
+}
 
 #slogan-container {
   background-color: #F9DE4E;
@@ -200,6 +238,13 @@ main {
   flex-direction: column;
   align-items: center;
   margin: 80px auto 0px auto;
+}
+@media screen and (min-width: 1280px) {
+  #slogan-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 40px;
+  }
 }
 
 #slogan-text p {
@@ -211,9 +256,20 @@ main {
   text-transform: uppercase;
   line-height: 45px;
 }
+@media screen and (min-width: 1280px) {
+  #slogan-text p {
+    font-size: 65px;
+    line-height: 78.66px;
+  }
+}
 
-#slogan-img img {
+img {
   height: 400px;
+}
+@media screen and (min-width: 1280px) {
+  img {
+    height: 600px;
+  }
 }
 
 .footer {
@@ -232,13 +288,13 @@ main {
   color: rgba(0, 0, 0, 0.4);
   font-weight: 400;
 }
-@media screen and (min-width: 376px) and (max-width: 1439px) {
+@media screen and (min-width: 376px) and (max-width: 1280px) {
   .footer {
     justify-content: space-around;
     padding: 100px 60px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .footer {
     justify-content: space-around;
     height: 543px;
@@ -297,12 +353,12 @@ main {
   padding: 40px 0px;
   gap: 60px;
 }
-@media screen and (min-width: 376px) and (max-width: 1439px) {
+@media screen and (min-width: 376px) and (max-width: 1280px) {
   .footer_section {
     flex-direction: row;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .footer_section {
     flex-direction: row;
     gap: 100px;
@@ -334,7 +390,7 @@ main {
   display: flex;
   border-spacing: 25px;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .footer .contact .social_media {
     flex-direction: row;
     align-items: center;
@@ -351,7 +407,7 @@ main {
   gap: 20px;
   box-sizing: border-box;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .footer_nav-footer {
     flex-direction: row;
     justify-content: space-between;
@@ -364,7 +420,7 @@ main {
   text-align: left;
   gap: 10px;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .footer_nav-footer ul {
     gap: 69px;
   }
@@ -380,6 +436,7 @@ main {
 #test-clip {
   background-color: #FFF;
   height: 200px;
+  margin-top: -5px;
   clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
 }
 
@@ -392,6 +449,12 @@ main {
 }
 .table-container.withoutSlogan {
   margin-top: 80px;
+}
+@media screen and (min-width: 1280px) {
+  .table-container {
+    width: 1300px;
+    overflow: hidden;
+  }
 }
 
 .table-title {
@@ -408,6 +471,12 @@ main {
   width: 100%;
   padding: 20px 10px;
 }
+@media screen and (min-width: 1280px) {
+  .table-title h2 {
+    font-size: 60px;
+    padding: 30px 20px;
+  }
+}
 
 .table {
   width: 100%;
@@ -421,6 +490,11 @@ main {
   vertical-align: middle;
   font-size: 14px;
 }
+@media screen and (min-width: 1280px) {
+  .table td {
+    ont-size: 20px;
+  }
+}
 
 thead th {
   background-color: #F9DE4E;
@@ -428,6 +502,11 @@ thead th {
   text-align: justify;
   font-size: 16px;
   vertical-align: middle;
+}
+@media screen and (min-width: 1280px) {
+  thead th {
+    ont-size: 20px;
+  }
 }
 
 tr > th:first-child, tr > td:first-child {

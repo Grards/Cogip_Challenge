@@ -1,6 +1,6 @@
 @import "../abstracts/colors";
 @import "../abstracts/fonts";
-
+@import "../abstracts/mixin";
 
 #navbar{
 	display: flex;
@@ -14,6 +14,9 @@
 	background-color: $Jaune;
 	height: 80px;
 	z-index: 1;
+	@include responsive-desktop{
+		
+	}
 }
 
 #navbar-title{
@@ -33,6 +36,9 @@
 	margin: 20px 20px 0px 0px;
 	overflow: visible;
 	z-index: 2;
+	@include responsive-desktop{
+		display: none;
+	}
 
 	// THE LINES
 	span,
@@ -114,17 +120,33 @@
 	text-align: center;
 	padding-top: 20px;
 	transition: all 0.3s ease-in-out;
+	@include responsive-desktop{
+		display: flex;
+		justify-content:flex-end;
+		visibility: visible;
+		z-index: 0;
+		opacity: 100;
+		transition: none;
+		color:$Noir;
+	}
 
 	&.overlay {
 		visibility: visible;
 		opacity: 1;
 		padding-top: 100px;
 		background: rgba(0, 0, 0, 0.95);
+		@include responsive-desktop{
+			visibility: hidden;
+		}
 	}
 
 	ul {
 		padding: 0;
 		list-style: none;
+		@include responsive-desktop{
+			display: flex;
+			justify-content:space-between;
+		}
 	}
 
 	a {
@@ -134,5 +156,15 @@
 		font-weight: 900;
 		margin-bottom: 30px;
 		text-decoration: none;
+		@include responsive-desktop{
+			color: $Noir;
+			font-size: 20px;
+			font-weight: 600;
+			margin-right: 40px;
+			&:hover{
+				border: 2px solid $Noir;
+				padding: 4px;
+			}
+		}
 	}
 }
