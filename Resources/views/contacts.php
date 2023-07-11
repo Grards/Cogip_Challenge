@@ -21,7 +21,6 @@ include VIEWS . 'includes/errors.php';
     
     <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 1) : ?>
         <?php foreach ($contactsLimitedPerPage as $result) : ?>
-          <?php var_dump($contactsLimitedPerPage); ?>
         <?php endforeach; ?>
     <?php else : ?>
       <p>No results found.</p>
