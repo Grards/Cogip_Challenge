@@ -23,7 +23,7 @@
                 <li><a href="./invoices">Invoices</a></li>
                 <li><a href="./companies">Companies</a></li>
                 <li><a href="./contacts">Contacts</a></li>
-                <li><a href="./sign">Sign Up</a></li>
+                <li><a class="signup-button" href="./sign">Sign Up</a></li>
                 <li><a href="./login">Login</a></li>
             </ul>
         </div>
