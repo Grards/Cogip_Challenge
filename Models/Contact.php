@@ -36,9 +36,10 @@ class Contact
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function getCountOfContacts() {
-        $query = "SELECT COUNT(id) FROM contacts";
+    public function getCountOfContacts($searchQuery) {
+        $query = "SELECT COUNT(id) FROM contacts WHERE name LIKE :query ORDER BY name";
         $statement = $this->db->prepare($query);
+        $statement->bindValue(':query', '%' . $searchQuery . '%');
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_NUM);
