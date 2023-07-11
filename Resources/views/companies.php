@@ -6,55 +6,55 @@ use App\Core\DatabaseManager;
     include VIEWS.'includes/pagination.php'; 
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
-?> 
-    <main>
-        <div class="table-container withoutSlogan">
-            <div id="test-clip">
-            </div>
-            <div class="table-title">
-                <h2>All contacts</h2>
-            </div>
-            <table class="table">
-                <thead class="tableHead">
+?>
+<main>
+    <div class="table-container withoutSlogan">
+        <div id="test-clip">
+        </div>
+        <div class="table-title">
+            <h2>All companies</h2>
+        </div>
+        <form action="companies" method="GET">
+            <input type="text" name="search" placeholder="Search company name">
+            <input type="submit" id="submit_btn">
+            <!-- Bouton submit à cacher en CSS -->
+        </form>
+
+        <?php if (!is_null($companiesLimitedPerPage) && count($companiesLimitedPerPage) > 0) : ?>
+            <?php foreach ($companiesLimitedPerPage as $result) : ?>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <p>No results found.</p>
+        <?php endif; ?>
+
+        <table class="table">
+            <thead class="tableHead">
                 <th>Name</th>
                 <th>Type</th>
                 <th>Country</th>
                 <th>Tva</th>
                 <th>Created at</th>
-                </thead>
-                <?php
-                foreach($companiesLimitedPerPage as $company){
-                    $dateFormated = dateFormat($company['companies_created_at']);
-                    echo "<tr>";
-                    echo "<td>$company[companies_name]</td>";
-                    echo "<td>$company[types_name]</td>";
-                    echo "<td>$company[companies_country]</td>";
-                    echo "<td>$company[companies_tva]</td>";
-                    echo "<td>$dateFormated</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </table>
-        </div>
+            </thead>
+            <?php
+            foreach ($companiesLimitedPerPage as $company) {
+                $dateFormated = dateFormat($company['companies_created_at']);
+                echo "<tr>";
+                echo "<td>$company[companies_name]</td>";
+                echo "<td>$company[types_name]</td>";
+                echo "<td>$company[companies_country]</td>";
+                echo "<td>$company[companies_tva]</td>";
+                echo "<td>$dateFormated</td>";
+                echo "</tr>";
+            }
+            ?>
+        </table>
+    </div>
+    <?php
+    include VIEWS . 'includes/pagination.php';
+    ?>
+</main>
+<footer id="footer">
+</footer>
+</body>
 
-        <form action="contacts" method="GET">
-            <input type="text" name="search" placeholder="Search company name">
-            <input type="submit" id="submit_btn">
-        </form>
-
-        <?php if (!is_null($companiesLimitedPerPage) && (is_array($companiesLimitedPerPage) || $companiesLimitedPerPage instanceof Countable) && count($companiesLimitedPerPage) > 1): ?>
-        <ul>
-            <?php foreach ($companiesLimitedPerPage as $result): ?>
-                <li>
-                    <p><?php echo $result['companies_name']; ?></p>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-        <?php else: ?>
-            <p>No results found.</p>
-        <?php endif; ?>
-    </main>
-    <footer id="footer">
-    </footer>
-    </body>
 </html>

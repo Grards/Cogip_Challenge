@@ -27,7 +27,9 @@ class CompaniesController extends Controller
             exit();
         }
 
-        $countOfCompanies = $companiesModel->getCountOfCompanies();
+        $searchQuery = $_GET['search'] ?? '';
+
+        $countOfCompanies = $companiesModel->getCountOfCompanies($searchQuery);
         $companiesPerPage = 10;
          
         $pages = ceil($countOfCompanies[0] / $companiesPerPage);
@@ -37,14 +39,14 @@ class CompaniesController extends Controller
         }
         
         $offset = $companiesPerPage * ($currentPage-1);
-        $searchQuery = $_GET['search'] ?? '';
-    
+        
         $companiesLimitedPerPage = $companiesModel->getCompaniesLimitedPerPage($companiesPerPage, $offset, $searchQuery);
 
         return $this->view('companies',[
             'currentPage' => $currentPage,
             'pages' => $pages,
-            'companiesLimitedPerPage' => $companiesLimitedPerPage
+            'companiesLimitedPerPage' => $companiesLimitedPerPage,
+            'searchQuery' => $searchQuery
         ]);
     }
 
