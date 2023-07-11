@@ -230,11 +230,11 @@ main {
     color: #000;
     font-size: 20px;
     font-weight: 600;
-    margin-right: 40px;
-    margin-top: 30px;
+    margin: 30px 20px 30px 20px;
   }
   #navbar-menu a:hover {
     border: 2px solid #000;
+    padding: 5px;
   }
   #navbar-menu a.signup-button {
     background-color: #FFF;
@@ -469,12 +469,6 @@ img {
     overflow: hidden;
   }
 }
-@media screen and (min-width: 376px) and (max-width: 1280px) {
-  .table-container {
-    width: 700px;
-  }
-}
-
 .table-title {
   display: flex;
   flex-direction: column;
