@@ -6,6 +6,7 @@ use Bramus\Router\Router;
 use App\Controllers\HomeController;
 use App\Controllers\ContactsController;
 use App\Controllers\CompaniesController;
+use App\Controllers\InvoicesController;
 use App\Controllers\FakersController;
 
 define('BASE_URL', "/Cogip_Challenge/public/"); 
@@ -25,6 +26,11 @@ $router->get('/contacts', function() {
 $router->get('/companies', function() {
     (new CompaniesController)->listsOfCompagnies();
 });
+
+$router->get('/invoices', function() {
+    (new InvoicesController)->listsOfInvoices();
+});
+
 
 $router->get('/fakers', function() {
     (new FakersController)->index();
