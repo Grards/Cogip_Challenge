@@ -17,9 +17,7 @@ include VIEWS . 'includes/errors.php';
       <input type="text" name="search" placeholder="Search contact name">
       <input type="submit" id="submit_btn">
     </form>
-    <?php
-    include VIEWS . 'includes/pagination.php';
-    ?>
+    
     <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 1) : ?>
       <ul>
         <?php foreach ($contactsLimitedPerPage as $result) : ?>
@@ -49,6 +47,9 @@ include VIEWS . 'includes/errors.php';
       ?>
     </table>
   </div>
+  <?php
+    include VIEWS . 'includes/pagination.php';
+  ?>
 </main>
 <footer id="footer">
 </footer>
