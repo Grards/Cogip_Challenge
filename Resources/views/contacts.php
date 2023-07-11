@@ -19,13 +19,13 @@ include VIEWS . 'includes/errors.php';
       <!-- Bouton submit à cacher en CSS -->
     </form>
     
-    <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 1) : ?>
+    <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 0) : ?>
         <?php foreach ($contactsLimitedPerPage as $result) : ?>
         <?php endforeach; ?>
     <?php else : ?>
       <p>No results found.</p>
     <?php endif; ?>
-    
+
     <table class="table">
       <thead class="tableHead">
         <th>Name</th>
@@ -50,6 +50,7 @@ include VIEWS . 'includes/errors.php';
   <?php
     include VIEWS . 'includes/pagination.php';
   ?>
+
 </main>
 <footer id="footer">
 </footer>
