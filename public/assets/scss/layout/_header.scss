@@ -6,17 +6,14 @@
 	display: flex;
 	justify-content: space-between;
 	height: 100px;
-	width: 100%;
+	width: auto;
 	overflow: hidden;
-	position: fixed;
+	position: sticky;
 	top: 0;
 	width: 100%;
 	background-color: $Jaune;
 	height: 80px;
 	z-index: 1;
-	@include responsive-desktop{
-		
-	}
 }
 
 #navbar-title{
@@ -33,8 +30,8 @@
 	cursor: pointer;
 	height: 27px;
 	width: 27px;
-	margin: 20px 20px 0px 0px;
-	overflow: visible;
+	margin: 20px 20px;
+	overflow: hidden;
 	z-index: 2;
 	@include responsive-desktop{
 		display: none;
@@ -123,11 +120,16 @@
 	@include responsive-desktop{
 		display: flex;
 		justify-content:flex-end;
+		align-items: center;
 		visibility: visible;
 		z-index: 0;
 		opacity: 100;
 		transition: none;
 		color:$Noir;
+		min-width:100%;
+		min-height:80px;
+		padding-top: 0px;
+
 	}
 
 	&.overlay {
@@ -146,6 +148,15 @@
 		}
 	}
 
+	li{
+		@include responsive-desktop{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			// margin: auto;
+		}
+	}
+
 	a {
 		color: $Jaune;
 		display: block;
@@ -157,11 +168,17 @@
 			color: $Noir;
 			font-size: 20px;
 			font-weight: 600;
-			margin-bottom: 0px;
 			margin-right: 40px;
+			margin-top: 30px;
 			&:hover{
 				border: 2px solid $Noir;
-				padding: 4px;
+			}
+			&.signup-button{
+				background-color: $Blanc;
+				border-radius: 5px;
+				padding: 5px 10px;
+				border: none;
+				margin-left: 400px;
 			}
 		}
 	}
