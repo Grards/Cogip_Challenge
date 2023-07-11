@@ -3,7 +3,6 @@
 use App\Core\DatabaseManager;
 
     include VIEWS.'includes/header.php';
-    include VIEWS.'includes/pagination.php'; 
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
 ?>
