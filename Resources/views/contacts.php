@@ -2,83 +2,57 @@
 
 use App\Core\DatabaseManager;
 
-    include '../Resources/views/includes/header.php';
-    include VIEWS.'includes/errors.php';
-?> 
-    <main>
+include '../Resources/views/includes/header.php';
+include VIEWS . 'includes/errors.php';
+?>
+<main>
 
-    <div class="table-container withoutSlogan">
-        <div id="test-clip">
-        </div>
-      <div class="table-title">
-          <h2>All contacts</h2>
-      </div>
-        <table class="table">
-          <thead class="tableHead">
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Mail</th>
-            <th>Company</th>
-            <th>Created at</th>
-          </thead>
-          <?php
-            foreach($contactsLimitedPerPage as $contact){
-              echo "<tr>";
-              echo "<td>$contact[name]</td>";
-              echo "<td>$contact[phone]</td>";
-              echo "<td>$contact[email]</td>";
-              echo "<td>$contact[company_id]</td>";
-              echo "<td>$contact[created_at]</td>";
-              echo "</tr>";
-            }
-          ?>
-        </table>
+  <div class="table-container withoutSlogan">
+    <div id="test-clip">
     </div>
-    <?php
-      include VIEWS.'includes/pagination.php'; 
-    ?>
-
-
-
-
-
-
-
-        <?php 
-            // include VIEWS.'includes/errors.php';
-
-            // foreach($contactsLimitedPerPage as $contact){
-            //     echo "<ul>";
-            //         echo "<li>$contact[name]</li>";
-            //         echo "<li>$contact[company_id]</li>";
-            //         echo "<li>$contact[email]</li>";
-            //         echo "<li>$contact[phone]</li>";
-            //         echo "<li>$contact[created_at]</li>";
-            //         echo "<li>$contact[updated_at]</li>";
-            //     echo "</ul>";
-            // }
-            // // Accès autorisé pour contacts : id, name, company_id, email, phone, created_at, updated_at
-            
-            // include VIEWS.'includes/pagination.php';           
-        ?>
-
-        <form action="contacts" method="GET">
-            <input type="text" name="search" placeholder="Search contact name">
-            <input type="submit" id="submit_btn">
-        </form>
-        <?php if (!is_null($contactsLimitedPerPage) && (is_array($contactsLimitedPerPage) || $contactsLimitedPerPage instanceof Countable) && count($contactsLimitedPerPage) > 1): ?>
-        <ul>
-            <?php foreach ($contactsLimitedPerPage as $result): ?>
-                <li>
-                    <p><?php echo $result['name']; ?></p>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>No results found.</p>
+    <div class="table-title">
+      <h2>All contacts</h2>
+    </div>
+    <form action="contacts" method="GET">
+      <input type="text" name="search" placeholder="Search contact">
+      <input type="submit" id="submit_btn">
+      <!-- Bouton submit à cacher en CSS -->
+    </form>
+    
+    <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 1) : ?>
+        <?php foreach ($contactsLimitedPerPage as $result) : ?>
+        <?php endforeach; ?>
+    <?php else : ?>
+      <p>No results found.</p>
     <?php endif; ?>
-    </main>
-    <footer id="footer">
-    </footer>
+    
+    <table class="table">
+      <thead class="tableHead">
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Mail</th>
+        <th>Company</th>
+        <th>Created at</th>
+      </thead>
+      <?php
+      foreach ($contactsLimitedPerPage as $contact) {
+        echo "<tr>";
+        echo "<td>$contact[name]</td>";
+        echo "<td>$contact[phone]</td>";
+        echo "<td>$contact[email]</td>";
+        echo "<td>$contact[company_id]</td>";
+        echo "<td>$contact[created_at]</td>";
+        echo "</tr>";
+      }
+      ?>
+    </table>
+  </div>
+  <?php
+    include VIEWS . 'includes/pagination.php';
+  ?>
+</main>
+<footer id="footer">
+</footer>
 </body>
+
 </html>

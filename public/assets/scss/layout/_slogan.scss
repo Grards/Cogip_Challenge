@@ -1,5 +1,6 @@
 @import "../abstracts/colors";
 @import "../abstracts/fonts";
+@import "../abstracts/mixin";
 
 #slogan-container{
     background-color: $Jaune;
@@ -7,7 +8,11 @@
     flex-direction: column;
     align-items: center;
     margin:  80px auto 0px auto;
-    // height:100vh;
+    @include responsive-desktop {
+        display: flex;
+        flex-direction: row;
+        padding: 0px 40px;
+}
 }
 #slogan-text{
     p{
@@ -18,11 +23,16 @@
         text-align:left;
         text-transform: uppercase;
         line-height: 45px ;
+        @include responsive-desktop {
+            font-size: 65px;
+            line-height: 78.66px ;
+    }
     }
 }
 
-#slogan-img{
-    img{
-        height: 400px;
+img{
+    height: 400px;
+    @include responsive-desktop {
+            height: 600px;
     }
 }
