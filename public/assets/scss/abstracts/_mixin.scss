@@ -1,11 +1,11 @@
 @mixin responsive-desktop {
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
         @content;
     }
 }
 
 @mixin responsive-tablet {
-    @media screen and (min-width: 376px) and (max-width: 1439px) {
+    @media screen and (min-width: 376px) and (max-width: 1280px) {
         @content;
     }
 }

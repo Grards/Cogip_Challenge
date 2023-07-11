@@ -17,7 +17,6 @@
         <div id="navbar-burger">
             <span></span>
         </div>
-    
         <div id="navbar-menu">
             <ul>
                 <li><a href="./">Home</a></li>
