@@ -538,15 +538,19 @@ tr:nth-child(even) td {
   display: inline-block;
 }
 .pagination a {
+  font-weight: 700;
+  font-size: 20px;
   color: #000;
   float: left;
-  padding: 8px 14px;
+  padding: 4px;
   text-decoration: none;
   border-radius: 5px;
+  border: 1px #000 solid;
 }
 .pagination a:hover {
   background-color: #F5F5F5;
 }
 .pagination a:active {
   background-color: #F9DE4E;
+  border: 1px #F9DE4E solid;
 }/*# sourceMappingURL=style.css.map */
