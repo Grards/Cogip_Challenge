@@ -8,7 +8,6 @@ include VIEWS . 'includes/errors.php';
 <main>
 
   <div class="table-container withoutSlogan">
-    <div class="yellow-submarine"></div>
     <div class="test-clip">
     </div>
     <div class="table-title">

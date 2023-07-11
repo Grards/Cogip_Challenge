@@ -81,12 +81,6 @@ main {
   margin: -200px;
   width: auto;
 }
-@media screen and (min-width: 1080px) {
-  main {
-    margin: -275px;
-  }
-}
-
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -103,7 +97,7 @@ main {
 }
 @media screen and (min-width: 1080px) {
   #navbar {
-    height: 80px;
+    height: 160px;
   }
 }
 
@@ -462,12 +456,6 @@ img {
   height: 200px;
   margin-top: -5px;
   clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
-  z-index: 2;
-}
-
-.yellow-submarine {
-  background-color: #F9DE4E;
-  height: 100px;
 }
 
 .table-container {
@@ -478,7 +466,7 @@ img {
   overflow-x: auto;
 }
 .table-container.withoutSlogan {
-  margin-top: 80px;
+  margin-top: 0px;
 }
 @media screen and (min-width: 1080px) {
   .table-container {

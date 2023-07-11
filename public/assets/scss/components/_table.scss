@@ -11,11 +11,7 @@
     height: 200px;
     margin-top: -5px;
     clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
-    z-index: 2;
-}
-.yellow-submarine{
-    background-color: $Jaune;
-    height: 100px;
+    // z-index: 1;
 }
 .table-container{
     display: flex;
@@ -24,7 +20,7 @@
     margin-bottom: 50px;
     overflow-x: auto;
     &.withoutSlogan{
-        margin-top: 80px;
+        margin-top: 0px;
     }
     @include responsive-desktop {
         width: 1300px;
@@ -34,6 +30,8 @@
         width: 700px;
 }
 }
+
+
 
 .table-title {
     display: flex;

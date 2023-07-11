@@ -21,7 +21,7 @@ main{
     margin: -200px;
     width: auto;
     @include responsive-desktop{
-        margin: -275px;
+        // margin: -275px;
     }
 
 }
