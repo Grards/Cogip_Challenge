@@ -28,7 +28,7 @@ class ContactsController extends Controller
         }
 
         $countOfContacts = $contactsModel->getCountOfContacts();
-        $contactsPerPage = 10;
+        $contactsPerPage = 4;
          
         $pages = ceil($countOfContacts[0] / $contactsPerPage);
         if($currentPage > $pages){
@@ -44,7 +44,8 @@ class ContactsController extends Controller
         return $this->view('contacts',[
             'currentPage' => $currentPage,
             'pages' => $pages,
-            'contactsLimitedPerPage' => $contactsLimitedPerPage
+            'contactsLimitedPerPage' => $contactsLimitedPerPage,
+            'searchQuery' => $searchQuery
         ]);
     }
 
