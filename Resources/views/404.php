@@ -1,5 +1,5 @@
 <?php
-    include 'includes/header.php';
+    include VIEWS.'includes/header.php';
 ?>  
     <main id="main">
         <img src="<?php echo BASE_URL.'assets/img/404.jpg'?>" alt="A robot who says 'error 404'" style="width:300px; height:300px;">

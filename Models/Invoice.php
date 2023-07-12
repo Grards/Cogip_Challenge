@@ -33,9 +33,13 @@ class Invoice {
         return $statement->fetch(\PDO::FETCH_NUM)[0];
     }
 
-    public function getCountOfInvoices() {
-        $query = "SELECT COUNT(id) FROM invoices";
+    public function getCountOfInvoices($searchQuery) {
+        $query = "SELECT COUNT(invoices.id) as invoices_id, companies.name as companies_name, invoices.id_company as invoices_id_company
+        FROM invoices
+        INNER JOIN companies ON invoices.id_company = companies.id
+        WHERE companies.name LIKE :query";
         $statement = $this->db->prepare($query);
+        $statement->bindValue(':query', '%' . $searchQuery . '%');
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_NUM);
@@ -56,3 +60,5 @@ class Invoice {
     }
 
 }
+
+?>

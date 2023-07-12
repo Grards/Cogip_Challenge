@@ -2,8 +2,9 @@
 
 use App\Core\DatabaseManager;
 
-include '../Resources/views/includes/header.php';
-include VIEWS . 'includes/errors.php';
+  include VIEWS.'includes/header.php';
+  include VIEWS.'includes/errors.php';
+  include VIEWS.'includes/dateFormat.php';
 ?>
 <main>
 
@@ -19,13 +20,13 @@ include VIEWS . 'includes/errors.php';
       <!-- Bouton submit à cacher en CSS -->
     </form>
     
-    <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 1) : ?>
+    <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 0) : ?>
         <?php foreach ($contactsLimitedPerPage as $result) : ?>
         <?php endforeach; ?>
     <?php else : ?>
       <p>No results found.</p>
     <?php endif; ?>
-    
+
     <table class="table">
       <thead class="tableHead">
         <th>Name</th>
@@ -36,12 +37,13 @@ include VIEWS . 'includes/errors.php';
       </thead>
       <?php
       foreach ($contactsLimitedPerPage as $contact) {
+        $dateFormated = dateFormat($contact['created_at']);
         echo "<tr>";
         echo "<td>$contact[name]</td>";
         echo "<td>$contact[phone]</td>";
         echo "<td>$contact[email]</td>";
         echo "<td>$contact[company_id]</td>";
-        echo "<td>$contact[created_at]</td>";
+        echo "<td>$dateFormated</td>";
         echo "</tr>";
       }
       ?>

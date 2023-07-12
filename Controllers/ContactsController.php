@@ -27,7 +27,9 @@ class ContactsController extends Controller
             exit();
         }
 
-        $countOfContacts = $contactsModel->getCountOfContacts();
+        $searchQuery = $_GET['search'] ?? '';
+
+        $countOfContacts = $contactsModel->getCountOfContacts($searchQuery);
         $contactsPerPage = 10;
          
         $pages = ceil($countOfContacts[0] / $contactsPerPage);
@@ -37,14 +39,14 @@ class ContactsController extends Controller
         }
         
         $offset = $contactsPerPage * ($currentPage-1);
-        $searchQuery = $_GET['search'] ?? '';
-    
+        
         $contactsLimitedPerPage = $contactsModel->getContactsLimitedPerPage($contactsPerPage, $offset, $searchQuery);
 
         return $this->view('contacts',[
             'currentPage' => $currentPage,
             'pages' => $pages,
-            'contactsLimitedPerPage' => $contactsLimitedPerPage
+            'contactsLimitedPerPage' => $contactsLimitedPerPage,
+            'searchQuery' => $searchQuery
         ]);
     }
 
