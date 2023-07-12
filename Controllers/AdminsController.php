@@ -31,19 +31,45 @@ class AdminsController extends Controller
         $statsContacts = $contactModel->getCountOfContacts($searchQuery);
         $statsInvoices = $invoiceModel->getCountOfInvoices($searchQuery);
 
+
+        $adminModel = new Admin();
+        $user = $adminModel->getUser();
+
         return $this->viewAdmin('dashboard',[
             "invoices" => $invoices,
             "contacts" => $contacts,
             "companies" => $companies,
             "statsCompanies" => $statsCompanies[0],
             "statsContacts" => $statsContacts[0],
-            "statsInvoices" => $statsInvoices[0]
+            "statsInvoices" => $statsInvoices[0],
+            "user" => $user[0]
         ]);
     }
 
     public function newInvoice(){
-        return $this->viewAdmin('new-invoice',[
+        $adminModel = new Admin();
+        $user = $adminModel->getUser();
 
+        return $this->viewAdmin('new-invoice',[
+            "user" => $user[0]
+        ]);
+    }
+
+    public function newCompany(){
+        $adminModel = new Admin();
+        $user = $adminModel->getUser();
+
+        return $this->viewAdmin('new-company',[
+            "user" => $user[0]
+        ]);
+    }
+
+    public function newContact(){
+        $adminModel = new Admin();
+        $user = $adminModel->getUser();
+
+        return $this->viewAdmin('new-contact',[
+            "user" => $user[0]
         ]);
     }
 }
