@@ -1,0 +1,27 @@
+@import "../abstracts/colors";
+
+form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#submit_input{
+    border: none;
+    outline: none;
+    padding: 10px 15px 10px 5px;
+    border: solid 1px $Noir;
+    border-radius: 5px;
+    margin:10px 0px 30px;
+
+    &::placeholder{
+        color: $Noir ;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        text-align: left;
+    }
+}
+
+#submit_btn{
+    display: none;
+}

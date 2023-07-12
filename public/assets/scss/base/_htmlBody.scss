@@ -6,9 +6,8 @@ html,body{
     font-size: 10px;
     font-weight: 600;
     color: $Noir;
-    // width: 100vh;
-    // background-color:$Blanc;
-    background-color: pink;
+    background-color:$Blanc;
+    // background-color: pink;
 }
 
 main{
@@ -16,12 +15,6 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // height: 100%;
     line-height: 3em;
-    // margin: -200px;
-    width: auto;
-    @include responsive-desktop{
-        // margin: -275px;
-    }
-
+    // width: auto;
 }
