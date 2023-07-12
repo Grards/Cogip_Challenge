@@ -210,7 +210,7 @@ main {
     justify-content: space-between;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1080px) {
   #navbar-menu li {
     display: flex;
     justify-content: center;
