@@ -16,7 +16,7 @@
 </aside>
 
 <nav class="breadcrumb">
-<a href="#"><?php echo $page; ?></a>
+<a href="#"><?php echo breadcrumb(); ?></a>
 </nav>
 
 <article class ="stats">

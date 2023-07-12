@@ -40,4 +40,10 @@ class AdminsController extends Controller
             "statsInvoices" => $statsInvoices[0]
         ]);
     }
+
+    public function newInvoice(){
+        return $this->viewAdmin('new-invoice',[
+
+        ]);
+    }
 }

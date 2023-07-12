@@ -36,6 +36,10 @@ $router->get('/dashboard', function() {
     (new AdminsController)->index();
 });
 
+$router->get('/dashboard/new-invoice', function() {
+    (new AdminsController)->newInvoice();
+});
+
 $router->get('/fakers', function() {
     (new FakersController)->index();
 });
