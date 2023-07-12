@@ -78,7 +78,6 @@ main {
   justify-content: center;
   align-items: center;
   line-height: 3em;
-  margin: -200px;
   width: auto;
 }
 #navbar {
@@ -97,7 +96,7 @@ main {
 }
 @media screen and (min-width: 1080px) {
   #navbar {
-    height: 160px;
+    height: 150px;
   }
 }
 
@@ -253,14 +252,41 @@ main {
   }
 }
 
+.test-clip {
+  background-color: #FFF;
+  width: 375px;
+  height: 50px;
+  margin-bottom: 0px;
+  clip-path: polygon(57% 60%, 86% 36%, 100% 100%, 100% 100%, 0 100%, 0 62%);
+}
+@media screen and (min-width: 780px) and (max-width: 1080px) {
+  .test-clip {
+    height: 100px;
+    width: 700px;
+    clip-path: polygon(57% 60%, 86% 36%, 100% 100%, 100% 100%, 0 100%, 0 62%);
+  }
+}
+@media screen and (min-width: 1080px) {
+  .test-clip {
+    width: 1300px;
+    clip-path: polygon(57% 43%, 85% 0, 100% 100%, 100% 100%, 0 100%, 0 46%);
+  }
+}
+
 #slogan-container {
   background-color: #F9DE4E;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+#slogan-container-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media screen and (min-width: 1080px) {
-  #slogan-container {
+  #slogan-container-display {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -451,13 +477,6 @@ img {
   outline: 2px solid rgba(0, 0, 0, 0.4);
   outline-offset: 5px;
 }
-.test-clip {
-  background-color: #FFF;
-  height: 200px;
-  margin-top: -5px;
-  clip-path: polygon(53% 84%, 85% 79%, 100% 100%, 100% 100%, 0 100%, 0 85%);
-}
-
 .table-container {
   display: flex;
   flex-direction: column;
@@ -528,7 +547,7 @@ thead th {
 }
 @media screen and (min-width: 1080px) {
   thead th {
-    ont-size: 20px;
+    font-size: 20px;
   }
 }
 

@@ -2,8 +2,32 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
+
+.test-clip{
+    background-color: $Blanc;
+    width: 375px;
+    height: 50px;
+    margin-bottom: 0px;
+    clip-path: polygon(57% 60%, 86% 36%, 100% 100%, 100% 100%, 0 100%, 0 62%);
+    @include responsive-tablet{
+        height: 100px;
+        width: 700px;
+        clip-path: polygon(57% 60%, 86% 36%, 100% 100%, 100% 100%, 0 100%, 0 62%);
+    }
+    @include responsive-desktop{
+        width: 1300px;
+        clip-path: polygon(57% 43%, 85% 0, 100% 100%, 100% 100%, 0 100%, 0 46%);
+    }
+}
+
 #slogan-container{
     background-color: $Jaune;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#slogan-container-display{
     display: flex;
     flex-direction: column;
     align-items: center;
