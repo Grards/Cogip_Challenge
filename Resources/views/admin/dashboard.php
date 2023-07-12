@@ -9,6 +9,29 @@
 
 <main id="main">
 
+<article class ="stats">
+    <h2 class="stats__title">Statistics</h2>
+    <section class="stats__informations">
+
+        <ul class="stats__informations--invoices">
+            <li class="invoices--total"><?= $statsInvoices ?></li>
+            <li class="invoices--text">Invoices</li>
+        </ul>
+
+        <ul class="stats__informations--contacts">
+            <li class="contacts--total"><?= $statsContacts ?></li>
+            <li class="contacts--text">Contacts</li>
+        </ul>
+
+        <ul class="stats__informations--companies">
+            <li class="companies--total"><?= $statsCompanies ?></li>
+            <li class="companies--text">Companies</li>
+        </ul>
+
+    </section>
+</article>
+
+
 <!-- Last Invoices -->
 <div class="table-container top">
     <div id="test-clip">

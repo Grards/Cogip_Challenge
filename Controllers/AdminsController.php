@@ -26,11 +26,18 @@ class AdminsController extends Controller
         // Récupérer les 5 derniers enregistrements de la table 'companies'
         $companies = $companyModel->getLatestCompanies(5);
 
+        $searchQuery = "";
+        $statsCompanies = $companyModel->getCountOfCompanies($searchQuery);
+        $statsContacts = $contactModel->getCountOfContacts($searchQuery);
+        $statsInvoices = $invoiceModel->getCountOfInvoices($searchQuery);
 
         return $this->viewAdmin('dashboard',[
             "invoices" => $invoices,
             "contacts" => $contacts,
-            "companies" => $companies
+            "companies" => $companies,
+            "statsCompanies" => $statsCompanies[0],
+            "statsContacts" => $statsContacts[0],
+            "statsInvoices" => $statsInvoices[0]
         ]);
     }
 }
