@@ -1,18 +1,26 @@
 @import "../abstracts/colors";
+@import "../abstracts/mixin";
 
 .pagination{
         display: inline-block;
        a {
+        font-weight: 700;
+        font-size: 20px;
         color: $Noir;
         float: left;
-        padding: 8px 14px;
+        padding: 4px;
         text-decoration: none;
         border-radius: 5px;
+        border: 1px $Noir solid;
         &:hover{
             background-color: $Gris;
         }
         &:active{
             background-color: $Jaune;
+            border: 1px $Jaune solid;
         }
+        // @include responsive-desktop{
+
+        // }
       }
 }

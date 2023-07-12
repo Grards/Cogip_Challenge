@@ -1,4 +1,5 @@
 @import '../abstracts/colors';
+@import "../abstracts/mixin";
 
 html,body{
     font-family: 'Roboto', sans-serif;
@@ -6,7 +7,8 @@ html,body{
     font-weight: 600;
     color: $Noir;
     // width: 100vh;
-    background-color:$Blanc;
+    // background-color:$Blanc;
+    background-color: pink;
 }
 
 main{
@@ -18,4 +20,8 @@ main{
     line-height: 3em;
     margin: -200px;
     width: auto;
+    @include responsive-desktop{
+        // margin: -275px;
+    }
+
 }

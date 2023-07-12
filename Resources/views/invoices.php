@@ -5,10 +5,35 @@ use App\Core\DatabaseManager;
     include VIEWS.'includes/header.php';
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
-?>
-<main>
-    <div class="table-container withoutSlogan">
-        <div id="test-clip">
+?> 
+    <main>
+        <div class="table-container withoutSlogan">
+            <div id="test-clip">
+            </div>
+            <div class="table-title">
+                <h2>All invoices</h2>
+            </div>
+            <table class="table">
+                <thead class="tableHead">
+                <th>Invoice number</th>
+                <th>Due date</th>
+                <th>Company</th>
+                <th>Price</th>
+                <th>Created at</th>
+                </thead>
+                <?php
+                foreach($invoicesLimitedPerPage as $invoice){
+                    $dateFormated = dateFormat($invoice['invoices_created_at']);
+                    echo "<tr>";
+                    echo "<td>$invoice[invoices_ref]</td>";
+                    echo "<td>$invoice[invoices_due_date]</td>";
+                    echo "<td>$invoice[companies_name]</td>";
+                    echo "<td>$invoice[invoices_price]</td>";
+                    echo "<td>$dateFormated</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
         </div>
         <div class="table-title">
             <h2>All invoices</h2>

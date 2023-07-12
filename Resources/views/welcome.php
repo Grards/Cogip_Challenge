@@ -7,7 +7,7 @@
     
     <!-- Last Invoices -->
     <div class="table-container top">
-        <div id="test-clip">
+        <div class="test-clip">
         </div>
       <div class="table-title">
           <h2>Last invoices</h2>

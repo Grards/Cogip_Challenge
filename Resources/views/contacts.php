@@ -9,7 +9,7 @@ use App\Core\DatabaseManager;
 <main>
 
   <div class="table-container withoutSlogan">
-    <div id="test-clip">
+    <div class="test-clip">
     </div>
     <div class="table-title">
       <h2>All contacts</h2>
