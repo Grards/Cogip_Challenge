@@ -2,13 +2,14 @@
 
 use App\Core\DatabaseManager;
 
-include '../Resources/views/includes/header.php';
-include VIEWS . 'includes/errors.php';
+  include VIEWS.'includes/header.php';
+  include VIEWS.'includes/errors.php';
+  include VIEWS.'includes/dateFormat.php';
 ?>
 <main>
 
   <div class="table-container withoutSlogan">
-    <div id="test-clip">
+    <div class="test-clip">
     </div>
     <div class="table-title">
       <h2>All contacts</h2>
@@ -36,12 +37,13 @@ include VIEWS . 'includes/errors.php';
       </thead>
       <?php
       foreach ($contactsLimitedPerPage as $contact) {
+        $dateFormated = dateFormat($contact['created_at']);
         echo "<tr>";
         echo "<td>$contact[name]</td>";
         echo "<td>$contact[phone]</td>";
         echo "<td>$contact[email]</td>";
         echo "<td>$contact[company_id]</td>";
-        echo "<td>$contact[created_at]</td>";
+        echo "<td>$dateFormated</td>";
         echo "</tr>";
       }
       ?>
@@ -50,7 +52,6 @@ include VIEWS . 'includes/errors.php';
   <?php
     include VIEWS . 'includes/pagination.php';
   ?>
-
 </main>
 <footer id="footer">
 </footer>

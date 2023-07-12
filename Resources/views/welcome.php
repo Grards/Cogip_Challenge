@@ -1,13 +1,13 @@
   <?php
-    include 'includes/header.php';
-    include 'includes/slogan.php';
-    include 'includes/dateFormat.php';
+    include VIEWS.'includes/header.php';
+    include VIEWS.'includes/slogan.php';
+    include VIEWS.'includes/dateFormat.php';
   ?>  
     <main id="main">
     
     <!-- Last Invoices -->
     <div class="table-container top">
-        <div id="test-clip">
+        <div class="test-clip">
         </div>
       <div class="table-title">
           <h2>Last invoices</h2>

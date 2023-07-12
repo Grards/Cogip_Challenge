@@ -13,4 +13,10 @@ class Controller
         extract($data);
         require_once(__ROOT__.'/Resources/views/'.$view.'.php');
     }
+
+    public function viewAdmin($view, $data = [])
+    {
+        extract($data);
+        require_once(__ROOT__.'/Resources/views/admin/'.$view.'.php');
+    }
 }
