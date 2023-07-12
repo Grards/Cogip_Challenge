@@ -5,35 +5,10 @@ use App\Core\DatabaseManager;
     include VIEWS.'includes/header.php';
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
-?> 
-    <main>
-        <div class="table-container withoutSlogan">
-            <div id="test-clip">
-            </div>
-            <div class="table-title">
-                <h2>All companies</h2>
-            </div>
-            <table class="table">
-                <thead class="tableHead">
-                <th>Name</th>
-                <th>Type</th>
-                <th>Country</th>
-                <th>Tva</th>
-                <th>Created at</th>
-                </thead>
-                <?php
-                foreach($companiesLimitedPerPage as $company){
-                    $dateFormated = dateFormat($company['companies_created_at']);
-                    echo "<tr>";
-                    echo "<td>$company[companies_name]</td>";
-                    echo "<td>$company[types_name]</td>";
-                    echo "<td>$company[companies_country]</td>";
-                    echo "<td>$company[companies_tva]</td>";
-                    echo "<td>$dateFormated</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </table>
+?>
+<main>
+    <div class="table-container withoutSlogan">
+        <div id="test-clip">
         </div>
         <div class="table-title">
             <h2>All companies</h2>
