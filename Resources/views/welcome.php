@@ -101,8 +101,9 @@
         // Accès autorisé pour companies : id, name, type_id, country, tva, created_at, updated_at
       ?>
     </main>
+    <?php
+      include 'includes/footer.php';
+    ?>
+
 </body>
-<?php
-include 'includes/footer.php';
-?>
 

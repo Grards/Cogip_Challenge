@@ -56,8 +56,9 @@ use App\Core\DatabaseManager;
     include VIEWS . 'includes/pagination.php';
     ?>
 </main>
-<footer id="footer">
-</footer>
+    <?php
+        include 'includes/footer.php';
+    ?>
 </body>
 
 </html>

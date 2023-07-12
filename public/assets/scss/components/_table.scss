@@ -22,12 +22,12 @@
     &.withoutSlogan{
         margin-top: 0px;
     }
-    @include responsive-desktop {
-        width: 1300px;
-        overflow: hidden;
-}
     @include responsive-tablet {
         width: 700px;
+}
+    @include responsive-desktop {
+        width: 1000px;
+        overflow: hidden;
 }
 }
 
