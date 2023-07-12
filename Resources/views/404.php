@@ -6,7 +6,6 @@
 <head>
     <title>Erreur 404 - Page introuvable</title>
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL.'assets/css/error_404.css'?>">
-    <link rel="stylesheet" type="text/css" href="../../scss/layout/_404.scss">
 </head>
 <body>
     <main id="main">
@@ -15,7 +14,7 @@
             <p><a href="<?php echo BASE_URL?>">Retour à l'accueil</a></p>
         </div>
 
-
+         
     </main>
 </body> 
 </html>
