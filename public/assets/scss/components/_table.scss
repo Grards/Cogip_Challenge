@@ -4,11 +4,15 @@
 
 
 // https://bennettfeely.com/clippy/
-// .backgroundColorTestClip{
-//     background-color: $Jaune;
-//     height: 200px;
-//     width: 100%;
-// }
+
+.table-shape{
+    background-color: $Jaune;
+    width: 100%;
+    .test-clip{
+        margin: auto;
+    }
+}
+
 .table-container{
     display: flex;
     flex-direction: column;

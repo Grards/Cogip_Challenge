@@ -69,7 +69,7 @@ html, body {
   font-size: 10px;
   font-weight: 600;
   color: #000;
-  background-color: pink;
+  background-color: #FFF;
 }
 
 main {
@@ -80,6 +80,7 @@ main {
   line-height: 3em;
   width: auto;
 }
+
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -477,6 +478,14 @@ img {
   outline: 2px solid rgba(0, 0, 0, 0.4);
   outline-offset: 5px;
 }
+.table-shape {
+  background-color: #F9DE4E;
+  width: 100%;
+}
+.table-shape .test-clip {
+  margin: auto;
+}
+
 .table-container {
   display: flex;
   flex-direction: column;
@@ -583,4 +592,29 @@ tr:nth-child(even) td {
 .pagination a:active {
   background-color: #F9DE4E;
   border: 1px #F9DE4E solid;
+}
+
+form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#submit_input {
+  border: none;
+  outline: none;
+  padding: 10px 15px 10px 5px;
+  border: solid 1px #000;
+  border-radius: 5px;
+  margin: 10px 0px 30px;
+}
+#submit_input::placeholder {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
+}
+
+#submit_btn {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

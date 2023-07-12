@@ -7,14 +7,18 @@ use App\Core\DatabaseManager;
     include VIEWS.'includes/dateFormat.php';
 ?>
 <main>
+    <div class="table-shape">
+        <div class="test-clip">
+        </div>
+    </div>
     <div class="table-container withoutSlogan">
         <div id="test-clip">
         </div>
         <div class="table-title">
             <h2>All companies</h2>
         </div>
-        <form action="companies" method="GET">
-            <input type="text" name="search" placeholder="Search company name">
+        <form action="invoices" method="GET">
+            <input type="text" name="search" placeholder="Search company" id="submit_input">
             <input type="submit" id="submit_btn">
             <!-- Bouton submit à cacher en CSS -->
         </form>

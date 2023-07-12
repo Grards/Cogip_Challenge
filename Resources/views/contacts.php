@@ -7,19 +7,18 @@ use App\Core\DatabaseManager;
   include VIEWS.'includes/dateFormat.php';
 ?>
 <main>
-
-  <div class="table-container withoutSlogan">
-    <div class="backgroundColorTestClip">
-      <div class="test-clip">
+      <div class="table-shape">
+        <div class="test-clip">
+        </div>
       </div>
-    </div>
+  <div class="table-container withoutSlogan">
     <div class="table-title">
       <h2>All contacts</h2>
     </div>
-    <form action="contacts" method="GET">
-      <input type="text" name="search" placeholder="Search contact">
-      <input type="submit" id="submit_btn">
-      <!-- Bouton submit à cacher en CSS -->
+    <form action="invoices" method="GET">
+            <input type="text" name="search" placeholder="Search company" id="submit_input">
+            <input type="submit" id="submit_btn">
+            <!-- Bouton submit à cacher en CSS -->
     </form>
     
     <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 0) : ?>
