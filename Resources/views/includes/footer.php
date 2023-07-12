@@ -76,16 +76,21 @@
                 </div>
                 
             </div>
-            <nav id="footer-navbar">
-                <ul>
-                    <li><a href="./">Home</a></li>
-                    <li><a href="./invoices">Invoices</a></li>
-                    <li><a href="./companies">Companies</a></li>
-                    <li><a href="./contacts">Contacts</a></li>
-                    <li> <a href="">private policy</a></li>
-                </ul>
-                <p class="footer-text-gris">Copyright © 2023 • COGIP Inc.</p>
-            </nav>
+            <div id="footer-navbar-container">
+                <nav id="footer-navbar">
+                    <ul>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="./invoices">Invoices</a></li>
+                        <li><a href="./companies">Companies</a></li>
+                        <li><a href="./contacts">Contacts</a></li>
+                        <li> <a href="">private policy</a></li>
+                    </ul>
+                </nav>
+                <div id="footer-text-gris-container">
+                    <p class="footer-text-gris">Copyright © 2023 • COGIP Inc.</p>
+                </div>
+            </div>
+           
         </footer>
     </body>
 </html>

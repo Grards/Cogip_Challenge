@@ -324,6 +324,12 @@ footer {
   font-size: 14px;
   color: #000;
 }
+@media screen and (min-width: 1080px) {
+  footer {
+    margin-top: 100px;
+    padding: 0px 200px;
+  }
+}
 
 #footer-contact {
   display: flex;
@@ -336,6 +342,12 @@ footer {
   display: flex;
   padding: 30px 20px;
   margin-bottom: 10px;
+}
+@media screen and (min-width: 1080px) {
+  #footer-contact {
+    flex-direction: row;
+    height: 350px;
+  }
 }
 
 #footer-logo h2 {
@@ -365,10 +377,28 @@ footer {
   justify-content: space-between;
 }
 
-#footer-navbar {
+#footer-navbar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media screen and (min-width: 1080px) {
+  #footer-navbar-container {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  #footer-navbar {
+    justify-self: flex-start;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  #footer-text-gris-container {
+    justify-self: flex-end;
+  }
 }
 
 #footer-navbar a {
@@ -380,6 +410,12 @@ footer {
   text-transform: uppercase;
   margin-right: 5px;
   width: 100%;
+}
+@media screen and (min-width: 1080px) {
+  #footer-navbar a {
+    font-size: 18px;
+    margin-right: 20px;
+  }
 }
 
 #footer-contact-infos {
@@ -400,6 +436,12 @@ footer {
   font-size: 14px;
   color: #919EAB;
   margin-top: 10px;
+}
+@media screen and (min-width: 1080px) {
+  .footer-text-gris {
+    font-size: 18px;
+    align-self: flex-end;
+  }
 }
 
 svg {

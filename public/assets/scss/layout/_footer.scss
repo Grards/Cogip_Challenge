@@ -12,6 +12,10 @@ footer{
   font-weight: 400;
   font-size: 14px;
   color: $Noir;
+  @include responsive-desktop{
+    margin-top: 100px;
+    padding: 0px 200px;
+  }
 }
 
 #footer-contact{
@@ -25,6 +29,10 @@ footer{
   display: flex;
   padding: 30px 20px;
   margin-bottom: 10px;
+  @include responsive-desktop{
+    flex-direction: row;
+    height: 350px;
+  }
 }
 
 #footer-logo h2{
@@ -55,11 +63,27 @@ footer{
   justify-content: space-between;
 }
 
-#footer-navbar{
+#footer-navbar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  @include responsive-desktop {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 }
+  #footer-navbar {
+    @include responsive-desktop {
+      justify-self: flex-start;
+    }
+  }
+
+  #footer-text-gris-container {
+    @include responsive-desktop {
+      justify-self: flex-end;
+    }
+  }
 
 #footer-navbar  a{
   font-family: 'Assistant', sans-serif;
@@ -70,6 +94,10 @@ footer{
   text-transform: uppercase;
   margin-right: 5px;
   width: 100%;
+    @include responsive-desktop{
+      font-size: 18px;
+      margin-right: 20px;
+    } 
 }
 
 #footer-contact-infos{
@@ -90,6 +118,10 @@ footer{
   font-size: 14px;
   color: $GrisFonce;
   margin-top: 10px;
+  @include responsive-desktop{
+    font-size: 18px;
+    align-self: flex-end;
+  }
 }
 
 svg{
