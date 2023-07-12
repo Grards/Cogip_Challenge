@@ -9,7 +9,9 @@ use App\Core\DatabaseManager;
 <main>
 
   <div class="table-container withoutSlogan">
-    <div id="test-clip">
+    <div class="backgroundColorTestClip">
+      <div class="test-clip">
+      </div>
     </div>
     <div class="table-title">
       <h2>All contacts</h2>
