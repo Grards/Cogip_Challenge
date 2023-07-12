@@ -327,13 +327,15 @@ footer {
 
 #footer-contact {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border-top: 2px solid #F9DE4E;
   border-bottom: 2px solid #DFE3E8;
   width: 100%;
   display: flex;
-  padding: 50px 20px;
+  padding: 30px 20px;
+  margin-bottom: 10px;
 }
 
 #footer-logo h2 {
@@ -343,6 +345,7 @@ footer {
   color: #434138;
   border: 5px #F9DE4E solid;
   padding: 5px;
+  margin-bottom: 20px;
 }
 
 #footer-contact-street,
@@ -350,10 +353,8 @@ footer {
 #footer-contact-tel,
 #footer-contact-fax,
 #footer-social-media,
-#footer-navbar,
 #footer-navbar ul {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
 
@@ -361,15 +362,36 @@ footer {
 #footer-contact-tel-fax,
 #footer-social-media {
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
-#footer-navbar ul li a {
+#footer-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#footer-navbar a {
   font-family: "Assistant", sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   color: #000;
   text-decoration: none;
   text-transform: uppercase;
+  margin-right: 5px;
+  width: 100%;
+}
+
+#footer-contact-infos {
+  justify-content: stretch;
+}
+
+#footer-social-media {
+  display: inline-block;
+}
+#footer-social-media p {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .footer-text-gris {
@@ -377,6 +399,11 @@ footer {
   font-weight: 400;
   font-size: 14px;
   color: #919EAB;
+  margin-top: 10px;
+}
+
+svg {
+  margin-right: 10px;
 }
 
 .table-shape {

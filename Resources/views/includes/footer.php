@@ -78,10 +78,10 @@
             </div>
             <nav id="footer-navbar">
                 <ul>
-                    <li><a href="/cogip_challenge/ressources/views/welcome.php">home</a></li>
-                    <li><a href="/cogip_challenge/ressources/views/invoices.php">invoices</a></li>
-                    <li><a href="/cogip_challenge/ressources/views/companies.php">companies</a> </li>
-                    <li><a h ref="/cogip_challenge/ressources/views/contacts.php">contacts</a></li>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="./invoices">Invoices</a></li>
+                    <li><a href="./companies">Companies</a></li>
+                    <li><a href="./contacts">Contacts</a></li>
                     <li> <a href="">private policy</a></li>
                 </ul>
                 <p class="footer-text-gris">Copyright © 2023 • COGIP Inc.</p>
