@@ -5,9 +5,19 @@
     include VIEWS.'includes/header.php';
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
-?>
+    include VIEWS.'includes/breadcrumb.php';
+?>  
+
 
 <main id="main">
+
+<aside>
+    
+</aside>
+
+<nav class="breadcrumb">
+<a href="#"><?php echo $page; ?></a>
+</nav>
 
 <article class ="stats">
     <h2 class="stats__title">Statistics</h2>
