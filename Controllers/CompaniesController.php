@@ -48,6 +48,7 @@ class CompaniesController extends Controller
             'companiesLimitedPerPage' => $companiesLimitedPerPage,
             'searchQuery' => $searchQuery
         ]);
+
     }
 
     public function show(){

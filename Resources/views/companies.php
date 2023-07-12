@@ -5,6 +5,7 @@ use App\Core\DatabaseManager;
     include VIEWS.'includes/header.php';
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
+    include VIEWS.'includes/columnSort.php';
 ?>
 <main>
     <div class="table-container withoutSlogan">
@@ -28,11 +29,32 @@ use App\Core\DatabaseManager;
 
         <table class="table">
             <thead class="tableHead">
-                <th>Name</th>
-                <th>Type</th>
-                <th>Country</th>
-                <th>Tva</th>
-                <th>Created at</th>
+                <th>
+                    <a href="?sort=name&order=asc">Name ▲</a>
+                    <a href="?sort=name&order=desc">Name ▼</a>
+                </th>
+                <!-- Enlever le style des liens en CSS -->
+                <th>
+                    <a href="?sort=type&order=asc">Type ▲</a>
+                    <a href="?sort=type&order=desc">Type ▼</a>
+                </th>
+                <!-- Enlever le style des liens en CSS -->
+                <th>
+                    <a href="?sort=country=asc">Country ▲</a>
+                    <a href="?sort=country=desc">Country ▼</a>
+                </th>
+                <!-- Enlever le style des liens en CSS -->
+                <th>
+                    <a href="?sort=tva=asc">Tva ▲</a>
+                    <a href="?sort=tva=desc">Tva ▼</a>
+                </th>
+                <!-- Enlever le style des liens en CSS -->
+                <th>
+                    <a href="?sort=created_at=asc">Created at ▲</a>
+                    <a href="?sort=created_at=desc">Created at ▼</a>
+                </th>
+                <!-- Enlever le style des liens en CSS -->
+            </thead>
             </thead>
             <?php
             foreach ($companiesLimitedPerPage as $company) {

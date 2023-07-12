@@ -50,13 +50,12 @@ class Company
         INNER JOIN types ON companies.type_id = types.id
         WHERE companies.name LIKE :query 
         ORDER BY companies.name 
-        DESC LIMIT $companiesPerPage OFFSET $offset";
+        LIMIT $companiesPerPage OFFSET $offset";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':query', '%' . $searchQuery . '%');
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
-}
 
-?>
+}
