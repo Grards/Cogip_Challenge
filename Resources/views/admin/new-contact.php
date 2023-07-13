@@ -32,9 +32,9 @@
         <input type="email" id="new-contact__email" name="new-contact__email" required>
 
         <label for="new-contact__phone">Phone : </label>
-        <input type="number" id="new-contact__phone" name="new-contact__phone" required>
+        <input type="tel" id="new-contact__phone" name="new-contact__phone" required>
 
-        <input type="submit" id="new-contact__submit" value="Send new contact">
+        <input type="submit" id="new-contact__submit" value="Send new contact" onclick="return confirm('Is the encoded information correct ?')">
     </form>
 </main>
 

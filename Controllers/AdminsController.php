@@ -52,9 +52,9 @@ class AdminsController extends Controller
             if(isset($_POST['new-contact'])){
                 $contact_name = htmlspecialchars($_POST['new-contact__name']);
                 $contact_company = htmlspecialchars($_POST['new-contact__company']);
-                $contact_email = htmlspecialchars($_POST['new-contact__email']);
+                $contact_email = filter_var($_POST['new-contact__email'], FILTER_SANITIZE_EMAIL);
                 $contact_phone = htmlspecialchars($_POST['new-contact__phone']);
-                $contact_created_at = date("Y/m/d hh:mm:ss");
+                $contact_created_at = date("Y/m/d h:m:s");
 
                 if(isset($_POST['new-contact__picture'])){
                     // Picture treatment
