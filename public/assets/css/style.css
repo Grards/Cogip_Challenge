@@ -399,7 +399,8 @@ footer {
   font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #000;
+  color: #737373;
+  margin-bottom: 50px;
 }
 @media screen and (min-width: 1080px) {
   footer {
@@ -482,10 +483,10 @@ footer {
   font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 12px;
-  color: #000;
   text-decoration: none;
   text-transform: uppercase;
   margin-right: 5px;
+  color: #737373;
   width: 100%;
 }
 @media screen and (min-width: 1080px) {
@@ -511,7 +512,6 @@ footer {
   font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #919EAB;
   margin-top: 10px;
 }
 @media screen and (min-width: 1080px) {
@@ -661,6 +661,7 @@ thead th {
 }
 thead th a {
   text-decoration: none;
+  color: #000;
 }
 @media screen and (min-width: 1080px) {
   thead th {
