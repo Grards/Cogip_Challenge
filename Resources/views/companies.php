@@ -23,7 +23,6 @@ use App\Core\DatabaseManager;
             <input type="hidden" name="sort" value="<?php echo $_GET['sort_field'] ?? ''; ?>">
             <input type="hidden" name="order" value="<?php echo $_GET['sort_order'] ?? ''; ?>">
             <input type="submit" id="submit_btn">
-            <!-- Bouton submit à cacher en CSS -->
         </form>
 
         <?php if (!is_null($companiesLimitedPerPage) && count($companiesLimitedPerPage) > 0) : ?>
@@ -37,27 +36,27 @@ use App\Core\DatabaseManager;
             <thead class="tableHead">   
             <th>
                 <!----------------------------------- Enlever le style des liens ci dessous en CSS please :) --------------------------->
-            <a href="?sort_field=companies.name&sort_order=<?php echo ($sortField === 'companies.name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery?>&sort_field=companies.name&sort_order=<?php echo ($sortField === 'companies.name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Name <?php echo ($sortField === 'companies.name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=type_id&sort_order=<?php echo ($sortField === 'type_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery?>&sort_field=type_id&sort_order=<?php echo ($sortField === 'type_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Type <?php echo ($sortField === 'type_id') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=country&sort_order=<?php echo ($sortField === 'country' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery?>&sort_field=country&sort_order=<?php echo ($sortField === 'country' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Country <?php echo ($sortField === 'country') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=tva&sort_order=<?php echo ($sortField === 'tva' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery?>&sort_field=tva&sort_order=<?php echo ($sortField === 'tva' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 TVA <?php echo ($sortField === 'tva') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=companies.created_at&sort_order=<?php echo ($sortField === 'companies.created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery?>&sort_field=companies.created_at&sort_order=<?php echo ($sortField === 'companies.created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Created at <?php echo ($sortField === 'companies.created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
 
