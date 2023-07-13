@@ -20,7 +20,6 @@ use App\Core\DatabaseManager;
     <form action="contacts" method="GET">
       <input type="text" name="search" placeholder="Search contact">
       <input type="submit" id="submit_btn">
-      <!-------------------- Bouton submit à cacher en CSS please :) ---------------------->
     </form>
 
     <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 0) : ?>
@@ -32,7 +31,7 @@ use App\Core\DatabaseManager;
     <table class="table">
       <thead class="tableHead">
       <th>
-      <!----------------------------------- Enlever le style des liens en CSS please :) --------------------------->
+      <!----------------------------------- Enlever le style des liens ci dessous en CSS please :) --------------------------->
             <a href="?sort_field=name&sort_order=<?php echo ($sortField === 'name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Name <?php echo ($sortField === 'name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>

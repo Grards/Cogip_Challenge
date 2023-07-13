@@ -28,32 +28,33 @@ use App\Core\DatabaseManager;
         <?php endif; ?>
 
         <table class="table">
-            <thead class="tableHead">
-                <th>
-                    <a href="?sort=name&order=asc">Name ▲</a>
-                    <a href="?sort=name&order=desc">Name ▼</a>
-                </th>
-                <!-- Enlever le style des liens en CSS -->
-                <th>
-                    <a href="?sort=type&order=asc">Type ▲</a>
-                    <a href="?sort=type&order=desc">Type ▼</a>
-                </th>
-                <!-- Enlever le style des liens en CSS -->
-                <th>
-                    <a href="?sort=country=asc">Country ▲</a>
-                    <a href="?sort=country=desc">Country ▼</a>
-                </th>
-                <!-- Enlever le style des liens en CSS -->
-                <th>
-                    <a href="?sort=tva=asc">Tva ▲</a>
-                    <a href="?sort=tva=desc">Tva ▼</a>
-                </th>
-                <!-- Enlever le style des liens en CSS -->
-                <th>
-                    <a href="?sort=created_at=asc">Created at ▲</a>
-                    <a href="?sort=created_at=desc">Created at ▼</a>
-                </th>
-                <!-- Enlever le style des liens en CSS -->
+            <thead class="tableHead">   
+            <th>
+                <!----------------------------------- Enlever le style des liens ci dessous en CSS please :) --------------------------->
+            <a href="?sort_field=companies.name&sort_order=<?php echo ($sortField === 'companies.name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Name <?php echo ($sortField === 'companies.name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?sort_field=type_id&sort_order=<?php echo ($sortField === 'type_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Type <?php echo ($sortField === 'type_id') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?sort_field=country&sort_order=<?php echo ($sortField === 'country' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Country <?php echo ($sortField === 'country') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?sort_field=tva&sort_order=<?php echo ($sortField === 'tva' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                TVA <?php echo ($sortField === 'tva') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?sort_field=companies.created_at&sort_order=<?php echo ($sortField === 'companies.created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Created at <?php echo ($sortField === 'companies.created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+
             </thead>
             </thead>
             <?php

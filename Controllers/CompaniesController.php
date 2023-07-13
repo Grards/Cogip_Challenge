@@ -28,6 +28,19 @@ class CompaniesController extends Controller
         }
 
         $searchQuery = $_GET['search'] ?? '';
+        $sortField = $_GET['sort_field'] ?? 'companies.name';
+        $sortOrder = $_GET['sort_order'] ?? 'asc';
+
+        $validSortFields = ['companies.name', 'tva', 'country', 'type_id', 'companies.created_at'];
+        $validSortOrder = ['asc', 'desc'];
+
+        if (!in_array($sortField, $validSortFields)) {
+            $sortField = 'companies.name';
+        }
+    
+        if (!in_array($sortOrder, $validSortOrder)) {
+            $sortOrder = 'asc';
+        }
 
         $countOfCompanies = $companiesModel->getCountOfCompanies($searchQuery);
         $companiesPerPage = 10;
@@ -40,13 +53,15 @@ class CompaniesController extends Controller
         
         $offset = $companiesPerPage * ($currentPage-1);
         
-        $companiesLimitedPerPage = $companiesModel->getCompaniesLimitedPerPage($companiesPerPage, $offset, $searchQuery);
+        $companiesLimitedPerPage = $companiesModel->getCompaniesLimitedPerPage($companiesPerPage, $offset, $searchQuery, $sortField, $sortOrder);
 
         return $this->view('companies',[
             'currentPage' => $currentPage,
             'pages' => $pages,
             'companiesLimitedPerPage' => $companiesLimitedPerPage,
-            'searchQuery' => $searchQuery
+            'searchQuery' => $searchQuery,
+            'sortField' => $sortField,
+            'sortOrder' => $sortOrder
         ]);
 
     }
