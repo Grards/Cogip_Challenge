@@ -12,7 +12,7 @@ use App\Core\DatabaseManager;
         </div>
       </div>
   <div class="table-container withoutSlogan">
-    <div class="table-title">
+    <div class="table-title underlined">
       <h2>All contacts</h2>
     </div>
     <form action="invoices" method="GET">
