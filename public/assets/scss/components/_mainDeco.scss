@@ -1,0 +1,25 @@
+@import "../abstracts/mixin";
+
+#png-one{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    & img{
+        height: 75px;
+        @include responsive-desktop{
+            height: 150px;
+        }    
+    }
+}
+
+#png-two{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    & img{
+        height: 100px;
+        @include responsive-desktop{
+            height: 200px;
+        }       
+    }
+}

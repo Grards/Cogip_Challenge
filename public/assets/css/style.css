@@ -89,7 +89,7 @@ main {
   width: 100%;
   background-color: #F9DE4E;
   height: 80px;
-  z-index: 1;
+  z-index: 3;
 }
 @media screen and (min-width: 1080px) {
   #navbar {
@@ -248,11 +248,68 @@ main {
   }
 }
 
+#slogan-container {
+  background-color: #F9DE4E;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 500px;
+}
+@media screen and (min-width: 1080px) {
+  #slogan-container {
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  #slogan-container-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+#slogan-text-container {
+  padding-left: 20px;
+}
+#slogan-text-container p {
+  font-family: Inter, sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: 45px;
+}
+@media screen and (min-width: 1080px) {
+  #slogan-text-container p {
+    font-size: 65px;
+    line-height: 78.66px;
+  }
+}
+
+#slogan-img-container {
+  display: flex;
+  justify-content: center;
+}
+#slogan-img-container img {
+  width: 350px;
+}
+@media screen and (min-width: 780px) and (max-width: 1080px) {
+  #slogan-img-container img {
+    width: 450px;
+  }
+}
+@media screen and (min-width: 1080px) {
+  #slogan-img-container img {
+    width: 700px;
+  }
+}
+
 .test-clip {
   background-color: #FFF;
-  width: 375px;
+  width: 350px;
   height: 50px;
-  margin-bottom: 0px;
   clip-path: polygon(57% 60%, 86% 36%, 100% 100%, 100% 100%, 0 100%, 0 62%);
 }
 @media screen and (min-width: 780px) and (max-width: 1080px) {
@@ -264,54 +321,64 @@ main {
 }
 @media screen and (min-width: 1080px) {
   .test-clip {
-    width: 1300px;
+    width: 1000px;
     clip-path: polygon(57% 43%, 85% 0, 100% 100%, 100% 100%, 0 100%, 0 46%);
   }
 }
 
-#slogan-container {
-  background-color: #F9DE4E;
+#slogan-bottom-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#slogan-container-display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 @media screen and (min-width: 1080px) {
-  #slogan-container-display {
-    display: flex;
+  #slogan-bottom-container {
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-#slogan-text p {
+@media screen and (min-width: 1080px) {
+  #slogan-bottom-text {
+    padding-left: 20px;
+    width: 600px;
+  }
+}
+#slogan-bottom-text p {
   font-family: Inter, sans-serif;
   font-size: 40px;
   font-weight: 900;
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   line-height: 45px;
 }
 @media screen and (min-width: 1080px) {
-  #slogan-text p {
+  #slogan-bottom-text p {
     font-size: 65px;
     line-height: 78.66px;
-    margin-left: 50px;
+    text-align: left;
   }
 }
 
-img {
-  height: 400px;
+#slogan-bottom-img {
+  margin-top: 20px;
+}
+#slogan-bottom-img img {
+  top: 0;
+  left: 0;
+  width: 200px;
+  object-fit: cover;
 }
 @media screen and (min-width: 1080px) {
-  img {
-    height: 600px;
+  #slogan-bottom-img img {
+    width: 500px;
   }
+}
+#slogan-bottom-img img:first-child {
+  position: relative;
+  z-index: 2;
 }
 
 footer {
@@ -459,7 +526,7 @@ svg {
 .table-container {
   display: flex;
   flex-direction: column;
-  width: 375px;
+  width: 350px;
   margin-bottom: 50px;
   overflow-x: auto;
 }
@@ -482,13 +549,13 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 10px;
 }
 .table-title h2 {
   font-family: Inter, sans serif;
   font-weight: 900;
   font-size: 30px;
   color: #000;
-  background-color: #FFF;
   width: 100%;
   padding: 20px 10px;
 }
@@ -543,6 +610,34 @@ tr:nth-child(even) td {
   background: #FFF;
 }
 
+#png-one {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+#png-one img {
+  height: 75px;
+}
+@media screen and (min-width: 1080px) {
+  #png-one img {
+    height: 150px;
+  }
+}
+
+#png-two {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+#png-two img {
+  height: 100px;
+}
+@media screen and (min-width: 1080px) {
+  #png-two img {
+    height: 200px;
+  }
+}
+
 .pagination {
   display: inline-block;
   margin: 10px auto;
@@ -575,6 +670,7 @@ tr:nth-child(even) td {
 form {
   display: flex;
   justify-content: flex-end;
+  padding-right: 10px;
 }
 
 #submit_input {

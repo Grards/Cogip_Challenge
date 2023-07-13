@@ -28,8 +28,21 @@ class InvoicesController extends Controller
         }
 
         $searchQuery = $_GET['search'] ?? '';
+        $sortField = $_GET['sort_field'] ?? '';
+        $sortOrder = $_GET['sort_order'] ?? '';
 
-        $countOfInvoices = $invoicesModel->getCountOfInvoices($searchQuery);
+        $validSortFields = ['ref', 'due_date', 'companies_name', 'price', 'invoices.created_at'];
+        $validSortOrder = ['asc', 'desc'];
+
+        if (!in_array($sortField, $validSortFields)) {
+            $sortField = 'ref';
+        }
+    
+        if (!in_array($sortOrder, $validSortOrder)) {
+            $sortOrder = 'asc';
+        }
+
+        $countOfInvoices = $invoicesModel->getCountOfInvoices($searchQuery, $sortField, $sortOrder);
         $invoicesPerPage = 10;
          
         $pages = ceil($countOfInvoices[0] / $invoicesPerPage);
@@ -40,13 +53,15 @@ class InvoicesController extends Controller
         
         $offset = $invoicesPerPage * ($currentPage-1);
        
-        $invoicesLimitedPerPage = $invoicesModel->getInvoicesLimitedPerPage($invoicesPerPage, $offset, $searchQuery);
+        $invoicesLimitedPerPage = $invoicesModel->getInvoicesLimitedPerPage($invoicesPerPage, $offset, $searchQuery, $sortField, $sortOrder);
 
         return $this->view('invoices',[
             'currentPage' => $currentPage,
             'pages' => $pages,
             'invoicesLimitedPerPage' => $invoicesLimitedPerPage,
-            'searchQuery' => $searchQuery
+            'searchQuery' => $searchQuery,
+            'sortField' => $sortField,
+            'sortOrder' => $sortOrder
         ]);
     }
 

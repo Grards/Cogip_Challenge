@@ -16,7 +16,7 @@
 .table-container{
     display: flex;
     flex-direction: column;
-    width: 375px;
+    width: 350px;
     margin-bottom: 50px;
     overflow-x: auto;
     &.withoutSlogan{
@@ -24,34 +24,42 @@
     }
     @include responsive-tablet {
         width: 700px;
-}
+    }
     @include responsive-desktop {
         width: 1000px;
         overflow: hidden;
+    }
 }
-}
-
-
 
 .table-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 10px;
     h2{
         font-family: Inter, sans serif;
         font-weight: 900;
         font-size: 30px;
         color:$Noir;
-        background-color: $Blanc;
+        // background-color: $Blanc;
+        // background-color: red;
         width: 100%;
         padding: 20px 10px;
         @include responsive-desktop {
             font-size: 60px;
             padding: 30px 20px;
+        }
     }
 }
 
-}
+// &.underlined{
+//         background-image: url("../../img/background-title.png");
+//         background-size: auto;
+//         background-repeat: no-repeat;
+//         // background-position: 50% 50%;
+//         // background-size: 50% 50%;
+// }
+
 
 .table{
     // margin: 20px 15px;
