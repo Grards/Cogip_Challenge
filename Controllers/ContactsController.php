@@ -28,6 +28,19 @@ class ContactsController extends Controller
         }
 
         $searchQuery = $_GET['search'] ?? '';
+        $sortField = $_GET['sort_field'] ?? 'name';
+        $sortOrder = $_GET['sort_order'] ?? 'asc';
+
+        $validSortFields = ['name', 'phone', 'email', 'company_id', 'created_at'];
+        $validSortOrder = ['asc', 'desc'];
+
+    if (!in_array($sortField, $validSortFields)) {
+        $sortField = 'name';
+    }
+
+    if (!in_array($sortOrder, $validSortOrder)) {
+        $sortOrder = 'asc';
+    }
 
         $countOfContacts = $contactsModel->getCountOfContacts($searchQuery);
         $contactsPerPage = 10;
@@ -40,13 +53,16 @@ class ContactsController extends Controller
         
         $offset = $contactsPerPage * ($currentPage-1);
         
-        $contactsLimitedPerPage = $contactsModel->getContactsLimitedPerPage($contactsPerPage, $offset, $searchQuery);
+        $contactsLimitedPerPage = $contactsModel->getContactsLimitedPerPage($contactsPerPage, $offset, $searchQuery, $sortField, $sortOrder);
 
         return $this->view('contacts',[
             'currentPage' => $currentPage,
             'pages' => $pages,
             'contactsLimitedPerPage' => $contactsLimitedPerPage,
-            'searchQuery' => $searchQuery
+            'searchQuery' => $searchQuery,
+            'sortField' => $sortField,
+            'sortOrder' => $sortOrder
+            
         ]);
     }
 
