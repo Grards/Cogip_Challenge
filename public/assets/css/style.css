@@ -89,7 +89,7 @@ main {
   width: 100%;
   background-color: #F9DE4E;
   height: 80px;
-  z-index: 1;
+  z-index: 3;
 }
 @media screen and (min-width: 1080px) {
   #navbar {
@@ -324,6 +324,61 @@ main {
     width: 1000px;
     clip-path: polygon(57% 43%, 85% 0, 100% 100%, 100% 100%, 0 100%, 0 46%);
   }
+}
+
+#slogan-bottom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 1080px) {
+  #slogan-bottom-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  #slogan-bottom-text {
+    padding-left: 20px;
+    width: 600px;
+  }
+}
+#slogan-bottom-text p {
+  font-family: Inter, sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 45px;
+}
+@media screen and (min-width: 1080px) {
+  #slogan-bottom-text p {
+    font-size: 65px;
+    line-height: 78.66px;
+    text-align: left;
+  }
+}
+
+#slogan-bottom-img {
+  margin-top: 20px;
+}
+#slogan-bottom-img img {
+  top: 0;
+  left: 0;
+  width: 200px;
+  object-fit: cover;
+}
+@media screen and (min-width: 1080px) {
+  #slogan-bottom-img img {
+    width: 500px;
+  }
+}
+#slogan-bottom-img img:first-child {
+  position: relative;
+  z-index: 2;
 }
 
 footer {

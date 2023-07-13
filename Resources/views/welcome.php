@@ -109,6 +109,7 @@
       ?>
     </main>
     <?php
+      include 'includes/sloganBottom.php';
       include 'includes/footer.php';
     ?>
 
