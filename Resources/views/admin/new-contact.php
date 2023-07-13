@@ -9,7 +9,9 @@
 ?>  
 
 <main>
-    <form id="new-contact" action="treatment" method="POST">
+    <form id="new-contact" action="<?php echo BASE_URL.'dashboard/treatment'?>" method="POST">
+        <input type="hidden" name="new-contact" value="valeur-de-new-contact">
+
         <label for="new-contact__picture">Picture : </label>
         <input type="file" id="new-contact__picture" name="new-contact__picture">
 
