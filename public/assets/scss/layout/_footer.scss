@@ -11,7 +11,8 @@ footer{
   font-family: 'Assistant',sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: $Noir;
+  color: $GrisBruno;
+  margin-bottom: 50px;
   @include responsive-desktop{
     margin-top: 100px;
     padding: 0px 200px;
@@ -89,10 +90,10 @@ footer{
   font-family: 'Assistant', sans-serif;
   font-weight: 400;
   font-size: 12px;
-  color: $Noir;
   text-decoration: none;
   text-transform: uppercase;
   margin-right: 5px;
+  color: $GrisBruno;
   width: 100%;
     @include responsive-desktop{
       font-size: 18px;
@@ -116,7 +117,7 @@ footer{
   font-family: 'Assistant', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: $GrisFonce;
+  // color: $GrisFonce;
   margin-top: 10px;
   @include responsive-desktop{
     font-size: 18px;
