@@ -28,8 +28,8 @@ class CompaniesController extends Controller
         }
 
         $searchQuery = $_GET['search'] ?? '';
-        $sortField = $_GET['sort_field'] ?? 'companies.name';
-        $sortOrder = $_GET['sort_order'] ?? 'asc';
+        $sortField = $_GET['sort_field'] ?? '';
+        $sortOrder = $_GET['sort_order'] ?? '';
 
         $validSortFields = ['companies.name', 'tva', 'country', 'type_id', 'companies.created_at'];
         $validSortOrder = ['asc', 'desc'];
@@ -42,7 +42,7 @@ class CompaniesController extends Controller
             $sortOrder = 'asc';
         }
 
-        $countOfCompanies = $companiesModel->getCountOfCompanies($searchQuery);
+        $countOfCompanies = $companiesModel->getCountOfCompanies($searchQuery, $sortField, $sortOrder);
         $companiesPerPage = 10;
          
         $pages = ceil($countOfCompanies[0] / $companiesPerPage);

@@ -28,8 +28,8 @@ class InvoicesController extends Controller
         }
 
         $searchQuery = $_GET['search'] ?? '';
-        $sortField = $_GET['sort_field'] ?? 'ref';
-        $sortOrder = $_GET['sort_order'] ?? 'asc';
+        $sortField = $_GET['sort_field'] ?? '';
+        $sortOrder = $_GET['sort_order'] ?? '';
 
         $validSortFields = ['ref', 'due_date', 'companies_name', 'price', 'invoices.created_at'];
         $validSortOrder = ['asc', 'desc'];
@@ -42,7 +42,7 @@ class InvoicesController extends Controller
             $sortOrder = 'asc';
         }
 
-        $countOfInvoices = $invoicesModel->getCountOfInvoices($searchQuery);
+        $countOfInvoices = $invoicesModel->getCountOfInvoices($searchQuery, $sortField, $sortOrder);
         $invoicesPerPage = 10;
          
         $pages = ceil($countOfInvoices[0] / $invoicesPerPage);
