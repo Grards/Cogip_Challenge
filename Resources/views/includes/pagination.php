@@ -3,7 +3,7 @@
         $link = BASE_URL.'contacts';
         
         if($currentPage > 1):  
-            echo "<a href=" . $link . "?page=" . ($currentPage - 1) . "&search=" . $searchQuery . "&sort=" . $sortField . "&order=" . $sortOrder . " class='pagination__btn'>&lt;</a>";
+            echo "<a href=" . $link . "?page=" . $currentPage - 1 . "&search=" . $searchQuery . "&sort=" . $sortField . "&order=" . $sortOrder . " class='pagination__btn coin'>&lt;</a>";
         endif;
 
         $pageNumber = 1;
@@ -19,7 +19,7 @@
         }
 
         if($currentPage < $pages): 
-            echo "<a href=" . $link . "?page=" . ($currentPage + 1) . "&search=" . $searchQuery . "&sort=" . $sortField . "&order=" . $sortOrder . " class='pagination__btn'>&gt;</a>";
+            echo "<a href=" . $link . "?page=" . $currentPage + 1 . "&search=" . $searchQuery . " class='pagination__btn'>&gt;</a>";
         endif;
     echo "</section>"
 ?>

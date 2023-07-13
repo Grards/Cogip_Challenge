@@ -32,7 +32,10 @@
           ?>
         </table>
     </div>  
-    
+    <!-- png one -->
+    <div id="png-one">
+      <img src="assets/img/main_deco_one.png" alt="type qui tend un livre">
+    </div>
     <!-- Last Contacts -->
     <div class="table-container">
       <div class="table-title">
@@ -60,7 +63,11 @@
           ?>
         </table>
     </div>
-
+    </div>  
+    <!-- png two -->
+    <div id="png-two">
+      <img src="assets/img/main_deco_two.png" alt="type qui tend un livre">
+    </div>
     <!-- Last companies -->
     <div class="table-container">
       <div class="table-title">
@@ -101,8 +108,10 @@
         // Accès autorisé pour companies : id, name, type_id, country, tva, created_at, updated_at
       ?>
     </main>
+    <?php
+      include 'includes/sloganBottom.php';
+      include 'includes/footer.php';
+    ?>
+
 </body>
-<?php
-// include 'includes/footer.php';
-?>
 

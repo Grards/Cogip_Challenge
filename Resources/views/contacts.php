@@ -8,13 +8,12 @@ use App\Core\DatabaseManager;
   include VIEWS.'includes/columnSort.php';
 ?>
 <main>
-
-  <div class="table-container withoutSlogan">
-    <div class="backgroundColorTestClip">
-      <div class="test-clip">
+      <div class="table-shape">
+        <div class="test-clip">
+        </div>
       </div>
-    </div>
-    <div class="table-title">
+  <div class="table-container withoutSlogan">
+    <div class="table-title underlined">
       <h2>All contacts</h2>
     </div>
     <form action="contacts" method="GET">
@@ -76,8 +75,9 @@ use App\Core\DatabaseManager;
     include VIEWS . 'includes/pagination.php';
   ?>
 </main>
-<footer id="footer">
-</footer>
+  <?php
+    include 'includes/footer.php';
+  ?>
 </body>
 
 </html>

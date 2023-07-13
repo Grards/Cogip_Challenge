@@ -1,26 +1,33 @@
 @import "../abstracts/colors";
 @import "../abstracts/mixin";
 
+// page active ?
+
 .pagination{
-        display: inline-block;
+    display: inline-block;
+    margin: 10px auto;
        a {
+        text-decoration: none;
         font-weight: 700;
         font-size: 20px;
         color: $Noir;
-        float: left;
-        padding: 4px;
-        text-decoration: none;
+        padding: 8px 12px;
+        margin: 5px;
+        height: 20px;
+        width: 20px;
         border-radius: 5px;
-        border: 1px $Noir solid;
+        border: 1px $GrisMoyen solid;
+        &.coin{
+            color: $Jaune;
+        }
         &:hover{
-            background-color: $Gris;
+            background-color: $GrisFonce;
+            color: $Jaune;
+            border: $Blanc;
         }
         &:active{
             background-color: $Jaune;
             border: 1px $Jaune solid;
         }
-        // @include responsive-desktop{
-
-        // }
       }
 }

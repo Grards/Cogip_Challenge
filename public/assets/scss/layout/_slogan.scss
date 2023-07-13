@@ -2,12 +2,63 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
+#slogan-container{
+    background-color: $Jaune;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 500px;
+    @include responsive-desktop{
+        height: 600px;
+    }
+}
 
+#slogan-container-display{
+    @include responsive-desktop{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+}
+
+#slogan-text-container{
+    padding-left:20px;
+     p{
+        font-family: Inter, sans-serif;
+        font-size: 40px;
+        font-weight: 900;
+        text-align:left;
+        text-transform: uppercase;
+        line-height: 45px ;
+        @include responsive-desktop {
+                        font-size: 65px;
+                        line-height: 78.66px ;
+                }
+    }
+}
+
+#slogan-img-container{
+    display: flex;
+    justify-content: center;
+    img{
+        width: 350px;
+        @include responsive-tablet{
+            width: 450px;
+        }
+        @include responsive-desktop{
+            width: 700px;
+        }
+    }
+}
+
+
+//shape
 .test-clip{
     background-color: $Blanc;
-    width: 375px;
+    // background-color: red;
+    width: 350px;
     height: 50px;
-    margin-bottom: 0px;
     clip-path: polygon(57% 60%, 86% 36%, 100% 100%, 100% 100%, 0 100%, 0 62%);
     @include responsive-tablet{
         height: 100px;
@@ -15,49 +66,39 @@
         clip-path: polygon(57% 60%, 86% 36%, 100% 100%, 100% 100%, 0 100%, 0 62%);
     }
     @include responsive-desktop{
-        width: 1300px;
+        width: 1000px;
         clip-path: polygon(57% 43%, 85% 0, 100% 100%, 100% 100%, 0 100%, 0 46%);
     }
 }
 
-#slogan-container{
-    background-color: $Jaune;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-#slogan-container-display{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // margin:  80px auto 0px auto;
-    @include responsive-desktop {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-}
-}
-#slogan-text{
-    p{
-        font-family: Inter, sans-serif;
-        font-size: 40px;
-        font-weight: 900;
-        margin: 20px auto 0px 15px;
-        text-align:left;
-        text-transform: uppercase;
-        line-height: 45px ;
-        @include responsive-desktop {
-            font-size: 65px;
-            line-height: 78.66px ;
-            margin-left: 50px;
-    }
-    }
-}
 
-img{
-    height: 400px;
-    @include responsive-desktop {
-            height: 600px;
-    }
-}
+
+
+
+// #slogan-container-display{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     // margin:  80px auto 0px auto;
+//     @include responsive-desktop {
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-between;
+// }
+// }
+// #slogan-text{
+//     p{
+//         font-family: Inter, sans-serif;
+//         font-size: 40px;
+//         font-weight: 900;
+//         text-align:left;
+//         text-transform: uppercase;
+//         line-height: 45px ;
+//         @include responsive-desktop {
+//             font-size: 65px;
+//             line-height: 78.66px ;
+//             margin-left: 50px;
+//     }
+//     }
+// }
