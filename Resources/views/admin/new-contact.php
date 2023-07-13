@@ -19,7 +19,14 @@
         <input type="text" id="new-contact__name" name="new-contact__name" required>
 
         <label for="new-contact__company">Company : </label>
-        <input type="text" id="new-contact__company" name="new-contact__company">
+        <select name="new-contact__company" id="new-contact__company" required>
+            <option value="">-- Please choose a company --</option>
+            <?php 
+                foreach($companiesNames as $company){
+                    echo "<option value='$company[companies_name]'>$company[companies_name]</option>";
+                }
+            ?>
+        </select>
 
         <label for="email">Email : </label>
         <input type="email" id="new-contact__email" name="new-contact__email" required>

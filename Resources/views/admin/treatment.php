@@ -9,14 +9,14 @@
 ?>  
 
 <main class="dash_main">
-    <h2>Y a quelqu'un ?</h2>
+    <h2>Is the encoded information correct ?</h2>
 
 <?php
-    echo "<p>" . $name . "</p>";
-    echo "<p>" . $company . "</p>";
-    echo "<p>" . $email . "</p>";
-    echo "<p>" . $phone . "</p>";
-    echo "<p>" . $created_at . "</p>";
+    echo "<p>Name : " . $contact_name . "</p>";
+    echo "<p>Company : " . $contact_company . "</p>";
+    echo "<p>Email : " . $contact_email . "</p>";
+    echo "<p>Phone : " . $contact_phone . "</p>";
+    echo "<p>Creation date : " . $contact_created_at . "</p>";
 ?>
 
 </main>

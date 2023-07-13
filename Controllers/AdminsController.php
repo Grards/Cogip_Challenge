@@ -48,33 +48,27 @@ class AdminsController extends Controller
 
     public function treatment(){
 
-        $name = null;
-        $company = null;
-        $email = null;
-        $phone = null;
-        $created_at = null;
-
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(isset($_POST['new-contact'])){
-                $name = htmlspecialchars($_POST['new-contact__name']);
-                $company = htmlspecialchars($_POST['new-contact__company']);
-                $email = htmlspecialchars($_POST['new-contact__email']);
-                $phone = htmlspecialchars($_POST['new-contact__phone']);
-                $created_at = date("Y/m/d hh:mm:ss");
+                $contact_name = htmlspecialchars($_POST['new-contact__name']);
+                $contact_company = htmlspecialchars($_POST['new-contact__company']);
+                $contact_email = htmlspecialchars($_POST['new-contact__email']);
+                $contact_phone = htmlspecialchars($_POST['new-contact__phone']);
+                $contact_created_at = date("Y/m/d hh:mm:ss");
 
                 if(isset($_POST['new-contact__picture'])){
                     // Picture treatment
                 }
+
+                return $this->viewAdmin('treatment',[
+                    "contact_name" => $contact_name,
+                    "contact_company" => $contact_company,
+                    "contact_email" => $contact_email,
+                    "contact_phone" => $contact_phone,
+                    "contact_created_at" => $contact_created_at
+                ]);
             }
         }
-
-        return $this->viewAdmin('treatment',[
-            "name" => $name,
-            "company" => $company,
-            "email" => $email,
-            "phone" => $phone,
-            "created_at" => $created_at
-        ]);
     }
 
     public function newInvoice(){
@@ -98,9 +92,11 @@ class AdminsController extends Controller
     public function newContact(){
         $adminModel = new Admin();
         $user = $adminModel->getUser();
+        $companiesNames =  $adminModel->getNamesOfCompanies();
 
         return $this->viewAdmin('new-contact',[
-            "user" => $user[0]
+            "user" => $user[0],
+            "companiesNames" => $companiesNames
         ]);
     }
 }
