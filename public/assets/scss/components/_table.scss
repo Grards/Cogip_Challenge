@@ -84,6 +84,10 @@ thead th{
     text-align: justify;
     font-size: 16px;
     vertical-align: middle;
+    & a{
+        text-decoration: none;
+        
+    }
     @include responsive-desktop{
         font-size: 20px;
     }
