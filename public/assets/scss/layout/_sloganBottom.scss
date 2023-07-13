@@ -1,0 +1,59 @@
+@import "../abstracts/mixin";
+
+#slogan-bottom-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include responsive-desktop{
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+#slogan-bottom-text{
+    @include responsive-desktop{
+        padding-left: 20px;
+        width: 600px;
+    }
+    p{
+        font-family: Inter, sans-serif;
+        font-size: 40px;
+        font-weight: 900;
+        text-align:center;
+        text-transform: uppercase;
+        line-height: 45px ;
+        @include responsive-desktop {
+                        font-size: 65px;
+                        line-height: 78.66px ;
+                        text-align:left;
+                }
+            }
+}
+
+#slogan-bottom-img{
+    margin-top: 20px;
+    // position: relative;
+
+    img {
+        // position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        // height: 100%;
+        object-fit: cover;
+        @include responsive-desktop{
+            width: 500px;
+        }
+      }
+    img:first-child{
+        position: relative;
+        z-index: 2;
+    }
+    // img:last-child{
+    //     position:relative
+    //     z-index: 1;
+    // }
+
+}

@@ -15,7 +15,7 @@ use App\Core\DatabaseManager;
     <div class="table-container withoutSlogan">
         <div id="test-clip">
         </div>
-        <div class="table-title">
+        <div class="table-title underlined">
             <h2>All companies</h2>
         </div>
         <form action="invoices" method="GET">
