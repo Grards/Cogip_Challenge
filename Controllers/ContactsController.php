@@ -28,8 +28,8 @@ class ContactsController extends Controller
         }
 
         $searchQuery = $_GET['search'] ?? '';
-        $sortField = $_GET['sort_field'] ?? 'name';
-        $sortOrder = $_GET['sort_order'] ?? 'asc';
+        $sortField = $_GET['sort_field'] ?? '';
+        $sortOrder = $_GET['sort_order'] ?? '';
 
         $validSortFields = ['name', 'phone', 'email', 'company_id', 'created_at'];
         $validSortOrder = ['asc', 'desc'];
@@ -42,7 +42,7 @@ class ContactsController extends Controller
         $sortOrder = 'asc';
     }
 
-        $countOfContacts = $contactsModel->getCountOfContacts($searchQuery);
+        $countOfContacts = $contactsModel->getCountOfContacts($searchQuery, $sortField, $sortOrder);
         $contactsPerPage = 10;
          
         $pages = ceil($countOfContacts[0] / $contactsPerPage);

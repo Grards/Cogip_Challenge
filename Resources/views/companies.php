@@ -18,8 +18,10 @@ use App\Core\DatabaseManager;
         <div class="table-title underlined">
             <h2>All companies</h2>
         </div>
-        <form action="invoices" method="GET">
-            <input type="text" name="search" placeholder="Search company" id="submit_input">
+        <form action="companies" method="GET">
+            <input type="text" name="search" placeholder="Search company name">
+            <input type="hidden" name="sort" value="<?php echo $_GET['sort_field'] ?? ''; ?>">
+            <input type="hidden" name="order" value="<?php echo $_GET['sort_order'] ?? ''; ?>">
             <input type="submit" id="submit_btn">
             <!-- Bouton submit à cacher en CSS -->
         </form>
