@@ -18,6 +18,8 @@ use App\Core\DatabaseManager;
     </div>
     <form action="contacts" method="GET">
       <input type="text" name="search" placeholder="Search contact">
+      <input type="hidden" name="sort" value="<?php echo $_GET['sort_field'] ?? ''; ?>">
+      <input type="hidden" name="order" value="<?php echo $_GET['sort_order'] ?? ''; ?>">
       <input type="submit" id="submit_btn">
     </form>
 
@@ -31,27 +33,27 @@ use App\Core\DatabaseManager;
       <thead class="tableHead">
       <th>
       <!----------------------------------- Enlever le style des liens ci dessous en CSS please :) --------------------------->
-            <a href="?sort_field=name&sort_order=<?php echo ($sortField === 'name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=name&sort_order=<?php echo ($sortField === 'name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Name <?php echo ($sortField === 'name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=phone&sort_order=<?php echo ($sortField === 'phone' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=phone&sort_order=<?php echo ($sortField === 'phone' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Phone <?php echo ($sortField === 'phone') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=email&sort_order=<?php echo ($sortField === 'email' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=email&sort_order=<?php echo ($sortField === 'email' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Email <?php echo ($sortField === 'email') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=company_id&sort_order=<?php echo ($sortField === 'company_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=company_id&sort_order=<?php echo ($sortField === 'company_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Company <?php echo ($sortField === 'company_id') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?sort_field=created_at&sort_order=<?php echo ($sortField === 'created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=created_at&sort_order=<?php echo ($sortField === 'created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
                 Created at <?php echo ($sortField === 'created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
     </th>

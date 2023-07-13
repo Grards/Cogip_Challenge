@@ -49,9 +49,9 @@ class Invoice {
         $query = "SELECT invoices.id as invoices_id, invoices.ref as invoices_ref, invoices.id_company as invoices_id_company, invoices.created_at as invoices_created_at, invoices.updated_at as invoices_updated_at, invoices.due_date as invoices_due_date, invoices.price as invoices_price, companies.id as companies_id, companies.name as companies_name
         FROM invoices
         INNER JOIN companies ON invoices.id_company = companies.id
-        WHERE companies.name LIKE :query";
-        $query .= " ORDER BY $sortField $sortOrder";
-        $query .= " LIMIT $invoicesPerPage OFFSET $offset";
+        WHERE companies.name LIKE :query
+        ORDER BY $sortField $sortOrder
+        LIMIT $invoicesPerPage OFFSET $offset";
 
         $statement = $this->db->prepare($query);
         $statement->bindValue(':query', '%' . $searchQuery . '%');
