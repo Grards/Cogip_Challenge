@@ -1,244 +1,130 @@
 @import "../abstracts/colors";
-@import "../abstracts/fonts";
-@import "../abstracts/variables";
 @import "../abstracts/mixin";
+@import "../abstracts/fonts";
 
-.footer {
-  box-sizing: border-box;
-  position: relative ;
-  bottom: 0px;
-  height: 543px;
-  width: 100%;
+footer{
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
-  justify-content: space-around;
-  padding: 40px;
-  font-size: $font-size-footer;
-  font-family: $font-family-title;
-  color: rgba(0, 0, 0, 0.4);
-  font-weight: $font-weight-footer;
-  // overflow: auto;
-
-  @include responsive-tablet {
-    justify-content: space-around;
-    padding: 100px 60px;
+  margin: 50px 50px;
+  // justify-content: center;
+  align-items: center;
+  font-family: 'Assistant',sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $GrisBruno;
+  margin-bottom: 50px;
+  @include responsive-desktop{
+    margin-top: 100px;
+    padding: 0px 200px;
   }
-  @include responsive-desktop {
-    justify-content: space-around;
-    height: 543px;
-    padding: 100px 180px;
-  }
-  h4 {
-    width: 165px;
-    height: 63px;
-    outline: 5px solid $Jaune;
-    font-family: $font-family-text;
-    font-size: $font-size-name;
-    font-weight: $font-weight-title;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    line-height: 63px;
-    @include responsive-tablet {
-    }
-    @include responsive-desktop {
-    }
-  }
-  .footer_contact{
-  // display:inline-block;
-
-  .footer_contact {
-    // margin-left: auto;
-    // background-color: aquamarine;
-    // margin-right: 20px;
-    text-align: center;
-    display:flex ;
-    align-items: center;
-    float: right;
-    width: 460px;
-    height: 128px; 
 }
-   
-    .footer_contact_social_media_footer_contact_div_logo,
-    .footer_contact_social_media_logo,
 
-   
-    .footer_contact_div_logo_tel{
-      float: right; 
-    }
-    .footer_contact_logo_print {
-      float: right; 
-      margin-right: 100px;
-      }
-      .footer_contact_div_logo_localisation{
-        // float: right;
-        
-    }
-       
+#footer-contact{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  border-top: 2px solid $Jaune ;
+  border-bottom: 2px solid $GrisMoyen ;
+  width: 100%;
+  display: flex;
+  padding: 30px 20px;
+  margin-bottom: 10px;
+  @include responsive-desktop{
+    flex-direction: row;
+    height: 350px;
   }
-  // Social icon //
-  .footer_contact_social_media_footer_contact_div_logo {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     margin-right: 10px;
-    margin-top: 10px;
-    // background-color:rgba(162, 200, 25, 0.685);
-    // display:inline-block;
-   }
-  // Icon social média uniquement 
-   .footer_contact_social_media_logo {
-     width: 300px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     margin-left: 10px;
-    // background-color:rgb(35, 37, 37);
-   }
-    // icon tel et print
-  //  .footer_contact_div_logo_tel {
-    
-  //    width: 300px;
-  //    justify-content:space-around;
-  //    align-items: center;
-  //    display: flex;
-  //    justify-content: space-between;
-  //    // background-color:rgba(210, 39, 226, 0.142);
-  //    width: 105px;
-    
-  //   }
+}
 
-    .footer_contact_logo_print{
-     
-    //   // display:inline-block;
-    //   // align-items: center;
-    //   width: 120px;
-    //   justify-content:space-around;
-    //   //  align-items: center;
-    //  display: flex;
-    //  justify-content: space-between;
-    }
+#footer-logo h2{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  color: $GrisLogoFooter;
+  border: 5px $Jaune solid ;
+  padding: 5px;
+  margin-bottom: 20px;
+}
 
+#footer-contact-street,
+#footer-contact-tel-fax,
+#footer-contact-tel,
+#footer-contact-fax,
+#footer-social-media,
+#footer-navbar ul {
+  display: flex;
+  // justify-content:center;
+  align-items: center;
+}
 
-    // .footer_contact_div_logo_localisation{
-    //   //background-color:rgba(0, 255, 255, 0.131);
-    //   margin-right: 10px;
-    //   align-items: center;
-      
-    // }
-    // .footer_contact_div_logo_localisation{
-    //   display: flex;
-    //   align-items: center;
-    //   margin: 5px;
-      
-    // }
+#footer-contact-street,
+#footer-contact-tel-fax,
+#footer-social-media{
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
 
-
-  &_section {
-    display: flex;
-    flex-direction: column;
+#footer-navbar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  @include responsive-desktop {
     justify-content: space-between;
-    padding: 40px 0px;
-    gap: 60px;
-
-    @include responsive-tablet {
-      flex-direction: row;
-    }
-
+    flex-direction: row;
+  }
+}
+  #footer-navbar {
     @include responsive-desktop {
-      flex-direction: row;
-      gap: 100px;
+      justify-self: flex-start;
     }
   }
 
-  &_name {
-    width: 50%;
-    margin-right: auto;
-  }
-
-  .contact {
-
-    display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: start;
-      gap: 10px;
-       
-    .social_media {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: start;
-      gap: 10px;
-      svg {
-        margin: 0px 5px;
-        align-items: center;
-      }
-
-      &_logo {
-        display: flex;
-        border-spacing: 25px;
-      }
-
-      @include responsive-tablet {
-        
-      }
-
-      @include responsive-desktop {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-      }
-    }
-  }
-
-  &_down_line {
-    margin-bottom: 24px;
-    border: 1px solid #7bb9fc20;
-  }
-
-  &_nav-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    box-sizing: border-box;
-
-    @include responsive-tablet {
-      
-    }
-
+  #footer-text-gris-container {
     @include responsive-desktop {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    ul {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      text-align: left;
-      gap: 10px;
-
-      @include responsive-tablet {
-        
-      }
-
-      @include responsive-desktop {
-        gap: 69px;
-      }
-
-      a {
-        text-decoration: none;
-        color: rgba(0, 0, 0, 0.4);
-      }
-
-      li:hover {
-        outline: 2px solid rgba(0, 0, 0, 0.4);
-        outline-offset: 5px;
-      }
-    }
-
-    span {
+      justify-self: flex-end;
     }
   }
+
+#footer-navbar  a{
+  font-family: 'Assistant', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 5px;
+  color: $GrisBruno;
+  width: 100%;
+    @include responsive-desktop{
+      font-size: 18px;
+      margin-right: 20px;
+    } 
+}
+
+#footer-contact-infos{
+  justify-content: stretch;
+}
+
+#footer-social-media{
+  display: inline-block;
+  & p{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+.footer-text-gris{
+  font-family: 'Assistant', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  // color: $GrisFonce;
+  margin-top: 10px;
+  @include responsive-desktop{
+    font-size: 18px;
+    align-self: flex-end;
+  }
+}
+
+svg{
+  margin-right: 10px;
 }

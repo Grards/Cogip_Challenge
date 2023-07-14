@@ -5,18 +5,24 @@ use App\Core\DatabaseManager;
     include VIEWS.'includes/header.php';
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
+    include VIEWS.'includes/columnSort.php';
 ?>
 <main>
+    <div class="table-shape">
+        <div class="test-clip">
+        </div>
+    </div>
     <div class="table-container withoutSlogan">
         <div id="test-clip">
         </div>
-        <div class="table-title">
+        <div class="table-title underlined">
             <h2>All companies</h2>
         </div>
         <form action="companies" method="GET">
             <input type="text" name="search" placeholder="Search company name">
+            <input type="hidden" name="sort" value="<?php echo $_GET['sort_field'] ?? ''; ?>">
+            <input type="hidden" name="order" value="<?php echo $_GET['sort_order'] ?? ''; ?>">
             <input type="submit" id="submit_btn">
-            <!-- Bouton submit à cacher en CSS -->
         </form>
 
         <?php if (!is_null($companiesLimitedPerPage) && count($companiesLimitedPerPage) > 0) : ?>
@@ -27,12 +33,34 @@ use App\Core\DatabaseManager;
         <?php endif; ?>
 
         <table class="table">
-            <thead class="tableHead">
-                <th>Name</th>
-                <th>Type</th>
-                <th>Country</th>
-                <th>Tva</th>
-                <th>Created at</th>
+            <thead class="tableHead">   
+            <th>
+                <!----------------------------------- Enlever le style des liens ci dessous en CSS please :) --------------------------->
+            <a href="?search=<?php echo $searchQuery?>&sort_field=companies.name&sort_order=<?php echo ($sortField === 'companies.name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Name <?php echo ($sortField === 'companies.name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?search=<?php echo $searchQuery?>&sort_field=type_id&sort_order=<?php echo ($sortField === 'type_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Type <?php echo ($sortField === 'type_id') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?search=<?php echo $searchQuery?>&sort_field=country&sort_order=<?php echo ($sortField === 'country' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Country <?php echo ($sortField === 'country') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?search=<?php echo $searchQuery?>&sort_field=tva&sort_order=<?php echo ($sortField === 'tva' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                TVA <?php echo ($sortField === 'tva') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+        </th>
+        <th>
+            <a href="?search=<?php echo $searchQuery?>&sort_field=companies.created_at&sort_order=<?php echo ($sortField === 'companies.created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Created at <?php echo ($sortField === 'companies.created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            </a>
+
+            </thead>
             </thead>
             <?php
             foreach ($companiesLimitedPerPage as $company) {
@@ -52,8 +80,9 @@ use App\Core\DatabaseManager;
     include VIEWS . 'includes/pagination.php';
     ?>
 </main>
-<footer id="footer">
-</footer>
+    <?php
+        include 'includes/footer.php';
+    ?>
 </body>
 
 </html>

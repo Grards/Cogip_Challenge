@@ -2,16 +2,22 @@
 
 @use './base/htmlBody';
 
+@use './pages/dashboard';
+
 @use "./abstracts/colors";
 @use "./abstracts/fonts";
 @use "./abstracts/mixin";
 
 @use "./layout/header";
 @use "./layout/slogan";
+@use "./layout/sloganBottom";
 @use "./layout/footer";
+@use "./layout/aside";
 
 @use "./components/table";
+@use "./components/mainDeco";
 @use "./components/pagination";
+@use "./components/inputAndButton";
 
 
 

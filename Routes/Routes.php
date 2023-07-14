@@ -40,6 +40,10 @@ $router->get('/dashboard', function() {
     (new AdminsController)->index();
 });
 
+$router->get('/dashboard/treatment', function() {
+    (new AdminsController)->treatment();
+});
+
 $router->get('/dashboard/new-invoice', function() {
     (new AdminsController)->newInvoice();
 });
