@@ -23,4 +23,13 @@ class Admin
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getNamesOfCompanies(){
+        $query = "SELECT DISTINCT companies.name as companies_name
+        FROM companies";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
