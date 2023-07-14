@@ -47,6 +47,7 @@ class AdminsController extends Controller
     }
 
     public function treatment(){
+        $adminModel = new Admin();
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(isset($_POST['new-contact'])){
@@ -59,6 +60,9 @@ class AdminsController extends Controller
 
                 $contact_email = $this->emailValidation($contact_email, $_POST['new-contact__email']);
                 $contact_picture = $this->fileValidation($contact_picture);
+                $company_id= $adminModel->getIdOfCompany($contact_company);
+          
+                $adminModel->addContact($contact_name, $company_id['company_id'], $contact_email, $contact_phone, $contact_created_at, $contact_picture);
                 
                 return $this->viewAdmin('treatment',[
                     "contact_name" => $contact_name,
