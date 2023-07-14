@@ -59,4 +59,19 @@ class Admin
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function addInvoice($invoice_ref, $company_id, $invoice_due_date, $invoice_price, $invoice_created_at){
+        $query = "INSERT INTO invoices (ref, id_company, due_date, price, created_at, updated_at)
+        VALUES (:ref, :idCompany, :dueDate, :price, :createdAt, :updatedAt)";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':ref', $invoice_ref);
+        $statement->bindValue(':idCompany', $company_id);
+        $statement->bindValue(':dueDate', $invoice_due_date);
+        $statement->bindValue(':price', $invoice_price);
+        $statement->bindValue(':createdAt', $invoice_created_at);
+        $statement->bindValue(':updatedAt', $invoice_created_at);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

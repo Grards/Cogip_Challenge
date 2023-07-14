@@ -10,7 +10,7 @@
 
 <main>
     <form id="new-contact" action="<?php echo BASE_URL.'dashboard/treatment'?>" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="new-contact" value="valeur-de-new-contact">
+        <input type="hidden" name="new-contact" value="new-contact-value">
 
         <label for="new-contact__picture">Picture : </label>
         <input type="file" id="new-contact__picture" name="new-contact__picture">

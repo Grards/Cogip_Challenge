@@ -73,6 +73,25 @@ class AdminsController extends Controller
                     "contact_picture" => $contact_picture
                 ]);
             }
+            if(isset($_POST['new-invoice'])){
+                $invoice_ref = htmlspecialchars($_POST['new-invoice__ref']);
+                $invoice_company = htmlspecialchars($_POST['new-invoice__company']);
+                $invoice_due_date = htmlspecialchars($_POST['new-invoice__due_date']);
+                $invoice_price = filter_var(htmlspecialchars($_POST['new-invoice__price']),FILTER_SANITIZE_NUMBER_FLOAT);
+                $invoice_created_at = date("Y/m/d h:m:s");
+
+                $company_id= $adminModel->getIdOfCompany($invoice_company);
+          
+                $adminModel->addInvoice($invoice_ref, $company_id['company_id'], $invoice_due_date, $invoice_price, $invoice_created_at);
+                
+                return $this->viewAdmin('treatment',[
+                    "invoice_ref" => $invoice_ref,
+                    "invoice_company" => $invoice_company,
+                    "invoice_due_date" => $invoice_due_date,
+                    "invoice_price" => $invoice_price,
+                    "invoice_created_at" => $invoice_created_at
+                ]);
+            }
         }
     }
 
@@ -132,9 +151,11 @@ class AdminsController extends Controller
     public function newInvoice(){
         $adminModel = new Admin();
         $user = $adminModel->getUser();
+        $companiesNames =  $adminModel->getNamesOfCompanies();
 
         return $this->viewAdmin('new-invoice',[
-            "user" => $user[0]
+            "user" => $user[0],
+            "companiesNames" => $companiesNames
         ]);
     }
 
