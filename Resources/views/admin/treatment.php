@@ -6,8 +6,8 @@
     <h2>Here is the restult</h2>
 
 <?php
-    var_dump($contact_picture);
-    $contact_picture = IMG.$contact_picture;
+    var_dump(IMG.'contacts/'.$contact_picture);
+    $contact_picture = IMG.'contacts/'.$contact_picture;
 
     echo "<img src='$contact_picture'>";
 

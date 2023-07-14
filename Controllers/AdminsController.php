@@ -55,42 +55,11 @@ class AdminsController extends Controller
                 $contact_email = filter_var(htmlspecialchars($_POST['new-contact__email']), FILTER_SANITIZE_EMAIL);
                 $contact_phone = htmlspecialchars($_POST['new-contact__phone']);
                 $contact_created_at = date("Y/m/d h:m:s");
-                $contact_picture = "";
+                $contact_picture = $_FILES['new-contact__picture'];
 
-                if(isset($_POST['new-contact__picture'])){
-                    // File validation
-                    define("ALLOWED_SIZE", 2097152);    // CHANGE ALLOWED SIZE AS YOUR NEED
-                    define("SAVED_DIRECTORY", IMG."contacts/"); // CHANGE SAVED DIRECTORY AS YOUR NEED
-
-                    $allowed_extensions = array("jpeg", "jpg", "png"); // CHANGE allowed extension AS YOUR NEED
-
-                    if(isset($_FILES['new-contact__picture'])){
-                        $errors = array();
-                        
-                        $uploaded_file_name = $_FILES['new-contact__picture']['name'];
-                        $uploaded_file_size = $_FILES['new-contact__picture']['size'];
-                        $uploaded_file_tmp  = $_FILES['new-contact__picture']['tmp_name'];
-                        $uploaded_file_type = $_FILES['new-contact__picture']['type'];
-
-                        $file_compositions = explode('.', $uploaded_file_name);
-                        $file_ext = strtolower(end($file_compositions));
-                        
-                        $saved_file_name = $uploaded_file_name; // CHANGE FILE NAME AS YOUR NEED
-                        if(in_array($file_ext, $allowed_extensions) === false)
-                            $errors[] = 'Extension not allowed, please choose a JPEG or PNG file';
-
-                        if($uploaded_file_size > ALLOWED_SIZE)
-                            $errors[] = 'File size is too big';
-
-                        if(empty($errors) == true) { // if no error, uploaded image is valid
-                            move_uploaded_file($uploaded_file_tmp, SAVED_DIRECTORY . $saved_file_name);
-                            $contact_picture = $uploaded_file_name;
-                        } else {
-                            print_r($errors);
-                        }
-                    }
-                }
-
+                $contact_email = $this->emailValidation($contact_email, $_POST['new-contact__email']);
+                $contact_picture = $this->fileValidation($contact_picture);
+                
                 return $this->viewAdmin('treatment',[
                     "contact_name" => $contact_name,
                     "contact_company" => $contact_company,
@@ -99,6 +68,59 @@ class AdminsController extends Controller
                     "contact_created_at" => $contact_created_at,
                     "contact_picture" => $contact_picture
                 ]);
+            }
+        }
+    }
+
+    public function emailValidation($email, $POST){
+        $atPos = mb_strpos($email, '@');
+        $domain = mb_substr($email, $atPos + 1);
+
+        if (checkdnsrr($domain . '.', 'MX')) {
+            if(empty($POST)){
+                header("Location: ".BASE_URL."dashboard?&error_email_domain");
+                exit;
+            } else {
+                return $email;
+            }
+        }else{
+            header("Location: ".BASE_URL."dashboard?&error_email_dns");
+            exit;
+        }
+    }
+
+    public function fileValidation($FILES){
+        define("ALLOWED_SIZE", 2097152);
+        define("SAVED_DIRECTORY", __ROOT__."/public/assets/img/contacts/");
+
+        $allowed_extensions = array("jpeg", "jpg", "png");
+
+        if(isset($FILES)){
+            $errors = array();
+
+            $uploaded_file_name = $FILES['name'];
+            $uploaded_file_size = $FILES['size'];
+            $uploaded_file_tmp  = $FILES['tmp_name'];
+            $uploaded_file_type = $FILES['type'];
+
+            $file_compositions = explode('.', $uploaded_file_name);
+            $file_ext = strtolower(end($file_compositions));
+            
+            $saved_file_name = $uploaded_file_name; // CHANGE FILE NAME AS YOUR NEED
+            if(in_array($file_ext, $allowed_extensions) === false)
+                $errors[] = 'Extension not allowed, please choose a JPEG or PNG file';
+
+            if($uploaded_file_size > ALLOWED_SIZE)
+                $errors[] = 'File size is too big';
+
+            if(empty($errors) == true) { // if no error, uploaded image is valid
+                // var_dump($uploaded_file_tmp, SAVED_DIRECTORY . $saved_file_name);
+                // exit;
+                move_uploaded_file($uploaded_file_tmp, SAVED_DIRECTORY . $saved_file_name);
+                $contact_picture = $uploaded_file_name;
+                return $contact_picture;
+            } else {
+                print_r($errors);
             }
         }
     }
