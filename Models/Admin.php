@@ -33,12 +33,32 @@ class Admin
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getNamesOfTypes(){
+        $query = "SELECT DISTINCT types.name as types_name
+        FROM types";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function getIDOfCompany($contact_company){
         $query = "SELECT DISTINCT companies.id as company_id
         FROM companies
         WHERE companies.name = :contact_company";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':contact_company', $contact_company, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getIDOfType($company_type){
+        $query = "SELECT DISTINCT types.id as type_id
+        FROM types
+        WHERE types.name = :company_type";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':company_type', $company_type, \PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_ASSOC);
@@ -70,6 +90,21 @@ class Admin
         $statement->bindValue(':price', $invoice_price);
         $statement->bindValue(':createdAt', $invoice_created_at);
         $statement->bindValue(':updatedAt', $invoice_created_at);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function addCompany($company_name, $type_id, $company_country, $company_tva, $company_created_at){
+        $query = "INSERT INTO companies (name, type_id, country, tva, created_at, updated_at)
+        VALUES (:name, :typeID, :country, :tva, :createdAt, :updatedAt)";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':name', $company_name);
+        $statement->bindValue(':typeID', $type_id);
+        $statement->bindValue(':country', $company_country);
+        $statement->bindValue(':tva', $company_tva);
+        $statement->bindValue(':createdAt', $company_created_at);
+        $statement->bindValue(':updatedAt', $company_created_at);
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);

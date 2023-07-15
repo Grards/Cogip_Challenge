@@ -92,6 +92,25 @@ class AdminsController extends Controller
                     "invoice_created_at" => $invoice_created_at
                 ]);
             }
+            if(isset($_POST['new-company'])){
+                $company_name = htmlspecialchars($_POST['new-company__name']);
+                $company_type = htmlspecialchars($_POST['new-company__type_name']);
+                $company_country = htmlspecialchars($_POST['new-company__country']);
+                $company_tva = htmlspecialchars($_POST['new-company__tva']);
+                $company_created_at = date("Y/m/d h:m:s");
+
+                $type_id= $adminModel->getIdOfType($company_type);
+          
+                $adminModel->addCompany($company_name, $type_id['type_id'], $company_country, $company_tva, $company_created_at);
+                
+                return $this->viewAdmin('treatment',[
+                    "company_name" => $company_name,
+                    "company_type" => $company_type,
+                    "company_country" => $company_country,
+                    "company_tva" => $company_tva,
+                    "company_created_at" => $company_created_at
+                ]);
+            }
         }
     }
 
@@ -162,9 +181,11 @@ class AdminsController extends Controller
     public function newCompany(){
         $adminModel = new Admin();
         $user = $adminModel->getUser();
+        $typesNames = $adminModel->getNamesOfTypes();
 
         return $this->viewAdmin('new-company',[
-            "user" => $user[0]
+            "user" => $user[0],
+            "typesNames" => $typesNames
         ]);
     }
 
