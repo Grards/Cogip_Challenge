@@ -82,6 +82,10 @@ main {
   line-height: 3em;
 }
 
+.dash_main {
+  background-color: #E7E7E7;
+}
+
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -520,10 +524,15 @@ svg {
 }
 
 .dash-sidebar {
-  display: flex;
-  flex-direction: column;
-  background-color: lightgrey;
-  color: #000;
+  background-color: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  padding: 20px 0;
+  transition: all 0.5s ease;
+  z-index: 1;
 }
 
 .dash-sidebar__user_card {
@@ -531,17 +540,17 @@ svg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  height: 200px;
   border-bottom: 1px solid #919EAB;
 }
 .dash-sidebar__user_card img {
-  width: 105px;
+  width: 50px;
   margin-bottom: 20px;
 }
 .dash-sidebar__user_card h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
-  font-size: 25px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -550,9 +559,12 @@ svg {
   flex-direction: column;
   align-items: center;
   padding-top: 40px;
-  height: 800px;
 }
-.dash-sidebar__nav p {
+.dash-sidebar__nav ul {
+  display: flex;
+  flex-direction: column;
+}
+.dash-sidebar__nav li {
   margin-bottom: 20px;
 }
 .dash-sidebar__nav a {
@@ -565,13 +577,20 @@ svg {
   text-decoration: none;
   line-height: 24.2px;
 }
+.dash-sidebar__nav span {
+  display: none;
+}
+.dash-sidebar__navimg {
+  height: 40px;
+}
 
 .dash-sidebar__log {
   display: flex;
+  flex-direction: column;
   border-top: 1px solid #919EAB;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 100px 20px;
 }
 .dash-sidebar__log img {
   width: 48px;

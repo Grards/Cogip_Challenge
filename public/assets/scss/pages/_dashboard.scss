@@ -2,8 +2,11 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
-// .dash_main{
-//     display:grid;
-//     grid-template-columns: 300px 1fr;
-//     gap: 20px;
-// }
+$fondDashboard : #E7E7E7;
+
+.dash_main{
+    // display:grid;
+    // grid-template-columns: 300px 1fr;
+    // gap: 20px;
+    background-color: $fondDashboard;
+}
