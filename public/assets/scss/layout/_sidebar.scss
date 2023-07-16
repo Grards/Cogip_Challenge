@@ -2,7 +2,7 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
-.dash-aside{
+.dash-sidebar{
     display: flex;
     flex-direction: column;
     // width: 285px;
@@ -10,7 +10,7 @@
     color: $Noir;
 }
 
-.dash-aside__user_card{
+.dash-sidebar__user_card{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +29,7 @@
     }
 }
 
-.dash-aside__nav{
+.dash-sidebar__nav{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +49,7 @@
         line-height: 24.2px;
         }
 }
-.dash-aside__log{
+.dash-sidebar__log{
     display: flex;
     border-top: 1px solid $GrisFonce ;
     align-items: center;
