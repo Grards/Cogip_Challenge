@@ -40,7 +40,7 @@ $router->get('/dashboard', function() {
     (new AdminsController)->index();
 });
 
-$router->get('/dashboard/treatment', function() {
+$router->all('/dashboard/treatment', function() {
     (new AdminsController)->treatment();
 });
 
