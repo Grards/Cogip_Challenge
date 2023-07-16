@@ -10,11 +10,17 @@
 ?>  
 
 <main>
-    <form id="new-company" action="<?php echo BASE_URL.'dashboard/treatment'?>" method="POST" enctype="multipart/form-data">
+    <form id="new-company" action="<?php echo htmlspecialchars(BASE_URL.'dashboard/treatment')?>" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="new-company" value="new-company-value">
 
-        <label for="new-company__ref">Name : </label>
-        <input type="text" id="new-company__name" name="new-company__name" required>
+        <!-- TODO FOR FRONT : put position absolute and left: -99999px for .crud-password -->
+        <fieldset class="crud-password">
+            <label for="new-company__password">Password : </label>
+            <input type="text" name="new-company__password" tabindex="-1" autocomplete="off">
+        </fieldset>
+
+        <label for="new-company__name">Name : </label>
+        <input type="text" id="new-company__name" name="new-company__name" min=3 max=50 required>
 
         <label for="new-company__company">Type : </label>
         <select name="new-company__type_name" id="new-company__type_name" required>
@@ -36,7 +42,7 @@
         </select>
 
         <label for="new-company__tva">Tva : </label>
-        <input type="text" id="new-company__tva" name="new-company__tva" required>
+        <input type="text" id="new-company__tva" name="new-company__tva" min=8 max=50 required>
 
         <input type="submit" id="new-company__submit" value="Send new company" onclick="return confirm('Is the encoded information correct ?')">
     </form>

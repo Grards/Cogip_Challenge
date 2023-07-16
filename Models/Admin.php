@@ -68,13 +68,13 @@ class Admin
         $query = "INSERT INTO contacts (name, company_id, email, phone, created_at, updated_at, picture)
         VALUES (:name, :companyId, :email, :phone, :createdAt, :updatedAt, :picture)";
         $statement = $this->db->prepare($query);
-        $statement->bindValue(':name', $contact_name);
-        $statement->bindValue(':companyId', $company_id);
-        $statement->bindValue(':email', $contact_email);
-        $statement->bindValue(':phone', $contact_phone);
-        $statement->bindValue(':createdAt', $contact_created_at);
-        $statement->bindValue(':updatedAt', $contact_created_at);
-        $statement->bindValue(':picture', $contact_picture);
+        $statement->bindValue(':name', $contact_name, \PDO ::PARAM_STR);
+        $statement->bindValue(':companyId', $company_id, \PDO ::PARAM_INT);
+        $statement->bindValue(':email', $contact_email, \PDO ::PARAM_STR);
+        $statement->bindValue(':phone', $contact_phone, \PDO ::PARAM_STR);
+        $statement->bindValue(':createdAt', $contact_created_at, \PDO ::PARAM_STR);
+        $statement->bindValue(':updatedAt', $contact_created_at, \PDO ::PARAM_STR);
+        $statement->bindValue(':picture', $contact_picture, \PDO ::PARAM_STR);
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
@@ -84,12 +84,12 @@ class Admin
         $query = "INSERT INTO invoices (ref, id_company, due_date, price, created_at, updated_at)
         VALUES (:ref, :idCompany, :dueDate, :price, :createdAt, :updatedAt)";
         $statement = $this->db->prepare($query);
-        $statement->bindValue(':ref', $invoice_ref);
-        $statement->bindValue(':idCompany', $company_id);
-        $statement->bindValue(':dueDate', $invoice_due_date);
-        $statement->bindValue(':price', $invoice_price);
-        $statement->bindValue(':createdAt', $invoice_created_at);
-        $statement->bindValue(':updatedAt', $invoice_created_at);
+        $statement->bindValue(':ref', $invoice_ref, \PDO ::PARAM_STR);
+        $statement->bindValue(':idCompany', $company_id, \PDO ::PARAM_INT);
+        $statement->bindValue(':dueDate', $invoice_due_date, \PDO ::PARAM_STR);
+        $statement->bindValue(':price', $invoice_price, \PDO ::PARAM_STR);
+        $statement->bindValue(':createdAt', $invoice_created_at, \PDO ::PARAM_STR);
+        $statement->bindValue(':updatedAt', $invoice_created_at, \PDO ::PARAM_STR);
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
@@ -99,12 +99,12 @@ class Admin
         $query = "INSERT INTO companies (name, type_id, country, tva, created_at, updated_at)
         VALUES (:name, :typeID, :country, :tva, :createdAt, :updatedAt)";
         $statement = $this->db->prepare($query);
-        $statement->bindValue(':name', $company_name);
-        $statement->bindValue(':typeID', $type_id);
-        $statement->bindValue(':country', $company_country);
-        $statement->bindValue(':tva', $company_tva);
-        $statement->bindValue(':createdAt', $company_created_at);
-        $statement->bindValue(':updatedAt', $company_created_at);
+        $statement->bindValue(':name', $company_name, \PDO::PARAM_STR);
+        $statement->bindValue(':typeID', $type_id, \PDO ::PARAM_INT);
+        $statement->bindValue(':country', $company_country, \PDO ::PARAM_STR);
+        $statement->bindValue(':tva', $company_tva, \PDO ::PARAM_STR);
+        $statement->bindValue(':createdAt', $company_created_at, \PDO ::PARAM_STR);
+        $statement->bindValue(':updatedAt', $company_created_at, \PDO ::PARAM_STR);
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);

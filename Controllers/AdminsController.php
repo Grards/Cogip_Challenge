@@ -49,84 +49,104 @@ class AdminsController extends Controller
     public function treatment(){
         $adminModel = new Admin();
 
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)){
             if(isset($_POST['new-contact'])){
-                $contact_name = htmlspecialchars($_POST['new-contact__name']);
-                $contact_company = htmlspecialchars($_POST['new-contact__company']);
-                $contact_email = filter_var(htmlspecialchars($_POST['new-contact__email']), FILTER_SANITIZE_EMAIL);
-                $contact_phone = htmlspecialchars($_POST['new-contact__phone']);
-                $contact_created_at = date("Y/m/d h:m:s");
-                $contact_picture = $_FILES['new-contact__picture'];
-
-                $contact_email = $this->emailValidation($contact_email, $_POST['new-contact__email']);
-                $contact_picture = $this->fileValidation($contact_picture);
-                $company_id= $adminModel->getIdOfCompany($contact_company);
-          
-                $adminModel->addContact($contact_name, $company_id['company_id'], $contact_email, $contact_phone, $contact_created_at, $contact_picture);
-                
-                return $this->viewAdmin('treatment',[
-                    "contact_name" => $contact_name,
-                    "contact_company" => $contact_company,
-                    "contact_email" => $contact_email,
-                    "contact_phone" => $contact_phone,
-                    "contact_created_at" => $contact_created_at,
-                    "contact_picture" => $contact_picture
-                ]);
+                if(empty($_POST['new-contact__password'])){
+                    $contact_name = htmlspecialchars($_POST['new-contact__name']);
+                    $contact_company = htmlspecialchars($_POST['new-contact__company']);
+                    $contact_email = filter_var(htmlspecialchars($_POST['new-contact__email']), FILTER_SANITIZE_EMAIL);
+                    $contact_phone = htmlspecialchars($_POST['new-contact__phone']);
+                    $contact_created_at = date("Y/m/d h:m:s");
+                    $contact_picture = $_FILES['new-contact__picture'];
+    
+                    $contact_email = $this->emailValidation($contact_email, $_POST['new-contact__email']);
+                    $contact_picture = $this->fileValidation($contact_picture);
+                    $company_id= $adminModel->getIdOfCompany($contact_company);
+              
+                    $adminModel->addContact($contact_name, $company_id['company_id'], $contact_email, $contact_phone, $contact_created_at, $contact_picture);
+                    
+                    return $this->viewAdmin('treatment',[
+                        "contact_name" => $contact_name,
+                        "contact_company" => $contact_company,
+                        "contact_email" => $contact_email,
+                        "contact_phone" => $contact_phone,
+                        "contact_created_at" => $contact_created_at,
+                        "contact_picture" => $contact_picture
+                    ]);
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&error_crud_password");
+                    exit;
+                }
             }
             if(isset($_POST['new-invoice'])){
-                $invoice_ref = htmlspecialchars($_POST['new-invoice__ref']);
-                $invoice_company = htmlspecialchars($_POST['new-invoice__company']);
-                $invoice_due_date = htmlspecialchars($_POST['new-invoice__due_date']);
-                $invoice_price = filter_var(htmlspecialchars($_POST['new-invoice__price']),FILTER_SANITIZE_NUMBER_FLOAT);
-                $invoice_created_at = date("Y/m/d h:m:s");
-
-                $company_id= $adminModel->getIdOfCompany($invoice_company);
-          
-                $adminModel->addInvoice($invoice_ref, $company_id['company_id'], $invoice_due_date, $invoice_price, $invoice_created_at);
-                
-                return $this->viewAdmin('treatment',[
-                    "invoice_ref" => $invoice_ref,
-                    "invoice_company" => $invoice_company,
-                    "invoice_due_date" => $invoice_due_date,
-                    "invoice_price" => $invoice_price,
-                    "invoice_created_at" => $invoice_created_at
-                ]);
+                if(empty($_POST['new-invoice__password'])){
+                    $invoice_ref = htmlspecialchars($_POST['new-invoice__ref']);
+                    $invoice_company = htmlspecialchars($_POST['new-invoice__company']);
+                    $invoice_due_date = htmlspecialchars($_POST['new-invoice__due_date']);
+                    $invoice_price = filter_var(htmlspecialchars($_POST['new-invoice__price']),FILTER_SANITIZE_NUMBER_FLOAT);
+                    $invoice_created_at = date("Y/m/d h:m:s");
+    
+                    $company_id= $adminModel->getIdOfCompany($invoice_company);
+              
+                    $adminModel->addInvoice($invoice_ref, $company_id['company_id'], $invoice_due_date, $invoice_price, $invoice_created_at);
+                    
+                    return $this->viewAdmin('treatment',[
+                        "invoice_ref" => $invoice_ref,
+                        "invoice_company" => $invoice_company,
+                        "invoice_due_date" => $invoice_due_date,
+                        "invoice_price" => $invoice_price,
+                        "invoice_created_at" => $invoice_created_at
+                    ]);
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&error_crud_password");
+                    exit;
+                }
             }
             if(isset($_POST['new-company'])){
-                $company_name = htmlspecialchars($_POST['new-company__name']);
-                $company_type = htmlspecialchars($_POST['new-company__type_name']);
-                $company_country = htmlspecialchars($_POST['new-company__country']);
-                $company_tva = htmlspecialchars($_POST['new-company__tva']);
-                $company_created_at = date("Y/m/d h:m:s");
-
-                $type_id= $adminModel->getIdOfType($company_type);
-          
-                $adminModel->addCompany($company_name, $type_id['type_id'], $company_country, $company_tva, $company_created_at);
-                
-                return $this->viewAdmin('treatment',[
-                    "company_name" => $company_name,
-                    "company_type" => $company_type,
-                    "company_country" => $company_country,
-                    "company_tva" => $company_tva,
-                    "company_created_at" => $company_created_at
-                ]);
+                if(empty($_POST['new-company__password'])){
+                    $company_name = htmlspecialchars($_POST['new-company__name']);
+                    $company_type = htmlspecialchars($_POST['new-company__type_name']);
+                    $company_country = htmlspecialchars($_POST['new-company__country']);
+                    $company_tva = htmlspecialchars($_POST['new-company__tva']);
+                    $company_created_at = date("Y/m/d h:m:s");
+    
+                    $type_id= $adminModel->getIdOfType($company_type);
+              
+                    $adminModel->addCompany($company_name, $type_id['type_id'], $company_country, $company_tva, $company_created_at);
+                    
+                    return $this->viewAdmin('treatment',[
+                        "company_name" => $company_name,
+                        "company_type" => $company_type,
+                        "company_country" => $company_country,
+                        "company_tva" => $company_tva,
+                        "company_created_at" => $company_created_at
+                    ]);
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&error_crud_password");
+                    exit;
+                }
             }
         }
     }
 
     public function emailValidation($email, $POST){
-        $atPos = mb_strpos($email, '@');
-        $domain = mb_substr($email, $atPos + 1);
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $atPos = mb_strpos($email, '@');
+            $domain = mb_substr($email, $atPos + 1);
 
-        if (checkdnsrr($domain . '.', 'MX')) {
-            if(empty($POST)){
-                header("Location: ".BASE_URL."dashboard?&error_email_domain");
+            if (checkdnsrr($domain . '.', 'MX')) {
+                if(empty($POST)){
+                    header("Location: ".BASE_URL."dashboard?&error_email_domain");
+                    exit;
+                } else {
+                    return $email;
+                }
+            }else{
+                header("Location: ".BASE_URL."dashboard?&error_email_dns");
                 exit;
-            } else {
-                return $email;
             }
-        }else{
-            header("Location: ".BASE_URL."dashboard?&error_email_dns");
+        }else {
+            header("Location: ".BASE_URL."dashboard?&error_invalid_email");
             exit;
         }
     }
@@ -147,20 +167,27 @@ class AdminsController extends Controller
 
             $file_compositions = explode('.', $uploaded_file_name);
             $file_ext = strtolower(end($file_compositions));
-            
-            $saved_file_name = $uploaded_file_name; // CHANGE FILE NAME AS YOUR NEED
-            if(in_array($file_ext, $allowed_extensions) === false)
+
+
+            if (!in_array($file_ext, $allowed_extensions)) {
                 $errors[] = 'Extension not allowed, please choose a JPEG or PNG file';
-
-            if($uploaded_file_size > ALLOWED_SIZE)
+            }
+    
+            if ($uploaded_file_size > ALLOWED_SIZE) {
                 $errors[] = 'File size is too big';
-
-            if(empty($errors) == true) { // if no error, uploaded image is valid
-                // var_dump($uploaded_file_tmp, SAVED_DIRECTORY . $saved_file_name);
-                // exit;
-                move_uploaded_file($uploaded_file_tmp, SAVED_DIRECTORY . $saved_file_name);
-                $contact_picture = $uploaded_file_name;
-                return $contact_picture;
+            }
+    
+            if (empty($errors)) {
+                // Generate a unique file name
+                $saved_file_name = uniqid().'.'.$file_ext;
+                $saved_file_path = SAVED_DIRECTORY . $saved_file_name;
+    
+                if (move_uploaded_file($uploaded_file_tmp, $saved_file_path)) {
+                    $contact_picture = $saved_file_name;
+                    return $contact_picture;
+                } else {
+                    $errors[] = 'Failed to save the file';
+                }
             } else {
                 print_r($errors);
             }

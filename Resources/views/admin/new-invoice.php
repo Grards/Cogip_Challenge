@@ -9,8 +9,14 @@
 ?>  
 
 <main>
-    <form id="new-invoice" action="<?php echo BASE_URL.'dashboard/treatment'?>" method="POST" enctype="multipart/form-data">
+    <form id="new-invoice" action="<?php echo htmlspecialchars(BASE_URL.'dashboard/treatment')?>" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="new-invoice" value="new-invoice-value">
+
+        <!-- TODO FOR FRONT : put position absolute and left: -99999px for .crud-password -->
+        <fieldset class="crud-password">
+            <label for="new-invoice__password">Password : </label>
+            <input type="text" name="new-invoice__password" tabindex="-1" autocomplete="off">
+        </fieldset>
 
         <label for="new-invoice__ref">Reference : </label>
         <input type="text" id="new-invoice__ref" name="new-invoice__ref" required>
