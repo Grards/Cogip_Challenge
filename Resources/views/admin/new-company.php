@@ -5,11 +5,15 @@
     include VIEWS.'includes/admin/header_admin.php';
     include VIEWS.'includes/errors.php';
     include VIEWS.'includes/dateFormat.php';
-    include VIEWS.'includes/admin/aside_admin.php';
+    // include VIEWS.'includes/admin/aside_admin.php';
     include VIEWS.'includes/countriesList.php';
 ?>  
 
 <main>
+        <!-- dashboard aside container -->
+        <?php
+             include VIEWS.'includes/admin/sidebar_admin.php';
+        ?>
     <form id="new-company" action="<?php echo htmlspecialchars(BASE_URL.'dashboard/treatment')?>" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="new-company" value="new-company-value">
 
