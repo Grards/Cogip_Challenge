@@ -18,7 +18,11 @@
             $contact_email = filter_var(htmlspecialchars($contact['contacts_email']), FILTER_SANITIZE_EMAIL);
             $contact_phone = htmlspecialchars($contact['contacts_phone']);
             $contact_created_at = htmlspecialchars($contact['contacts_created_at']);
+            $contact_updated_at = htmlspecialchars($contact['contacts_updated_at']);
     ?>
+            <p>Creation date : <?= $contact_created_at; ?> </p>
+            <p>Last update : <?= $contact_updated_at; ?> </p>
+
             <form id="update-contact" action="<?php echo htmlspecialchars(BASE_URL.'dashboard/treatment')?>" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="update-contact" value="update-contact-value">
                 <input type="hidden" name="update-contact__id" value="<?= $idContact ?>">

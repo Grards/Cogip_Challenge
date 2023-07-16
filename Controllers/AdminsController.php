@@ -56,7 +56,7 @@ class AdminsController extends Controller
                     $contact_company = htmlspecialchars($_POST['new-contact__company']);
                     $contact_email = filter_var(htmlspecialchars($_POST['new-contact__email']), FILTER_SANITIZE_EMAIL);
                     $contact_phone = htmlspecialchars($_POST['new-contact__phone']);
-                    $contact_created_at = date("Y/m/d h:m:s");
+                    $contact_created_at = date("Y/m/d H:m:s");
                     $contact_picture = $_FILES['new-contact__picture'];
     
                     $contact_email = $this->emailValidation($contact_email, $_POST['new-contact__email']);
@@ -84,7 +84,7 @@ class AdminsController extends Controller
                     $invoice_company = htmlspecialchars($_POST['new-invoice__company']);
                     $invoice_due_date = htmlspecialchars($_POST['new-invoice__due_date']);
                     $invoice_price = filter_var(htmlspecialchars($_POST['new-invoice__price']),FILTER_SANITIZE_NUMBER_FLOAT);
-                    $invoice_created_at = date("Y/m/d h:m:s");
+                    $invoice_created_at = date("Y/m/d H:m:s");
     
                     $company_id= $adminModel->getIdOfCompany($invoice_company);
               
@@ -108,7 +108,7 @@ class AdminsController extends Controller
                     $company_type = htmlspecialchars($_POST['new-company__type_name']);
                     $company_country = htmlspecialchars($_POST['new-company__country']);
                     $company_tva = htmlspecialchars($_POST['new-company__tva']);
-                    $company_created_at = date("Y/m/d h:m:s");
+                    $company_created_at = date("Y/m/d H:m:s");
     
                     $type_id= $adminModel->getIdOfType($company_type);
               
@@ -133,7 +133,7 @@ class AdminsController extends Controller
                     $contact_company = htmlspecialchars($_POST['update-contact__company']);
                     $contact_email = filter_var(htmlspecialchars($_POST['update-contact__email']), FILTER_SANITIZE_EMAIL);
                     $contact_phone = htmlspecialchars($_POST['update-contact__phone']);
-                    $contact_update_at = date("Y/m/d h:m:s");
+                    $contact_update_at = date("Y/m/d H:m:s");
                     $contact_picture = $_FILES['update-contact__picture'];
     
                     $contact_email = $this->emailValidation($contact_email, $_POST['update-contact__email']);
@@ -289,7 +289,7 @@ class AdminsController extends Controller
                 "companiesNames" => $companiesNames,
                 "contact" => $contact,
                 "idContact" => $idContact,
-                "countOfContacts" => $countOfContacts['MAX(id)']
+                "countOfContacts" => $countOfContacts['MAX(id)'],
             ]);
         }else{
             header("Location: ".BASE_URL."dashboard?&no-entry");
