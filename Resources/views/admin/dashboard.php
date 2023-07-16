@@ -52,9 +52,9 @@
             </div>
             <table class="table">
                 <thead class="tableHead">
-                <th>Invoice Number</th>
-                <th>Dates due</th>
-                <th>Company</th>
+                    <th>Invoice Number</th>
+                    <th>Dates due</th>
+                    <th>Company</th>
                 </thead>
                 <?php
 

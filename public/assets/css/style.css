@@ -82,12 +82,6 @@ main {
   line-height: 3em;
 }
 
-.dash_main {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 20px;
-}
-
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -525,14 +519,14 @@ svg {
   margin-right: 10px;
 }
 
-.dash-aside {
+.dash-sidebar {
   display: flex;
   flex-direction: column;
   background-color: lightgrey;
   color: #000;
 }
 
-.dash-aside__user_card {
+.dash-sidebar__user_card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -540,28 +534,28 @@ svg {
   height: 300px;
   border-bottom: 1px solid #919EAB;
 }
-.dash-aside__user_card img {
+.dash-sidebar__user_card img {
   width: 105px;
   margin-bottom: 20px;
 }
-.dash-aside__user_card h3 {
+.dash-sidebar__user_card h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-size: 25px;
   text-align: center;
 }
 
-.dash-aside__nav {
+.dash-sidebar__nav {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 40px;
   height: 800px;
 }
-.dash-aside__nav p {
+.dash-sidebar__nav p {
   margin-bottom: 20px;
 }
-.dash-aside__nav a {
+.dash-sidebar__nav a {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -572,14 +566,14 @@ svg {
   line-height: 24.2px;
 }
 
-.dash-aside__log {
+.dash-sidebar__log {
   display: flex;
   border-top: 1px solid #919EAB;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
 }
-.dash-aside__log img {
+.dash-sidebar__log img {
   width: 48px;
 }
 

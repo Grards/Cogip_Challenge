@@ -1,5 +1,5 @@
 
-<aside class="dash-sidebar">
+<div class="dash-sidebar">
         <section class="dash-sidebar__user_card">
             <img class="user_card--picture" src="<?php echo IMG."contacts/$user[users_picture]"; ?>" alt="User <?php echo "$user[users_first_name]"; ?>'s profil picture">
             <h3 class="user_card--first_name"><?php echo "$user[users_first_name]"; ?></h3>
@@ -16,5 +16,5 @@
             <!-- TODO LOGOUT SYSTEM -->
             <p class="log--link"><a href="#">Logout</a></p>
         </section>
-    </aside>
+</div>
 
