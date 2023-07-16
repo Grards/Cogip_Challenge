@@ -11,16 +11,17 @@
 <main>
     <?php 
         if($crud === 'update_contact' && $idContact > 0 && $idContact <= $countOfContacts && isset($contact['contacts_id'])){
+            $contact_id = filter_var(htmlspecialchars($idContact), FILTER_SANITIZE_NUMBER_INT);
             $contact_picture = htmlspecialchars(IMG.'contacts/'.$contact['contacts_picture']);
             $contact_name = htmlspecialchars($contact['contacts_name']);
             $contact_company = htmlspecialchars($contact['companies_name']);
-            $contact_email = htmlspecialchars($contact['contacts_email']);
+            $contact_email = filter_var(htmlspecialchars($contact['contacts_email']), FILTER_SANITIZE_EMAIL);
             $contact_phone = htmlspecialchars($contact['contacts_phone']);
             $contact_created_at = htmlspecialchars($contact['contacts_created_at']);
-
     ?>
             <form id="update-contact" action="<?php echo htmlspecialchars(BASE_URL.'dashboard/treatment')?>" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="update-contact" value="update-contact-value">
+                <input type="hidden" name="update-contact__id" value="<?= $idContact ?>">
 
                 <!-- TODO FOR FRONT : put position absolute and left: -99999px for .crud-password -->
                 <fieldset class="crud-password">

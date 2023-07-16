@@ -127,18 +127,48 @@ class AdminsController extends Controller
                 }
             }
             if(isset($_POST['update-contact'])){
-                if(empty($_POST['new-contact__password'])){
+                if(empty($_POST['update-contact__password'])){
+                    $contact_id = filter_var(htmlspecialchars($_POST['update-contact__id']), FILTER_SANITIZE_NUMBER_INT);
+                    $contact_name = htmlspecialchars($_POST['update-contact__name']);
+                    $contact_company = htmlspecialchars($_POST['update-contact__company']);
+                    $contact_email = filter_var(htmlspecialchars($_POST['update-contact__email']), FILTER_SANITIZE_EMAIL);
+                    $contact_phone = htmlspecialchars($_POST['update-contact__phone']);
+                    $contact_update_at = date("Y/m/d h:m:s");
+                    $contact_picture = $_FILES['update-contact__picture'];
+    
+                    $contact_email = $this->emailValidation($contact_email, $_POST['update-contact__email']);
+                    $contact_picture = $this->fileValidation($contact_picture);
+                    $company_id= $adminModel->getIdOfCompany($contact_company);
+              
+                    $adminModel->updateContact($contact_id, $contact_name, $company_id['company_id'], $contact_email, $contact_phone, $contact_update_at, $contact_picture);
                     
+                    return $this->viewAdmin('treatment',[
+                        "contact_name" => $contact_name,
+                        "contact_company" => $contact_company,
+                        "contact_email" => $contact_email,
+                        "contact_phone" => $contact_phone,
+                        "contact_update_at" => $contact_update_at,
+                        "contact_picture" => $contact_picture
+                    ]);
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
+                    exit;
                 }
             }
             if(isset($_POST['update-invoice'])){
-                if(empty($_POST['new-invoice__password'])){
+                if(empty($_POST['update-invoice__password'])){
 
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
+                    exit;
                 }
             }
             if(isset($_POST['update-company'])){
-                if(empty($_POST['new-company__password'])){
+                if(empty($_POST['update-company__password'])){
 
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
+                    exit;
                 }
             }
         }

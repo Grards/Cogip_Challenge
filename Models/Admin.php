@@ -130,4 +130,20 @@ class Admin
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function updateContact($contact_id, $contact_name, $company_id, $contact_email, $contact_phone, $contact_update_at, $contact_picture){
+        $query = "UPDATE contacts
+        SET name = :name, company_id = :companyId, email = :email, phone = :phone, updated_at = :updatedAt, picture = :picture
+        WHERE id = " . $contact_id;
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':name', $contact_name, \PDO ::PARAM_STR);
+        $statement->bindValue(':companyId', $company_id, \PDO ::PARAM_INT);
+        $statement->bindValue(':email', $contact_email, \PDO ::PARAM_STR);
+        $statement->bindValue(':phone', $contact_phone, \PDO ::PARAM_STR);
+        $statement->bindValue(':updatedAt', $contact_update_at, \PDO ::PARAM_STR);
+        $statement->bindValue(':picture', $contact_picture, \PDO ::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    } 
 }
