@@ -19,13 +19,13 @@
         </fieldset>
 
         <label for="new-contact__picture">Picture : </label>
-        <input type="file" id="new-contact__picture" name="new-contact__picture" max=255>
+        <input type="file" id="new-contact__picture" name="new-contact__picture" max=255 accept="image/png, image/jpeg, image/jpg">
 
         <label for="new-contact__name">Complete name : </label>
         <input type="text" id="new-contact__name" name="new-contact__name" min=3 max=50 required>
 
         <label for="new-contact__company">Company : </label>
-        <select name="new-contact__company" id="new-contact__company" min=3 max=50 required>
+        <select name="new-contact__company" id="new-contact__company">
             <option value="">-- Please choose a company --</option>
             <?php 
                 foreach($companiesNames as $company){

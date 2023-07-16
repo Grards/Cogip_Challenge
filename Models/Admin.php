@@ -24,6 +24,18 @@ class Admin
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getContact($idContact){
+        $query = "SELECT contacts.id as contacts_id, contacts.name as contacts_name, contacts.company_id as contacts_company_id, contacts.email as contacts_email, contacts.phone as contacts_phone, contacts.created_at as contacts_created_at, contacts.updated_at as contacts_updated_at, contacts.picture as contacts_picture, companies.id as companies_id, companies.name as companies_name 
+        FROM contacts
+        JOIN companies ON contacts.company_id = companies.id
+        WHERE contacts.id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':id', $idContact, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function getNamesOfCompanies(){
         $query = "SELECT DISTINCT companies.name as companies_name
         FROM companies";
@@ -59,6 +71,15 @@ class Admin
         WHERE types.name = :company_type";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':company_type', $company_type, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getLastId($table){
+        $query = "SELECT MAX(id)
+        FROM " . $table;
+        $statement = $this->db->prepare($query);
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_ASSOC);
