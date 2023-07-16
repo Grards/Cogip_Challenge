@@ -6,7 +6,11 @@ $fondDashboard : #E7E7E7;
 
 .dash_main{
     // display:grid;
-    // grid-template-columns: 300px 1fr;
+    // grid-template-columns: 150px 1fr;
     // gap: 20px;
+    // position: fixed;
+    // top: 0;
+    // right: 0;
+    // width: 80%;
     background-color: $fondDashboard;
 }
