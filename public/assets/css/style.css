@@ -12,6 +12,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Roboto:wght@500&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -958,6 +962,42 @@ tr:nth-child(even) td {
 .pagination a:active {
   background-color: #F9DE4E;
   border: 1px #F9DE4E solid;
+}
+
+.table-container-dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin-bottom: 50px;
+  overflow-x: auto;
+  background-color: #FFF;
+}
+.table-container-dashboard.withoutSlogan {
+  margin-top: 0px;
+}
+@media screen and (min-width: 1080px) {
+  .table-container-dashboard {
+    margin-left: 50px;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+  }
+}
+.table-container-dashboard.table-title {
+  border-bottom: 2px solid #E0E0E0;
+  background-color: #FFF;
+}
+.table-container-dashboard table, .table-container-dashboard th, .table-container-dashboard tr {
+  background-color: #FFF;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10%;
+  background-color: #FFF;
+  width: 200px;
 }
 
 form {
