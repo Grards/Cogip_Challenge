@@ -13,7 +13,6 @@ use App\Controllers\AdminsController;
 define('BASE_URL', "/Cogip_Challenge/public/"); 
 define('IMG', "/Cogip_Challenge/public/assets/img/"); 
 define('VIEWS', __ROOT__."/Resources/views/"); 
-define('ERROR_PAGE', "<p class='error_page'>This page doesn't exist</p>");
 
 $router = new Router();
 
@@ -55,6 +54,19 @@ $router->get('/dashboard/new-company', function() {
 $router->get('/dashboard/new-contact', function() {
     (new AdminsController)->newContact();
 });
+
+$router->get('/dashboard/update-invoice', function() {
+    (new AdminsController)->updateInvoice();
+});
+
+$router->get('/dashboard/update-company', function() {
+    (new AdminsController)->updateCompany();
+});
+
+$router->get('/dashboard/update-contact', function() {
+    (new AdminsController)->updateContact();
+});
+
 
 $router->get('/fakers', function() {
     (new FakersController)->index();
