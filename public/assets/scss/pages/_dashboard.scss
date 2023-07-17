@@ -2,15 +2,162 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
-$fondDashboard : #E7E7E7;
 
-.dash_main{
-    // display:grid;
-    // grid-template-columns: 150px 1fr;
-    // gap: 20px;
-    // position: fixed;
-    // top: 0;
-    // right: 0;
-    // width: 80%;
+
+.dash_main, header{
     background-color: $fondDashboard;
+    margin-left: 20%;
+    @include responsive-desktop{
+        margin-left: 10%;
+    }
+}
+
+header{
+    font-family: 'Inter',sans-serif;
+    padding: 20px;
+    @include responsive-desktop{
+        padding: 30px 60px;
+    }
+    & h2{
+        font-weight: 900;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    & span {
+        font-weight: 300;
+        font-size: 15px;
+        text-decoration: none;
+        margin-bottom: 20px;
+    }        
+}
+
+.breadcrumb{
+    margin-bottom: 20px;
+    @include responsive-desktop{
+        margin-bottom: 60px;
+    }
+}
+
+.dash-welcome-container{
+    display: flex;
+    position: relative;
+    font-weight: 700;
+    font-size: 35px;
+    color: $Blanc;
+    background-color: #9698D6 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    @include responsive-desktop{
+        height: 206px;
+        display: flex;
+        align-items: center;
+    }
+    & .dash-welcome{
+            display: flex;
+            flex-direction: column;
+        & p{
+            font-weight: 300;
+            font-size: 15px;
+        }
+    }
+}
+.img-dashboard{
+    display: none;
+    @include responsive-desktop{
+            display:block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 500px;
+        }
+    }
+.stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $Blanc;
+    border-radius: 5px;
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px;
+    margin: 20px auto;
+    & .stats__informations{
+        display: flex;
+        font-size: 12px;
+        line-height: none;
+        & ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            color: $Blanc;
+        }
+    }
+    @include responsive-desktop{
+        width: 500px;
+        height: 230px;
+    }
+}
+.stats__informations--invoices{
+    background-color: #4D4CAC ;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+}
+.stats__informations--contacts{
+    background-color: #9698D6 ;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+}
+.stats__informations--companies{
+    background-color: #FF808B ;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+}
+.table-container-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-bottom: 50px;
+    overflow-x: auto;
+    background-color: $Blanc;
+    &.withoutSlogan{
+        margin-top: 0px;
+    }
+    @include responsive-tablet {
+        // width: 700px;
+    }
+    @include responsive-desktop {
+        margin-left: 50px;
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        // padding: 10px 30px;
+    }
+
+    &.table-title{
+        border-bottom: 2px solid #E0E0E0;
+        background-color: $Blanc;
+    }
+
+    & table, th, tr {
+        background-color: $Blanc;
+
+    }
+}
+
+.dashboard-main-container{
+    @include responsive-desktop{
+        display: flex;
+        flex-wrap: wrap;
+        width: 80% ;
+        justify-content: center;
+        gap: 20px;
+    }
+
 }

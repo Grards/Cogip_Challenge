@@ -28,7 +28,8 @@ class Company
     }
 
     public function getAllCompanies() {
-        $query = "SELECT id, name, type_id, country, tva, created_at, updated_at FROM companies";
+        $query = "SELECT id, name, type_id, country, tva, created_at, updated_at
+        FROM companies";
         $statement = $this->db->prepare($query);
         $statement->execute();
 
@@ -36,7 +37,8 @@ class Company
     }
 
     public function getCountOfCompanies($searchQuery) {
-        $query = "SELECT COUNT(id) FROM companies WHERE name LIKE :query ORDER BY name";
+        $query = "SELECT COUNT(companies.id) as companies_id, companies.name as companies_name
+        FROM companies WHERE companies.name LIKE :query ORDER BY companies.name";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':query', '%' . $searchQuery . '%');
         $statement->execute();

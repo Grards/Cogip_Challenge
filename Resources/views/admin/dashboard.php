@@ -15,10 +15,6 @@
     ?>
     <!-- dashboard main container -->
     <div class="dashboard-main-container">
-        <nav class="breadcrumb">
-            <h2>Dashboard</h2>
-            <a href="#"><?php echo breadcrumb(); ?></a>
-        </nav>
 
         <article class ="stats">
             <h2 class="stats__title">Statistics</h2>
@@ -44,9 +40,7 @@
 
 
         <!-- Last Invoices -->
-        <div class="table-container top">
-            <div id="test-clip">
-            </div>
+        <div class="table-container-dashboard">
             <div class="table-title">
                 <h2>Last invoices</h2>
             </div>
@@ -71,7 +65,7 @@
         </div>  
 
         <!-- Last Contacts -->
-        <div class="table-container">
+        <div class="table-container-dashboard">
             <div class="table-title">
                 <h2>Last contacts</h2>
             </div>
@@ -94,7 +88,7 @@
         </div>
 
         <!-- Last companies -->
-        <div class="table-container">
+        <div class="table-container-dashboard">
             <div class="table-title">
                 <h2>Last companies</h2>
             </div>

@@ -65,8 +65,23 @@ class InvoicesController extends Controller
         ]);
     }
 
-    public function show(){
-        require '../Resources/views/invoices.php';
-    }
+    public function showInvoiceDetails()
+    {
+        if (!isset($_GET['id'])) {
+            return $this->view('error', ['message' => 'Invoice ID not provided']);
+        }
+    
+        $invoiceId = $_GET['id'];
+    
+        $invoiceModel = new Invoice();
+        $invoice = $invoiceModel->getInvoiceById($invoiceId);
+    
+        if (!$invoice) {
+            return $this->view('error', ['message' => 'Invoice not found']);
+        }
+    
+        return $this->view('invoiceDetails', ['invoice' => $invoice]);
+    }    
 }
+
 ?>

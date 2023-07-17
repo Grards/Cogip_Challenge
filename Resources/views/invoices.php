@@ -19,10 +19,10 @@ use App\Core\DatabaseManager;
             <h2>All invoices</h2>
         </div>
         <form action="invoices" method="GET">
-            <input type="text" name="search" placeholder="Search company" id="submit_input">
+            <input type="text" name="search" placeholder="Search company" class="submit_input">
             <input type="hidden" name="sort" value="<?php echo $_GET['sort_field'] ?? ''; ?>">
             <input type="hidden" name="order" value="<?php echo $_GET['sort_order'] ?? ''; ?>">
-            <input type="submit" id="submit_btn">
+            <input type="submit" class="submit_btn">
         </form>
 
         <?php if (!is_null($invoicesLimitedPerPage) && count($invoicesLimitedPerPage) > 0) : ?>
@@ -66,7 +66,7 @@ use App\Core\DatabaseManager;
                 $dateFormated_created = dateFormat($invoice['invoices_created_at']);
                 $dateFormated_due = dateFormat($invoice['invoices_due_date']);
                 echo "<tr>";
-                echo "<td>$invoice[invoices_ref]</td>";
+                echo "<td><a href='" . BASE_URL . "invoices/details?id=" . ($invoice['invoices_id'] ?? '') . "'>" . $invoice['invoices_ref'] . "</a></td>";
                 echo "<td>$dateFormated_due</td>";
                 echo "<td>$invoice[companies_name]</td>";
                 echo "<td>$invoice[invoices_price]</td>";

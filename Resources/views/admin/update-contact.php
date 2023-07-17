@@ -54,7 +54,7 @@
                     ?>
                 </select>
 
-                <label for="email">Email : </label>
+                <label for="update-contact__email">Email : </label>
                 <input type="email" id="update-contact__email" name="update-contact__email" min=8 max=50 value="<?= $contact_email ?>" required>
 
                 <label for="update-contact__phone">Phone : </label>
