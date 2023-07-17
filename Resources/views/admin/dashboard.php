@@ -44,9 +44,7 @@
 
 
         <!-- Last Invoices -->
-        <div class="table-container top">
-            <div id="test-clip">
-            </div>
+        <div class="table-container-dashboard">
             <div class="table-title">
                 <h2>Last invoices</h2>
             </div>
@@ -71,7 +69,7 @@
         </div>  
 
         <!-- Last Contacts -->
-        <div class="table-container">
+        <div class="table-container-dashboard">
             <div class="table-title">
                 <h2>Last contacts</h2>
             </div>
@@ -94,7 +92,7 @@
         </div>
 
         <!-- Last companies -->
-        <div class="table-container">
+        <div class="table-container-dashboard">
             <div class="table-title">
                 <h2>Last companies</h2>
             </div>
