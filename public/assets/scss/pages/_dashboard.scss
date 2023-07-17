@@ -4,13 +4,127 @@
 
 $fondDashboard : #E7E7E7;
 
-.dash_main{
-    // display:grid;
-    // grid-template-columns: 150px 1fr;
-    // gap: 20px;
-    // position: fixed;
-    // top: 0;
-    // right: 0;
-    // width: 80%;
+.dash_main, header{
     background-color: $fondDashboard;
+    margin-left: 20%;
+}
+
+header{
+    font-family: 'Inter',sans-serif;
+    padding: 20px;
+    & h2{
+        font-weight: 900;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    & span {
+        font-weight: 300;
+        font-size: 15px;
+        text-decoration: none;
+        margin-bottom: 20px;
+    }
+    & .dash-welcome{
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+        font-size: 35px;
+        color: $Blanc;
+        background-color: #9698D6 ;
+        border-radius: 10px;
+        padding: 10px 20px;
+        & p{
+            font-weight: 300;
+            font-size: 15px;
+        }
+    }
+    & img{
+        width: 150px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: none;
+    }
+}
+
+.breadcrumb{
+    margin-bottom: 20px;
+}
+
+.dash-welcome{
+    padding: 20px 10px;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    background-color: $Blanc;
+    border-radius: 5px;
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px;
+    margin: 20px auto;
+    & .stats__informations{
+        display: flex;
+        font-size: 12px;
+        line-height: none;
+        & ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            color: $Blanc;
+        }
+    }
+}
+
+.stats__informations--invoices{
+    background-color: #4D4CAC ;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px; 
+
+.stats__informations--contacts{
+    background-color: #9698D6 ;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px; 
+}
+
+.stats__informations--companies{
+    background-color: #FF808B ;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px; 
+}
+
+.table-container-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-bottom: 50px;
+    overflow-x: auto;
+    background-color: $Blanc;
+    &.withoutSlogan{
+        margin-top: 0px;
+    }
+    @include responsive-tablet {
+        width: 700px;
+    }
+    @include responsive-desktop {
+        width: 1000px;
+        overflow: hidden;
+    }
+
+    &.table-title{
+        border-bottom: 2px solid #E0E0E0;
+        background-color: $Blanc;
+    }
+
+    &.table {
+        background-color: #E7E7E7;
+    }
 }

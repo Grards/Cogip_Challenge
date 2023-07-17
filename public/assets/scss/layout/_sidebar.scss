@@ -5,21 +5,13 @@
 
 
 .dash-sidebar{
-    // display: flex;
-    // flex-direction: column;
-    // // width: 285px;
-    // background-color: lightgrey;
-    // // background-color: red;
-    // color: $Noir;
     background-color: $Blanc;
     position: fixed;
     top: 0;
     left: 0;
-    width: 20%;
+    width:20%;
     height: 100%;
     padding: 20px 0;
-    transition: all 0.5s ease;
-    z-index: 1;
 }
 
 .dash-sidebar__user_card{
