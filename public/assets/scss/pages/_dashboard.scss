@@ -2,16 +2,22 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
-$fondDashboard : #E7E7E7;
+
 
 .dash_main, header{
     background-color: $fondDashboard;
     margin-left: 20%;
+    @include responsive-desktop{
+        margin-left: 10%;
+    }
 }
 
 header{
     font-family: 'Inter',sans-serif;
     padding: 20px;
+    @include responsive-desktop{
+        padding: 30px 60px;
+    }
     & h2{
         font-weight: 900;
         font-size: 30px;
@@ -23,42 +29,53 @@ header{
         font-size: 15px;
         text-decoration: none;
         margin-bottom: 20px;
+    }        
+}
+
+.breadcrumb{
+    margin-bottom: 20px;
+    @include responsive-desktop{
+        margin-bottom: 60px;
+    }
+}
+
+.dash-welcome-container{
+    display: flex;
+    position: relative;
+    font-weight: 700;
+    font-size: 35px;
+    color: $Blanc;
+    background-color: #9698D6 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    @include responsive-desktop{
+        height: 206px;
+        display: flex;
+        align-items: center;
     }
     & .dash-welcome{
-        display: flex;
-        flex-direction: column;
-        font-weight: 700;
-        font-size: 35px;
-        color: $Blanc;
-        background-color: #9698D6 ;
-        border-radius: 10px;
-        padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
         & p{
             font-weight: 300;
             font-size: 15px;
         }
     }
-    & img{
-        width: 150px;
-        z-index: 1;
-        position: fixed;
-        top: 0;
-        right: 0;
-        display: none;
+}
+.img-dashboard{
+    display: none;
+    @include responsive-desktop{
+            display:block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 500px;
+        }
     }
-}
-
-.breadcrumb{
-    margin-bottom: 20px;
-}
-
-.dash-welcome{
-    padding: 20px 10px;
-}
-
 .stats{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: $Blanc;
     border-radius: 5px;
     font-family: 'Inter',sans-serif;
@@ -79,8 +96,11 @@ header{
             color: $Blanc;
         }
     }
+    @include responsive-desktop{
+        width: 500px;
+        height: 230px;
+    }
 }
-
 .stats__informations--invoices{
     background-color: #4D4CAC ;
     border-radius: 50%;
@@ -93,14 +113,12 @@ header{
     width: 50px;
     height: 50px; 
 }
-
 .stats__informations--companies{
     background-color: #FF808B ;
     border-radius: 50%;
     width: 50px;
     height: 50px; 
 }
-
 .table-container-dashboard {
     display: flex;
     flex-direction: column;
@@ -112,11 +130,14 @@ header{
         margin-top: 0px;
     }
     @include responsive-tablet {
-        width: 700px;
+        // width: 700px;
     }
     @include responsive-desktop {
-        width: 1000px;
+        margin-left: 50px;
+        width: 500px;
+        height: 500px;
         overflow: hidden;
+        // padding: 10px 30px;
     }
 
     &.table-title{
@@ -126,5 +147,17 @@ header{
 
     & table, th, tr {
         background-color: $Blanc;
+
     }
+}
+
+.dashboard-main-container{
+    @include responsive-desktop{
+        display: flex;
+        flex-wrap: wrap;
+        width: 80% ;
+        justify-content: center;
+        gap: 20px;
+    }
+
 }

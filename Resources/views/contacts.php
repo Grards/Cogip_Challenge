@@ -17,10 +17,10 @@ use App\Core\DatabaseManager;
       <h2>All contacts</h2>
     </div>
     <form action="contacts" method="GET">
-      <input type="text" name="search" placeholder="Search contact">
+      <input type="text" name="search" placeholder="Search contact" class="submit_input">
       <input type="hidden" name="sort" value="<?php echo $_GET['sort_field'] ?? ''; ?>">
       <input type="hidden" name="order" value="<?php echo $_GET['sort_order'] ?? ''; ?>">
-      <input type="submit" id="submit_btn">
+      <input type="submit" class="submit_btn">
     </form>
 
     <?php if (!is_null($contactsLimitedPerPage) && count($contactsLimitedPerPage) > 0) : ?>
