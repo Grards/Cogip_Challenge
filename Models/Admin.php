@@ -24,6 +24,30 @@ class Admin
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getContact($idContact){
+        $query = "SELECT contacts.id as contacts_id, contacts.name as contacts_name, contacts.company_id as contacts_company_id, contacts.email as contacts_email, contacts.phone as contacts_phone, contacts.created_at as contacts_created_at, contacts.updated_at as contacts_updated_at, contacts.picture as contacts_picture, companies.id as companies_id, companies.name as companies_name 
+        FROM contacts
+        JOIN companies ON contacts.company_id = companies.id
+        WHERE contacts.id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':id', $idContact, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getCompany($idContact){
+        $query = "SELECT companies.id as companies_id, companies.name as companies_name, companies.type_id as companies_type_id, companies.country as companies_country, companies.tva as companies_tva, companies.created_at as companies_created_at, companies.updated_at as companies_updated_at, types.id as types_id, types.name as types_name 
+        FROM companies
+        JOIN types ON companies.type_id = types.id
+        WHERE companies.id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':id', $idContact, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function getNamesOfCompanies(){
         $query = "SELECT DISTINCT companies.name as companies_name
         FROM companies";
@@ -59,6 +83,15 @@ class Admin
         WHERE types.name = :company_type";
         $statement = $this->db->prepare($query);
         $statement->bindValue(':company_type', $company_type, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getLastId($table){
+        $query = "SELECT MAX(id)
+        FROM " . $table;
+        $statement = $this->db->prepare($query);
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_ASSOC);
@@ -109,4 +142,20 @@ class Admin
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function updateContact($contact_id, $contact_name, $company_id, $contact_email, $contact_phone, $contact_update_at, $contact_picture){
+        $query = "UPDATE contacts
+        SET name = :name, company_id = :companyId, email = :email, phone = :phone, updated_at = :updatedAt, picture = :picture
+        WHERE id = " . $contact_id;
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':name', $contact_name, \PDO ::PARAM_STR);
+        $statement->bindValue(':companyId', $company_id, \PDO ::PARAM_INT);
+        $statement->bindValue(':email', $contact_email, \PDO ::PARAM_STR);
+        $statement->bindValue(':phone', $contact_phone, \PDO ::PARAM_STR);
+        $statement->bindValue(':updatedAt', $contact_update_at, \PDO ::PARAM_STR);
+        $statement->bindValue(':picture', $contact_picture, \PDO ::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    } 
 }

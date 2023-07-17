@@ -56,7 +56,7 @@ class AdminsController extends Controller
                     $contact_company = htmlspecialchars($_POST['new-contact__company']);
                     $contact_email = filter_var(htmlspecialchars($_POST['new-contact__email']), FILTER_SANITIZE_EMAIL);
                     $contact_phone = htmlspecialchars($_POST['new-contact__phone']);
-                    $contact_created_at = date("Y/m/d h:m:s");
+                    $contact_created_at = date("Y/m/d H:m:s");
                     $contact_picture = $_FILES['new-contact__picture'];
     
                     $contact_email = $this->emailValidation($contact_email, $_POST['new-contact__email']);
@@ -74,7 +74,7 @@ class AdminsController extends Controller
                         "contact_picture" => $contact_picture
                     ]);
                 }else{
-                    header("Location: ".BASE_URL."dashboard?&error_crud_password");
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
                     exit;
                 }
             }
@@ -84,7 +84,7 @@ class AdminsController extends Controller
                     $invoice_company = htmlspecialchars($_POST['new-invoice__company']);
                     $invoice_due_date = htmlspecialchars($_POST['new-invoice__due_date']);
                     $invoice_price = filter_var(htmlspecialchars($_POST['new-invoice__price']),FILTER_SANITIZE_NUMBER_FLOAT);
-                    $invoice_created_at = date("Y/m/d h:m:s");
+                    $invoice_created_at = date("Y/m/d H:m:s");
     
                     $company_id= $adminModel->getIdOfCompany($invoice_company);
               
@@ -98,7 +98,7 @@ class AdminsController extends Controller
                         "invoice_created_at" => $invoice_created_at
                     ]);
                 }else{
-                    header("Location: ".BASE_URL."dashboard?&error_crud_password");
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
                     exit;
                 }
             }
@@ -108,7 +108,7 @@ class AdminsController extends Controller
                     $company_type = htmlspecialchars($_POST['new-company__type_name']);
                     $company_country = htmlspecialchars($_POST['new-company__country']);
                     $company_tva = htmlspecialchars($_POST['new-company__tva']);
-                    $company_created_at = date("Y/m/d h:m:s");
+                    $company_created_at = date("Y/m/d H:m:s");
     
                     $type_id= $adminModel->getIdOfType($company_type);
               
@@ -122,7 +122,52 @@ class AdminsController extends Controller
                         "company_created_at" => $company_created_at
                     ]);
                 }else{
-                    header("Location: ".BASE_URL."dashboard?&error_crud_password");
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
+                    exit;
+                }
+            }
+            if(isset($_POST['update-contact'])){
+                if(empty($_POST['update-contact__password'])){
+                    $contact_id = filter_var(htmlspecialchars($_POST['update-contact__id']), FILTER_SANITIZE_NUMBER_INT);
+                    $contact_name = htmlspecialchars($_POST['update-contact__name']);
+                    $contact_company = htmlspecialchars($_POST['update-contact__company']);
+                    $contact_email = filter_var(htmlspecialchars($_POST['update-contact__email']), FILTER_SANITIZE_EMAIL);
+                    $contact_phone = htmlspecialchars($_POST['update-contact__phone']);
+                    $contact_update_at = date("Y/m/d H:m:s");
+                    $contact_picture = $_FILES['update-contact__picture'];
+    
+                    $contact_email = $this->emailValidation($contact_email, $_POST['update-contact__email']);
+                    $contact_picture = $this->fileValidation($contact_picture);
+                    $company_id= $adminModel->getIdOfCompany($contact_company);
+              
+                    $adminModel->updateContact($contact_id, $contact_name, $company_id['company_id'], $contact_email, $contact_phone, $contact_update_at, $contact_picture);
+                    
+                    return $this->viewAdmin('treatment',[
+                        "contact_name" => $contact_name,
+                        "contact_company" => $contact_company,
+                        "contact_email" => $contact_email,
+                        "contact_phone" => $contact_phone,
+                        "contact_update_at" => $contact_update_at,
+                        "contact_picture" => $contact_picture
+                    ]);
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
+                    exit;
+                }
+            }
+            if(isset($_POST['update-invoice'])){
+                if(empty($_POST['update-invoice__password'])){
+
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
+                    exit;
+                }
+            }
+            if(isset($_POST['update-company'])){
+                if(empty($_POST['update-company__password'])){
+
+                }else{
+                    header("Location: ".BASE_URL."dashboard?&crud-success");
                     exit;
                 }
             }
@@ -196,6 +241,7 @@ class AdminsController extends Controller
 
     public function newInvoice(){
         $adminModel = new Admin();
+
         $user = $adminModel->getUser();
         $companiesNames =  $adminModel->getNamesOfCompanies();
 
@@ -225,5 +271,65 @@ class AdminsController extends Controller
             "user" => $user[0],
             "companiesNames" => $companiesNames
         ]);
+    }
+
+    public function updateContact(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $user = $adminModel->getUser();
+            $companiesNames =  $adminModel->getNamesOfCompanies();
+        
+            $idContact = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $contact = $adminModel->getContact($idContact);
+            $countOfContacts = $adminModel->getLastId('contacts');
+        
+            return $this->viewAdmin('update-contact',[
+                "user" => $user[0],
+                "crud" => "update_contact",
+                "companiesNames" => $companiesNames,
+                "contact" => $contact,
+                "idContact" => $idContact,
+                "countOfContacts" => $countOfContacts['MAX(id)'],
+            ]);
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
+    }
+
+    public function updateInvoice(){
+        $adminModel = new Admin();
+        $user = $adminModel->getUser();
+        $companiesNames =  $adminModel->getNamesOfCompanies();
+
+        return $this->viewAdmin('update-invoice',[
+            "user" => $user[0],
+            "crud" => "update_invoice",
+            "companiesNames" => $companiesNames
+        ]);
+    }
+    
+    public function updateCompany(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $user = $adminModel->getUser();
+            $typesNames = $adminModel->getNamesOfTypes();
+
+            $idCompany = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $company = $adminModel->getCompany($idCompany);
+            $countOfCompanies = $adminModel->getLastId('companies');
+
+            return $this->viewAdmin('update-company',[
+                "user" => $user[0],
+                "crud" => "update_company",
+                "typesNames" => $typesNames,
+                "company" => $company,
+                "idCompany" => $idCompany,
+                "countOfCompanies" => $countOfCompanies
+            ]);
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
     }
 }
