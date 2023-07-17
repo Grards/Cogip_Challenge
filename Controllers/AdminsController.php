@@ -302,7 +302,7 @@ class AdminsController extends Controller
         $user = $adminModel->getUser();
         $companiesNames =  $adminModel->getNamesOfCompanies();
 
-        return $this->viewAdmin('update',[
+        return $this->viewAdmin('update-invoice',[
             "user" => $user[0],
             "crud" => "update_invoice",
             "companiesNames" => $companiesNames
@@ -310,14 +310,26 @@ class AdminsController extends Controller
     }
     
     public function updateCompany(){
-        $adminModel = new Admin();
-        $user = $adminModel->getUser();
-        $typesNames = $adminModel->getNamesOfTypes();
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $user = $adminModel->getUser();
+            $typesNames = $adminModel->getNamesOfTypes();
 
-        return $this->viewAdmin('update',[
-            "user" => $user[0],
-            "crud" => "update_company",
-            "typesNames" => $typesNames
-        ]);
+            $idCompany = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $company = $adminModel->getCompany($idCompany);
+            $countOfCompanies = $adminModel->getLastId('companies');
+
+            return $this->viewAdmin('update-company',[
+                "user" => $user[0],
+                "crud" => "update_company",
+                "typesNames" => $typesNames,
+                "company" => $company,
+                "idCompany" => $idCompany,
+                "countOfCompanies" => $countOfCompanies
+            ]);
+        }else{
+            header("Location: ".BASE_URL."dashboard?&no-entry");
+            exit;
+        }
     }
 }
