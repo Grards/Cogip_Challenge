@@ -50,6 +50,7 @@
                     ?>
                 </select>
 
+                <label for="update-company__country">Country : </label>
                 <select name="update-company__country" id="update-company__country" required>
                     <option value="">-- Please choose a country for the company --</option>
                     <?php 

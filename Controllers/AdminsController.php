@@ -292,7 +292,7 @@ class AdminsController extends Controller
                 "countOfContacts" => $countOfContacts['MAX(id)'],
             ]);
         }else{
-            header("Location: ".BASE_URL."dashboard?&no-entry");
+            header("Location: ".BASE_URL."dashboard?no-entry");
             exit;
         }
     }
@@ -328,7 +328,7 @@ class AdminsController extends Controller
                 "countOfCompanies" => $countOfCompanies
             ]);
         }else{
-            header("Location: ".BASE_URL."dashboard?&no-entry");
+            header("Location: ".BASE_URL."dashboard?no-entry");
             exit;
         }
     }
