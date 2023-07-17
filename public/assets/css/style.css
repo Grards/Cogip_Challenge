@@ -844,6 +844,11 @@ tr:nth-child(even) td {
   }
 }
 
+.crud-password {
+  position: absolute;
+  left: -999999px;
+}
+
 .pagination {
   display: inline-block;
   margin: 10px auto;
