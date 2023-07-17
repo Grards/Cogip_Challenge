@@ -65,21 +65,23 @@ class InvoicesController extends Controller
         ]);
     }
 
-    public function showInvoiceDetails($id){
+    public function showInvoiceDetails()
+    {
+        if (!isset($_GET['id'])) {
+            return $this->view('error', ['message' => 'Invoice ID not provided']);
+        }
+    
+        $invoiceId = $_GET['id'];
+    
         $invoiceModel = new Invoice();
-        $invoice = $invoiceModel->getInvoiceById($id);
-        var_dump($invoice);
-        if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
-        $id = $_GET['id'];
-        
+        $invoice = $invoiceModel->getInvoiceById($invoiceId);
+    
         if (!$invoice) {
-
             return $this->view('error', ['message' => 'Invoice not found']);
         }
-
+    
         return $this->view('invoiceDetails', ['invoice' => $invoice]);
-    }
-    }
+    }    
 }
 
 ?>

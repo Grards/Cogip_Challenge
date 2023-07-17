@@ -14,12 +14,15 @@ class Invoice {
 
     public function getInvoiceById($id)
     {
-        $query = "SELECT id, ref, id_company, created_at, due_date, price FROM invoices WHERE id = :id";
+        $query = "SELECT invoices.id, invoices.ref, invoices.id_company, invoices.created_at, invoices.due_date, invoices.price, companies.name AS companies_name
+        FROM invoices
+        INNER JOIN companies ON invoices.id_company = companies.id
+        WHERE invoices.id = :id";
         $statement = $this->db->prepare($query);
         $statement->bindParam(':id', $id, \PDO::PARAM_INT);
         $statement->execute();
-
-        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    
+        return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function getLatestInvoices($limit) {
