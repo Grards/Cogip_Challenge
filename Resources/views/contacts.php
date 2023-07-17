@@ -33,18 +33,18 @@ use App\Core\DatabaseManager;
       <thead class="tableHead">
       <th>
       <!----------------------------------- Enlever le style des liens ci dessous en CSS please :) --------------------------->
-            <a href="?search=<?php echo $searchQuery ?>&sort_field=name&sort_order=<?php echo ($sortField === 'name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Name <?php echo ($sortField === 'name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=contacts_name&sort_order=<?php echo ($sortField === 'contacts_name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Name <?php echo ($sortField === 'contacts_name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?search=<?php echo $searchQuery ?>&sort_field=phone&sort_order=<?php echo ($sortField === 'phone' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Phone <?php echo ($sortField === 'phone') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=contacts_phone&sort_order=<?php echo ($sortField === 'contacts_phone' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Phone <?php echo ($sortField === 'contacts_phone') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
-            <a href="?search=<?php echo $searchQuery ?>&sort_field=email&sort_order=<?php echo ($sortField === 'email' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Email <?php echo ($sortField === 'email') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=contacts_email&sort_order=<?php echo ($sortField === 'contacts_email' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Email <?php echo ($sortField === 'contacts_email') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
         </th>
         <th>
@@ -53,20 +53,20 @@ use App\Core\DatabaseManager;
             </a>
         </th>
         <th>
-            <a href="?search=<?php echo $searchQuery ?>&sort_field=created_at&sort_order=<?php echo ($sortField === 'created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Created at <?php echo ($sortField === 'created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+            <a href="?search=<?php echo $searchQuery ?>&sort_field=contacts_created_at&sort_order=<?php echo ($sortField === 'contacts_created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                Created at <?php echo ($sortField === 'contacts_created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
             </a>
     </th>
           </tr>
         </thead>
       <?php
       foreach ($contactsLimitedPerPage as $contact) {
-        $dateFormated = dateFormat($contact['created_at']);
+        $dateFormated = dateFormat($contact['contacts_created_at']);
         echo "<tr>";
-        echo "<td>$contact[name]</td>";
-        echo "<td>$contact[phone]</td>";
-        echo "<td>$contact[email]</td>";
-        echo "<td>$contact[company_id]</td>";
+        echo "<td>$contact[contacts_name]</td>";
+        echo "<td>$contact[contacts_phone]</td>";
+        echo "<td>$contact[contacts_email]</td>";
+        echo "<td>$contact[companies_name]</td>";
         echo "<td>$dateFormated</td>";
         echo "</tr>";
       }

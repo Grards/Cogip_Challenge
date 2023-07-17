@@ -32,6 +32,10 @@ $router->get('/invoices', function() {
     (new InvoicesController)->listsOfInvoices();
 });
 
+$router->get('/invoices/details', function() {
+    (new InvoicesController)->showInvoiceDetails();
+});
+
 
 /* DASHBOARD */
 

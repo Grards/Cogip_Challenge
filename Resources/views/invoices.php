@@ -66,7 +66,7 @@ use App\Core\DatabaseManager;
                 $dateFormated_created = dateFormat($invoice['invoices_created_at']);
                 $dateFormated_due = dateFormat($invoice['invoices_due_date']);
                 echo "<tr>";
-                echo "<td>$invoice[invoices_ref]</td>";
+                echo "<td><a href='" . BASE_URL . "invoices/details?id=" . ($invoice['invoices_id'] ?? '') . "'>" . $invoice['invoices_ref'] . "</a></td>";
                 echo "<td>$dateFormated_due</td>";
                 echo "<td>$invoice[companies_name]</td>";
                 echo "<td>$invoice[invoices_price]</td>";

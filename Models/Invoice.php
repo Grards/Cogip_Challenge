@@ -12,6 +12,19 @@ class Invoice {
         $this->db = DatabaseManager::getInstance();
     }
 
+    public function getInvoiceById($id)
+    {
+        $query = "SELECT invoices.id, invoices.ref, invoices.id_company, invoices.created_at, invoices.due_date, invoices.price, companies.name AS companies_name
+        FROM invoices
+        INNER JOIN companies ON invoices.id_company = companies.id
+        WHERE invoices.id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->bindParam(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function getLatestInvoices($limit) {
         $query = "SELECT invoices.id as invoices_id, invoices.ref as invoices_ref, invoices.id_company as invoices_id_company, invoices.created_at as invoices_created_at, invoices.updated_at as invoices_updated_at, invoices.due_date as invoices_due_date, invoices.price as invoices_price, companies.id as companies_id, companies.name as companies_name
         FROM invoices

@@ -31,11 +31,11 @@ class ContactsController extends Controller
         $sortField = $_GET['sort_field'] ?? '';
         $sortOrder = $_GET['sort_order'] ?? '';
 
-        $validSortFields = ['name', 'phone', 'email', 'company_id', 'created_at'];
+        $validSortFields = ['contacts_name', 'contacts_phone', 'contacts_email', 'company_id', 'contacts_created_at'];
         $validSortOrder = ['asc', 'desc'];
 
     if (!in_array($sortField, $validSortFields)) {
-        $sortField = 'name';
+        $sortField = 'contacts_name';
     }
 
     if (!in_array($sortOrder, $validSortOrder)) {
