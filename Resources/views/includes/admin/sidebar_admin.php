@@ -16,7 +16,7 @@
                 </li>
                 <li class="log--link">
                     <a href="<?php echo BASE_URL.'dashboard/new-invoice'; ?>">
-                        <img src="assets\img\sidebar_logo\invoices_logo.png" alt="">
+                        <img src="assets\img\sidebar_logo\invoices_logo.png" alt="invoice logo">
                         <span>Invoices</span>
                     </a>
                 </li>
@@ -28,7 +28,7 @@
                 </li>
                 <li class="log--link">
                     <a href="<?php echo BASE_URL.'dashboard/new-contact'; ?>">
-                        <img src="assets\img\sidebar_logo\contacts_logo.png" alt="">
+                        <img src="assets\img\sidebar_logo\contacts_logo.png" alt="contacts logo">
                         <span>Contacts</span
                     ></a>
                 </li>
