@@ -19,10 +19,10 @@ use App\Core\DatabaseManager;
             <h2>All invoices</h2>
         </div>
         <form action="invoices" method="GET">
-            <input type="text" name="search" placeholder="Search company" id="submit_input">
+            <input type="text" name="search" placeholder="Search company" class="submit_input">
             <input type="hidden" name="sort" value="<?php echo $_GET['sort_field'] ?? ''; ?>">
             <input type="hidden" name="order" value="<?php echo $_GET['sort_order'] ?? ''; ?>">
-            <input type="submit" id="submit_btn">
+            <input type="submit" class="submit_btn">
         </form>
 
         <?php if (!is_null($invoicesLimitedPerPage) && count($invoicesLimitedPerPage) > 0) : ?>

@@ -884,7 +884,7 @@ form {
   padding-right: 10px;
 }
 
-#submit_input {
+.submit_input {
   border: none;
   outline: none;
   padding: 10px 15px 10px 5px;
@@ -892,7 +892,7 @@ form {
   border-radius: 5px;
   margin: 10px 0px 30px;
 }
-#submit_input::placeholder {
+.submit_input::placeholder {
   color: #000;
   font-family: "Inter", sans-serif;
   font-size: 14px;
@@ -900,6 +900,6 @@ form {
   text-align: left;
 }
 
-#submit_btn {
+.submit_btn {
   display: none;
 }/*# sourceMappingURL=style.css.map */
