@@ -12,8 +12,12 @@
 @use "./layout/slogan";
 @use "./layout/sloganBottom";
 @use "./layout/footer";
+<<<<<<< HEAD
 @use "./layout/aside";
 @use "./layout/errorNotificationDisplay";
+=======
+@use "./layout/sidebar";
+>>>>>>> dev
 
 @use "./components/table";
 @use "./components/mainDeco";
