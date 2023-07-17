@@ -2,40 +2,56 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
-.dash-aside{
-    display: flex;
-    flex-direction: column;
-    // width: 285px;
-    background-color: lightgrey;
-    color: $Noir;
+
+
+.dash-sidebar{
+    // display: flex;
+    // flex-direction: column;
+    // // width: 285px;
+    // background-color: lightgrey;
+    // // background-color: red;
+    // color: $Noir;
+    background-color: $Blanc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+    z-index: 1;
 }
 
-.dash-aside__user_card{
+.dash-sidebar__user_card{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 300px;
+    height: 200px;
     border-bottom:1px solid $GrisFonce ;
     img{
-        width: 105px;
+        width: 50px;
         margin-bottom: 20px;
     }
     h3{
         font-family: 'Roboto',sans-serif;
         font-weight: 900;
-        font-size: 25px;
+        font-size: 14px;
         text-align: center;
     }
 }
 
-.dash-aside__nav{
+.dash-sidebar__nav{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 40px;
-    height: 800px;
-    & p{
+    // height: 100vh;
+    & ul{
+        display: flex;
+        flex-direction: column;
+    }
+    & li{
         margin-bottom: 20px;
     }
     & a{
@@ -48,13 +64,20 @@
         text-decoration: none;
         line-height: 24.2px;
         }
+    & span{
+        display: none;
+    }
+    &img{
+        height: 40px;
+    }
 }
-.dash-aside__log{
+.dash-sidebar__log{
     display: flex;
+    flex-direction: column;
     border-top: 1px solid $GrisFonce ;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 100px 20px;
     & img {
         width: 48px;
     }

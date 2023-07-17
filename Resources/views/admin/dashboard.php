@@ -11,7 +11,7 @@
 <main class="dash_main">
     <!-- dashboard aside container -->
     <?php
-     include VIEWS.'includes/admin/aside_admin.php';
+     include VIEWS.'includes/admin/sidebar_admin.php';
     ?>
     <!-- dashboard main container -->
     <div class="dashboard-main-container">
@@ -52,9 +52,9 @@
             </div>
             <table class="table">
                 <thead class="tableHead">
-                <th>Invoice Number</th>
-                <th>Dates due</th>
-                <th>Company</th>
+                    <th>Invoice Number</th>
+                    <th>Dates due</th>
+                    <th>Company</th>
                 </thead>
                 <?php
 
