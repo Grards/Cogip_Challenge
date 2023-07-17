@@ -315,6 +315,10 @@ class AdminsController extends Controller
     }
 
     public function updateInvoice(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            
+        }
+
         $adminModel = new Admin();
         $user = $adminModel->getUser();
         $companiesNames =  $adminModel->getNamesOfCompanies();
