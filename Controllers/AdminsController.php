@@ -165,7 +165,24 @@ class AdminsController extends Controller
             }
             if(isset($_POST['update-company'])){
                 if(empty($_POST['update-company__password'])){
+                    $company_id = filter_var(htmlspecialchars($_POST['update-company__id']), FILTER_SANITIZE_NUMBER_INT);
+                    $company_name = htmlspecialchars($_POST['update-company__name']);
+                    $company_type = htmlspecialchars($_POST['update-company__type']);
+                    $company_country = htmlspecialchars($_POST['update-company__country']);
+                    $company_tva = htmlspecialchars($_POST['update-company__tva']);
+                    $company_update_at = date("Y/m/d H:m:s");
 
+                    $type_id= $adminModel->getIdOfType($company_type);
+              
+                    $adminModel->updateCompany($company_id, $company_name, $type_id['type_id'], $company_country, $company_tva, $company_update_at);
+                    
+                    return $this->viewAdmin('treatment',[
+                        "company_name" => $company_name,
+                        "company_type" => $company_type,
+                        "company_country" => $company_country,
+                        "company_tva" => $company_tva,
+                        "company_update_at" => $company_update_at
+                    ]);
                 }else{
                     header("Location: ".BASE_URL."dashboard?&crud-success");
                     exit;
