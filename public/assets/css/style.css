@@ -127,12 +127,13 @@ header .dash-welcome p {
   font-size: 15px;
 }
 header img {
-  width: 150px;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  right: 0;
   display: none;
+}
+@media screen and (min-width: 1080px) {
+  header img {
+    display: block;
+    width: 300px;
+  }
 }
 
 .breadcrumb {
@@ -220,14 +221,10 @@ header img {
 .table-container-dashboard.withoutSlogan {
   margin-top: 0px;
 }
-@media screen and (min-width: 780px) and (max-width: 1080px) {
-  .table-container-dashboard {
-    width: 700px;
-  }
-}
 @media screen and (min-width: 1080px) {
   .table-container-dashboard {
-    width: 1000px;
+    margin-left: 50px;
+    width: 500px;
     overflow: hidden;
   }
 }
@@ -243,7 +240,9 @@ header img {
   .dashboard-main-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    width: 80%;
+    justify-content: center;
+    gap: 20px;
   }
 }
 

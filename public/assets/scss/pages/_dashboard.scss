@@ -45,12 +45,11 @@ header{
         }
     }
     & img{
-        width: 150px;
-        z-index: 1;
-        position: fixed;
-        top: 0;
-        right: 0;
         display: none;
+        @include responsive-desktop{
+            display:block;
+            width: 300px;
+        }
     }
 }
 
@@ -132,10 +131,11 @@ header{
         margin-top: 0px;
     }
     @include responsive-tablet {
-        width: 700px;
+        // width: 700px;
     }
     @include responsive-desktop {
-        width: 1000px;
+        margin-left: 50px;
+        width: 500px;
         overflow: hidden;
     }
 
@@ -146,6 +146,7 @@ header{
 
     & table, th, tr {
         background-color: $Blanc;
+
     }
 }
 
@@ -153,6 +154,9 @@ header{
     @include responsive-desktop{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        width: 80% ;
+        justify-content: center;
+        gap: 20px;
     }
+
 }
