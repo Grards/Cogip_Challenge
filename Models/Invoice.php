@@ -20,7 +20,6 @@ class Invoice {
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
-        var_dump($invoice);
     }
 
     public function getLatestInvoices($limit) {

@@ -55,7 +55,6 @@ class InvoicesController extends Controller
        
         $invoicesLimitedPerPage = $invoicesModel->getInvoicesLimitedPerPage($invoicesPerPage, $offset, $searchQuery, $sortField, $sortOrder);
 
-        
         return $this->view('invoices',[
             'currentPage' => $currentPage,
             'pages' => $pages,
@@ -67,10 +66,12 @@ class InvoicesController extends Controller
     }
 
     public function showInvoiceDetails($id){
-        
         $invoiceModel = new Invoice();
         $invoice = $invoiceModel->getInvoiceById($id);
-
+        var_dump($invoice);
+        if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
+        $id = $_GET['id'];
+        
         if (!$invoice) {
 
             return $this->view('error', ['message' => 'Invoice not found']);
@@ -78,5 +79,7 @@ class InvoicesController extends Controller
 
         return $this->view('invoiceDetails', ['invoice' => $invoice]);
     }
+    }
 }
+
 ?>

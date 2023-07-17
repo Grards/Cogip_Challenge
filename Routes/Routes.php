@@ -32,7 +32,7 @@ $router->get('/invoices', function() {
     (new InvoicesController)->listsOfInvoices();
 });
 
-$router->get('/invoices/details/', function($id) {
+$router->get('/invoices/details/(\d+)', function($id) {
     (new InvoicesController)->showInvoiceDetails($id);
 });
 

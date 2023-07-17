@@ -14,7 +14,7 @@ include VIEWS.'includes/dateFormat.php';
     <div class="invoice-details">
 
     <?php
-        // $dateFormated = dateFormat($invoice['created_at']);
+        $dateFormated = dateFormat($invoice['created_at']);
     
         echo "<p>ID: " . $invoice['id'] . "</p>";
         echo "<p>Ref: " . $invoice['ref'] . "</p>";
