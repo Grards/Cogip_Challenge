@@ -55,6 +55,7 @@ class InvoicesController extends Controller
        
         $invoicesLimitedPerPage = $invoicesModel->getInvoicesLimitedPerPage($invoicesPerPage, $offset, $searchQuery, $sortField, $sortOrder);
 
+        
         return $this->view('invoices',[
             'currentPage' => $currentPage,
             'pages' => $pages,
@@ -65,8 +66,17 @@ class InvoicesController extends Controller
         ]);
     }
 
-    public function show(){
-        require '../Resources/views/invoices.php';
+    public function showInvoiceDetails($id){
+        
+        $invoiceModel = new Invoice();
+        $invoice = $invoiceModel->getInvoiceById($id);
+
+        if (!$invoice) {
+
+            return $this->view('error', ['message' => 'Invoice not found']);
+        }
+
+        return $this->view('invoiceDetails', ['invoice' => $invoice]);
     }
 }
 ?>
