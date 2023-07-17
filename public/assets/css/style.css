@@ -86,10 +86,20 @@ main {
   background-color: #E7E7E7;
   margin-left: 20%;
 }
+@media screen and (min-width: 1080px) {
+  .dash_main, header {
+    margin-left: 10%;
+  }
+}
 
 header {
   font-family: "Inter", sans-serif;
   padding: 20px;
+}
+@media screen and (min-width: 1080px) {
+  header {
+    padding: 30px 60px;
+  }
 }
 header h2 {
   font-weight: 900;
@@ -128,14 +138,28 @@ header img {
 .breadcrumb {
   margin-bottom: 20px;
 }
+@media screen and (min-width: 1080px) {
+  .breadcrumb {
+    margin-bottom: 60px;
+  }
+}
 
 .dash-welcome {
   padding: 20px 10px;
+}
+@media screen and (min-width: 1080px) {
+  .dash-welcome {
+    height: 206px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
 }
 
 .stats {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: #FFF;
   border-radius: 5px;
   font-family: "Inter", sans-serif;
@@ -156,6 +180,12 @@ header img {
   justify-content: space-between;
   margin: auto;
   color: #FFF;
+}
+@media screen and (min-width: 1080px) {
+  .stats {
+    width: 500px;
+    height: 230px;
+  }
 }
 
 .stats__informations--invoices {
@@ -207,6 +237,14 @@ header img {
 }
 .table-container-dashboard table, .table-container-dashboard th, .table-container-dashboard tr {
   background-color: #FFF;
+}
+
+@media screen and (min-width: 1080px) {
+  .dashboard-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 
 #navbar {
@@ -655,6 +693,11 @@ svg {
   height: 100%;
   padding: 20px 0;
 }
+@media screen and (min-width: 1080px) {
+  .dash-sidebar {
+    width: 10%;
+  }
+}
 
 .dash-sidebar__user_card {
   display: flex;
@@ -664,15 +707,30 @@ svg {
   height: 200px;
   border-bottom: 1px solid #919EAB;
 }
+@media screen and (min-width: 1080px) {
+  .dash-sidebar__user_card {
+    padding-bottom: 40px;
+  }
+}
 .dash-sidebar__user_card img {
   width: 50px;
   margin-bottom: 20px;
+}
+@media screen and (min-width: 1080px) {
+  .dash-sidebar__user_card img {
+    width: 100px;
+  }
 }
 .dash-sidebar__user_card h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-size: 14px;
   text-align: center;
+}
+@media screen and (min-width: 1080px) {
+  .dash-sidebar__user_card h3 {
+    font-size: 25px;
+  }
 }
 
 .dash-sidebar__nav {
@@ -694,12 +752,16 @@ svg {
   font-size: 20px;
   color: #000;
   text-align: left;
-  text-transform: uppercase;
   text-decoration: none;
   line-height: 24.2px;
 }
 .dash-sidebar__nav span {
   display: none;
+}
+@media screen and (min-width: 1080px) {
+  .dash-sidebar__nav span {
+    display: contents;
+  }
 }
 .dash-sidebar__navimg {
   height: 40px;
@@ -711,10 +773,26 @@ svg {
   border-top: 1px solid #919EAB;
   align-items: center;
   justify-content: space-between;
-  padding: 100px 20px;
+  padding-bottom: 50px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+@media screen and (min-width: 1080px) {
+  .dash-sidebar__log {
+    display: flex;
+    flex-direction: row;
+  }
 }
 .dash-sidebar__log img {
   width: 48px;
+}
+.dash-sidebar__log a {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .table-shape {

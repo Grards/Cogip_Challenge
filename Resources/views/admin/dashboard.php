@@ -15,10 +15,6 @@
     ?>
     <!-- dashboard main container -->
     <div class="dashboard-main-container">
-        <nav class="breadcrumb">
-            <h2>Dashboard</h2>
-            <a href="#"><?php echo breadcrumb(); ?></a>
-        </nav>
 
         <article class ="stats">
             <h2 class="stats__title">Statistics</h2>

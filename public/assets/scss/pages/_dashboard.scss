@@ -7,11 +7,17 @@ $fondDashboard : #E7E7E7;
 .dash_main, header{
     background-color: $fondDashboard;
     margin-left: 20%;
+    @include responsive-desktop{
+        margin-left: 10%;
+    }
 }
 
 header{
     font-family: 'Inter',sans-serif;
     padding: 20px;
+    @include responsive-desktop{
+        padding: 30px 60px;
+    }
     & h2{
         font-weight: 900;
         font-size: 30px;
@@ -50,15 +56,25 @@ header{
 
 .breadcrumb{
     margin-bottom: 20px;
+    @include responsive-desktop{
+        margin-bottom: 60px;
+    }
 }
 
 .dash-welcome{
     padding: 20px 10px;
+    @include responsive-desktop{
+        height: 206px;
+        display: flex;
+        justify-content: center;
+        align-items:flex-start;
+    }
 }
 
 .stats{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: $Blanc;
     border-radius: 5px;
     font-family: 'Inter',sans-serif;
@@ -78,6 +94,10 @@ header{
             margin: auto;
             color: $Blanc;
         }
+    }
+    @include responsive-desktop{
+        width: 500px;
+        height: 230px;
     }
 }
 
@@ -126,5 +146,13 @@ header{
 
     & table, th, tr {
         background-color: $Blanc;
+    }
+}
+
+.dashboard-main-container{
+    @include responsive-desktop{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 }
