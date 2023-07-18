@@ -55,15 +55,15 @@ $router->all('/dashboard/treatment', function() {
     (new AdminsController)->treatment();
 });
 
-$router->get('/dashboard/new-invoice', function() {
+$router->get('/dashboard/invoices', function() {
     (new AdminsController)->newInvoice();
 });
 
-$router->get('/dashboard/new-company', function() {
+$router->get('/dashboard/companies', function() {
     (new AdminsController)->newCompany();
 });
 
-$router->get('/dashboard/new-contact', function() {
+$router->get('/dashboard/contacts', function() {
     (new AdminsController)->newContact();
 });
 

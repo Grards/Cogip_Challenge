@@ -39,7 +39,7 @@
                 </fieldset>
 
                 <label for="update-invoice__ref"> Reference : </label>
-                <input type="text" id="update-invoice__ref" name="update-invoice__ref" min=6 max=50 value="<?= $invoice_ref ?>>
+                <input type="text" id="update-invoice__ref" name="update-invoice__ref" min=6 max=50 value="<?= $invoice_ref ?>">
 
                 <label for="update-invoice__company">Company : </label>
                 <select name="update-invoice__company" id="update-invoice__company" required>
