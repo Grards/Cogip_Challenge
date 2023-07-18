@@ -7,9 +7,6 @@ export function burgerMenu(){
     burgerMenu.addEventListener('click', function() {
       this.classList.toggle("close");
       overlay.classList.toggle("overlay");
-      console.log("click-burger");
+      // console.log("click-burger");
     });
-    
-
-    
-}
+  }

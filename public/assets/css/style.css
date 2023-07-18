@@ -103,13 +103,13 @@ main {
   line-height: 3em;
 }
 
-.dash_main, header {
+.dash_main, header, main {
   background-color: #E7E7E7;
   margin-left: 20%;
 }
 @media screen and (min-width: 1080px) {
-  .dash_main, header {
-    margin-left: 10%;
+  .dash_main, header, main {
+    margin-left: 15%;
   }
 }
 
@@ -786,7 +786,7 @@ svg {
 }
 @media screen and (min-width: 1080px) {
   .dash-sidebar {
-    width: 10%;
+    width: 15%;
   }
 }
 
@@ -1119,10 +1119,42 @@ tr:nth-child(even) td {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 10%;
+  justify-content: space-between;
+  padding: 20px 10px;
   background-color: #FFF;
-  width: 200px;
+  width: 250px;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000;
+}
+@media screen and (min-width: 1080px) {
+  form {
+    width: 800px;
+  }
+}
+form .form-title {
+  border-bottom: solid 1px #919EAB;
+  padding-bottom: 10px;
+}
+form input, form select {
+  border: none;
+  outline: none;
+  background-color: #DFE3E8;
+  border-radius: 5px;
+  margin-top: 20px;
+  height: 30px;
+}
+form label {
+  display: none;
+}
+
+#new-invoice__submit,
+#new-company__submit,
+#new-contact__submit {
+  background-color: #9698D6;
+  color: #FFF;
 }
 
 form {

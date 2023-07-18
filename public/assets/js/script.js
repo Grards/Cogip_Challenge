@@ -4,7 +4,7 @@ import { burgerMenu } from "./burgerMenu.js";
 // import { formsLog} from "./formsLog.js";
 
 // errorNotificationDisplay();
-console.log("hello world");
+// console.log("hello world");
 
 burgerMenu();
 console.log("hello");

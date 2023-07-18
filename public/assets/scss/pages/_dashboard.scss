@@ -4,11 +4,11 @@
 
 
 
-.dash_main, header{
+.dash_main, header,main{
     background-color: $fondDashboard;
     margin-left: 20%;
     @include responsive-desktop{
-        margin-left: 10%;
+        margin-left: 15%;
     }
 }
 

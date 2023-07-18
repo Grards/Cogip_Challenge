@@ -8,12 +8,15 @@
     // include VIEWS.'includes/admin/aside_admin.php';
 ?>  
 
-<main>
+<main class="dash-main">
     <!-- dashboard aside container -->
     <?php
         include VIEWS.'includes/admin/sidebar_admin.php';
     ?>
     <form id="new-invoice" action="<?php echo htmlspecialchars(BASE_URL.'dashboard/treatment')?>" method="POST" enctype="multipart/form-data">
+    <div class="form-title">
+        <p>New Invoice</p>
+    </div>
         <input type="hidden" name="new-invoice" value="new-invoice-value">
 
         <!-- TODO FOR FRONT : put position absolute and left: -99999px for .crud-password -->
@@ -23,7 +26,8 @@
         </fieldset>
 
         <label for="new-invoice__ref">Reference : </label>
-        <input type="text" id="new-invoice__ref" name="new-invoice__ref" required>
+        <input type="text" id="new-invoice__ref" name="new-invoice__ref"
+        placeholder="Reference" required>
 
         <label for="new-invoice__company">Company : </label>
         <select name="new-invoice__company" id="new-invoice__company" required>
@@ -39,7 +43,9 @@
         <input type="date" id="new-invoice__due_date" name="new-invoice__due_date" required>
 
         <label for="new-invoice__price">Price ($) : </label>
-        <input type="number" id="new-invoice__price" name="new-invoice__price" required>
+        <input type="number" id="new-invoice__price" name="new-invoice__price"
+        placeholder="Price" 
+        required>
 
         <input type="submit" id="new-invoice__submit" value="Send new invoice" onclick="return confirm('Is the encoded information correct ?')">
     </form>
