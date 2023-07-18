@@ -66,8 +66,21 @@ class ContactsController extends Controller
         ]);
     }
 
-    public function show(){
-        require '../Resources/views/contacts.php';
+    public function showContactDetails(){
+        if (!isset($_GET['id'])) {
+            return $this->view('error', ['message' => 'Contact ID not provided']);
+        }
+    
+        $contactId = $_GET['id'];
+    
+        $contactModel = new Contact();
+        $contact = $contactModel->getContactById($contactId);
+    
+        if (!$contact) {
+            return $this->view('error', ['message' => 'Contact not found']);
+        }
+    
+        return $this->view('contactDetails', ['contact' => $contact]);
     }
 }
 ?>
