@@ -79,6 +79,18 @@ $router->get('/dashboard/update-contact', function() {
     (new AdminsController)->updateContact();
 });
 
+$router->get('/dashboard/delete-contact', function() {
+    (new AdminsController)->deleteContact();
+});
+
+$router->get('/dashboard/delete-company', function() {
+    (new AdminsController)->deleteCompany();
+});
+
+$router->get('/dashboard/delete-invoice', function() {
+    (new AdminsController)->deleteInvoice();
+});
+
 
 $router->get('/fakers', function() {
     (new FakersController)->index();

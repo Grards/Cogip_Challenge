@@ -102,7 +102,7 @@
         $dateFormated = dateFormat($contact['contacts_created_at']);
         echo "<tr>";
             echo "<td><a href='".BASE_URL.'dashboard/update-contact?id='."$contact[contacts_id]'><img src='".IMG."dashboard/icons8-create-24.png' alt='Update logo'><a></td>";
-            echo "<td><a href='".BASE_URL.'dashboard/update-contact?id='."$contact[contacts_id]'><img src='".IMG."dashboard/icons8-trash-24.png' alt='Update logo'><a></td>";
+            echo "<td><a href='".BASE_URL.'dashboard/delete-contact?id='."$contact[contacts_id]'><img src='".IMG."dashboard/icons8-trash-24.png' alt='Delete logo' onclick=\"return confirm('Are you sure you want to delete this entry?')\"><a></td>";
             echo "<td>$contact[contacts_name]</td>";
             echo "<td>$contact[contacts_phone]</td>";
             echo "<td>$contact[contacts_email]</td>";
