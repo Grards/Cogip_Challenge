@@ -1,0 +1,66 @@
+
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
+
+
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+}
+body {
+    background-color: $Jaune;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background-color: $Jaune;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: #e69100;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: $Jaune;
+    color: #FFF;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #FFCE00;
+  }
+  
+  #message {
+    text-align: center;
+    margin-top: 10px;
+    color: red;
+    font-weight: bold;
+  }
+  
