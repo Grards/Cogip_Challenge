@@ -941,8 +941,9 @@ svg {
 
 .table-title {
   padding-left: 10px;
-  margin-bottom: 20px;
   position: relative;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 .table-title h2 {
   display: inline;
@@ -964,6 +965,12 @@ svg {
   z-index: -1;
   left: 60px;
   top: calc(100% - 37px);
+}
+@media screen and (min-width: 1080px) {
+  .table-title h2::before {
+    left: 200px;
+    top: calc(100% - 60px);
+  }
 }
 @media screen and (min-width: 1080px) {
   .table-title h2 {
