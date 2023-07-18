@@ -32,6 +32,10 @@ $router->get('/companies', function() {
     (new CompaniesController)->listsOfCompagnies();
 });
 
+$router->get('/companies/details', function() {
+    (new CompaniesController)->showCompanyDetails();
+});
+
 $router->get('/invoices', function() {
     (new InvoicesController)->listsOfInvoices();
 });

@@ -17,17 +17,20 @@ include VIEWS . 'includes/dateFormat.php';
         <div id="test-clip">
         </div>
     </div>
+    <div class="contacts-details">
     <?php
     if(isset($contact)){
     echo "<h1>$contact[contacts_name]</h1>";
+    echo "<img class='contact-picture' src='" . IMG."contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
     echo "<p>Contact : " . $contact['contacts_name'] . "</p>";
     echo "<p>Phone : " . $contact['contacts_phone'] . "</p>";
     echo "<p>Mail : " . $contact['contacts_email'] . "</p>";
     echo "<p>Company : " . $contact['companies_name'] ."</p>";
     } else {
-        echo "Contact details not found.";
+        echo "<p>Contact details not found.</p>";
     }
     ?>
+    </div>
 </main>
 
 <?php

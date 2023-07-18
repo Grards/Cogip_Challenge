@@ -66,8 +66,21 @@ class CompaniesController extends Controller
 
     }
 
-    public function show(){
-        require '../Resources/views/companies.php';
-    }
+    public function showCompanyDetails(){
+        if (!isset($_GET['id'])) {
+            return $this->view('error', ['message' => 'Company ID not provided']);
+        }
+    
+        $companyId = $_GET['id'];
+    
+        $companyModel = new Company();
+        $company = $companyModel->getcompanyById($companyId);
+    
+        if (!$company) {
+            return $this->view('error', ['message' => 'Company not found']);
+        }
+    
+        return $this->view('companyDetails', ['company' => $company]);
+    }    
 }
 ?>
