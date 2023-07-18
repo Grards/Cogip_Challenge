@@ -8,7 +8,13 @@
     include VIEWS.'includes/admin/sidebar_admin.php';
 ?>  
 
-<main>
+<main class="dash_main">
+    <!-- dashboard aside container -->
+    <?php
+     include VIEWS.'includes/admin/sidebar_admin.php';
+    ?>
+    <!-- dashboard main container -->
+    <div class="dashboard-main-container">
     <?php 
         if($crud === 'update_contact' && $idContact > 0 && $idContact <= $countOfContacts && isset($contact['contacts_id'])){
             $contact_id = filter_var(htmlspecialchars($idContact), FILTER_SANITIZE_NUMBER_INT);
@@ -68,5 +74,5 @@
             echo "<p><a href='".BASE_URL."dashboard'>Return to Dashboard</a></p>";
         }
     ?>
-
+    </div>
 </main>

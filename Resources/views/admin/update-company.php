@@ -9,7 +9,13 @@
     include VIEWS.'includes/countriesList.php';
 ?>  
 
-<main>
+<main class="dash_main">
+    <!-- dashboard aside container -->
+    <?php
+     include VIEWS.'includes/admin/sidebar_admin.php';
+    ?>
+    <!-- dashboard main container -->
+    <div class="dashboard-main-container">
     <?php 
         if($crud === 'update_company' && $idCompany > 0 && $idCompany <= $countOfCompanies && isset($company['companies_id'])){
             $company_id = filter_var(htmlspecialchars($idCompany), FILTER_SANITIZE_NUMBER_INT);
@@ -75,5 +81,5 @@
             echo "<p><a href='".BASE_URL."dashboard'>Return to Dashboard</a></p>";
         }
     ?>
-
+    </div>
 </main>

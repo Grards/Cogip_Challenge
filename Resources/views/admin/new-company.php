@@ -51,7 +51,3 @@
         <input type="submit" id="new-company__submit" value="Send new company" onclick="return confirm('Is the encoded information correct ?')">
     </form>
 </main>
-
-<?php 
-    include VIEWS.'includes/footer.php';
-?>

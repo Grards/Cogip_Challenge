@@ -44,7 +44,3 @@
         <input type="submit" id="new-invoice__submit" value="Send new invoice" onclick="return confirm('Is the encoded information correct ?')">
     </form>
 </main>
-
-<?php 
-    include VIEWS.'includes/footer.php';
-?>
