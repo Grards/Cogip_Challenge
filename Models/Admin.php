@@ -185,4 +185,36 @@ class Admin
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }  
+
+    public function deleteContact($id){
+        $query = "DELETE FROM contacts WHERE id = $id";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function deleteCompany($id){
+        $query = "DELETE FROM invoices WHERE id_company = $id";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        $query = "DELETE FROM contacts WHERE company_id = $id";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        $query = "DELETE FROM companies WHERE id = $id";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function deleteInvoice($id){
+        $query = "DELETE FROM invoices WHERE id = $id";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

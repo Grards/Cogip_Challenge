@@ -105,19 +105,19 @@
                 </th>
             </thead>
             <?php
-            foreach ($invoicesLimitedPerPage as $invoice) {
-                $dateFormated_created = dateFormat($invoice['invoices_created_at']);
-                $dateFormated_due = dateFormat($invoice['invoices_due_date']);
-                echo "<tr>";
-                    echo "<td><a href='".BASE_URL.'dashboard/update-invoice?id='."$invoice[invoices_id]'><img src='".IMG."dashboard/icons8-create-24.png' alt='Update logo'><a></td>";
-                    echo "<td><a href='".BASE_URL.'dashboard/update-invoice?id='."$invoice[invoices_id]'><img src='".IMG."dashboard/icons8-trash-24.png' alt='Update logo'><a></td>";
-                    echo "<td>$invoice[invoices_ref]</td>";
-                    echo "<td>$dateFormated_due</td>";
-                    echo "<td>$invoice[companies_name]</td>";
-                    echo "<td>$invoice[invoices_price]</td>";
-                    echo "<td>$dateFormated_created</td>";
-                echo "</tr>";
-            }
+                foreach ($invoicesLimitedPerPage as $invoice) {
+                    $dateFormated_created = dateFormat($invoice['invoices_created_at']);
+                    $dateFormated_due = dateFormat($invoice['invoices_due_date']);
+                    echo "<tr>";
+                    echo "<td><a href='".BASE_URL."dashboard/update-invoice?id=".$invoice['invoices_id']."'><img src='".IMG."dashboard/icons8-create-24.png' alt='Update logo'></a></td>";
+                    echo "<td><a href='".BASE_URL."dashboard/delete-invoice?id=".$invoice['invoices_id']."'><img src='".IMG."dashboard/icons8-trash-24.png' alt='Delete logo' onclick=\"return confirm('Are you sure you want to delete this entry?')\"></a></td>";
+                    echo "<td>".$invoice['invoices_ref']."</td>";
+                    echo "<td>".$dateFormated_due."</td>";
+                    echo "<td>".$invoice['companies_name']."</td>";
+                    echo "<td>".$invoice['invoices_price']."</td>";
+                    echo "<td>".$dateFormated_created."</td>";
+                    echo "</tr>";
+                }
             ?>
         </table>
     </div>

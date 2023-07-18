@@ -113,7 +113,7 @@
                 $dateFormated = dateFormat($company['companies_created_at']);
                 echo "<tr>";
                     echo "<td><a href='".BASE_URL.'dashboard/update-company?id='."$company[companies_id]'><img src='".IMG."dashboard/icons8-create-24.png' alt='Update logo'><a></td>";
-                    echo "<td><a href='".BASE_URL.'dashboard/update-company?id='."$company[companies_id]'><img src='".IMG."dashboard/icons8-trash-24.png' alt='Update logo'><a></td>";
+                    echo "<td><a href='".BASE_URL.'dashboard/delete-company?id='."$company[companies_id]'><img src='".IMG."dashboard/icons8-trash-24.png' alt='Delete logo' onclick=\"return confirm('Are you sure you want to delete this entry?')\"><a></td>";
                     echo "<td>$company[companies_name]</td>";
                     echo "<td>$company[types_name]</td>";
                     echo "<td>$company[companies_country]</td>";

@@ -555,4 +555,43 @@ class AdminsController extends Controller
             exit;
         }
     }
+
+    public function deleteContact(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $id = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $adminModel->deleteContact($id); 
+
+            header("Location: ".BASE_URL."dashboard/contacts#dash_invoices_table?deleted=ok");
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
+    }
+
+    public function deleteCompany(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $id = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $adminModel->deleteCompany($id); 
+
+            header("Location: ".BASE_URL."dashboard/companies#dash_invoices_table?deleted=ok");
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
+    }
+
+    public function deleteInvoice(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $id = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $adminModel->deleteInvoice($id); 
+
+            header("Location: ".BASE_URL."dashboard/invoices#dash_invoices_table?deleted=ok");
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
+    }
 }
