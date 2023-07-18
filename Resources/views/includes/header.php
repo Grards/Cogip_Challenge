@@ -19,12 +19,12 @@
         </div>
         <div id="navbar-menu">
             <ul>
-                <li><a href="./">Home</a></li>
-                <li><a href="./invoices">Invoices</a></li>
-                <li><a href="./companies">Companies</a></li>
-                <li><a href="./contacts">Contacts</a></li>
-                <li><a class="signup-button" href="./sign">Sign Up</a></li>
-                <li><a href="./login">Login</a></li>
+                <li><a href="<?= BASE_URL ?>">Home</a></li>
+                <li><a href="<?= BASE_URL.'invoices' ?>">Invoices</a></li>
+                <li><a href="<?= BASE_URL.'companies' ?>">Companies</a></li>
+                <li><a href="<?= BASE_URL.'contacts' ?>">Contacts</a></li>
+                <li><a class="signup-button" href="<?= BASE_URL.'sign' ?>">Sign Up</a></li>
+                <li><a href="<?= BASE_URL.'login' ?>">Login</a></li>
             </ul>
         </div>
     </nav>

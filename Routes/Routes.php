@@ -24,6 +24,10 @@ $router->get('/contacts', function() {
     (new ContactsController)->listsOfContacts();
 });
 
+$router->get('/contacts/details', function() {
+    (new ContactsController)->showContactDetails();
+});
+
 $router->get('/companies', function() {
     (new CompaniesController)->listsOfCompagnies();
 });

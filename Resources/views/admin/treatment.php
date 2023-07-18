@@ -3,6 +3,12 @@
 ?>  
 
 <main class="dash_main">
+    <!-- dashboard aside container -->
+    <?php
+     include VIEWS.'includes/admin/sidebar_admin.php';
+    ?>
+    <!-- dashboard main container -->
+    <div class="dashboard-main-container">>
     <h2>Here is the restult</h2>
 
 <?php
@@ -52,5 +58,5 @@
     // echo "<p>Tva : " . $company_tva . "</p>";
     // echo "<p>Creation date : " . $company_created_at . "</p>";
 ?>
-
+    </div>
 </main>

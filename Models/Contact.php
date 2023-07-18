@@ -13,6 +13,19 @@ class Contact
         $this->db = DatabaseManager::getInstance();
     }
 
+    public function getContactById($id)
+    {
+        $query = "SELECT contacts.id as contacts_id, contacts.name as contacts_name, contacts.company_id as contacts_company_id, contacts.email as contacts_email, contacts.phone as contacts_phone, companies.name AS companies_name
+        FROM contacts
+        INNER JOIN companies ON contacts.company_id = companies.id
+        WHERE contacts.id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->bindParam(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function getLatestContacts($limit) {
 
         $query = "SELECT contacts.id as contacts_id, contacts.name  as contacts_name, contacts.company_id as contacts_company_id, contacts.email as contacts_email, contacts.phone as contacts_phone, contacts.created_at as contacts_created_at, contacts.updated_at as contacts_updated_at, companies.id as companies_id, companies.name as companies_name
