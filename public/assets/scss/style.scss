@@ -3,6 +3,7 @@
 @use './base/htmlBody';
 
 @use './pages/dashboard';
+@use './pages/pageDetails';
 
 @use "./abstracts/colors";
 @use "./abstracts/fonts";
@@ -13,11 +14,17 @@
 @use "./layout/sloganBottom";
 @use "./layout/footer";
 @use "./layout/sidebar";
+@use "./layout/error404.scss";
+
+// @use "./layout/errorNotificationDisplay";
+// @use "./layout/formsLog";
 
 @use "./components/table";
 @use "./components/mainDeco";
 @use "./components/honeypot";
 @use "./components/pagination";
+@use "./components/tableDashboard";
+@use "./components/formNewInvoices";
 @use "./components/inputAndButton";
 
 

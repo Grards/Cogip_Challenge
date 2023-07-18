@@ -66,7 +66,7 @@ use App\Core\DatabaseManager;
             foreach ($companiesLimitedPerPage as $company) {
                 $dateFormated = dateFormat($company['companies_created_at']);
                 echo "<tr>";
-                echo "<td>$company[companies_name]</td>";
+                echo "<td><a href='" . BASE_URL . "companies/details?id=" . ($company['companies_id'] ?? '') . "'>" . $company['companies_name'] . "</a></td>";
                 echo "<td>$company[types_name]</td>";
                 echo "<td>$company[companies_country]</td>";
                 echo "<td>$company[companies_tva]</td>";

@@ -1,0 +1,13 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+@import "../abstracts/mixin";
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 10%;
+    background-color: $Blanc;
+    width: 200px;
+}
