@@ -4,7 +4,8 @@
 
 
 
-.dash_main, header,main{
+
+.dash_main,.dash_header{
     background-color: $fondDashboard;
     margin-left: 20%;
     @include responsive-desktop{

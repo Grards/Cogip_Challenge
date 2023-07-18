@@ -10,6 +10,6 @@
     <title>Cogip - Dashboard</title>
 </head>
 <body>
-    <header>
+    <header class="dash_header">
         <?php include VIEWS.'includes/admin/nav_admin.php'; ?>
     </header>
