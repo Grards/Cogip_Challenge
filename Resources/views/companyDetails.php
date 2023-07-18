@@ -18,7 +18,7 @@ include VIEWS . 'includes/dateFormat.php';
         </div>
     </div>
     <div class="company-details">
-    <div class="table-title">
+        <div class="table-title">
             <h2>Contact people</h2>
         </div>
         <?php
@@ -51,9 +51,24 @@ include VIEWS . 'includes/dateFormat.php';
                 <th>Company</th>
                 <th>Created at</th>
             </thead>
+            <?php
+
+            foreach ($invoices as $invoice) {
+                $dateFormated_due = dateFormat($invoice['invoices_due_date']);
+                $dateFormated_created = dateFormat($invoice['invoices_created_at']);
+                echo "<tr>";
+                echo "<td>$invoice[invoices_ref]</td>";
+                echo "<td>$dateFormated_due</td>";
+                echo "<td>$invoice[companies_name]</td>";
+                echo "<td>$dateFormated_created</td>";
+                echo "</tr>";
+            }
+            
+            ?>
+
         </table>
     </div>
-            <!-- TODO : Add last invoices of this specific company -->
+    <!-- TODO : Add last invoices of this specific company -->
 
 </main>
 
