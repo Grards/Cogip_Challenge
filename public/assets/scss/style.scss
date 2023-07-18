@@ -14,6 +14,10 @@
 @use "./layout/sloganBottom";
 @use "./layout/footer";
 @use "./layout/sidebar";
+@use "./layout/error404.scss";
+
+// @use "./layout/errorNotificationDisplay";
+// @use "./layout/formsLog";
 
 @use "./components/table";
 @use "./components/mainDeco";

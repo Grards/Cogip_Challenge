@@ -15,7 +15,7 @@ class Contact
 
     public function getContactById($id)
     {
-        $query = "SELECT contacts.id as contacts_id, contacts.name as contacts_name, contacts.company_id as contacts_company_id, contacts.email as contacts_email, contacts.phone as contacts_phone, companies.name AS companies_name
+        $query = "SELECT contacts.id as contacts_id, contacts.name as contacts_name, contacts.company_id as contacts_company_id, contacts.email as contacts_email, contacts.phone as contacts_phone, contacts.picture as contacts_picture, companies.name AS companies_name
         FROM contacts
         INNER JOIN companies ON contacts.company_id = companies.id
         WHERE contacts.id = :id";

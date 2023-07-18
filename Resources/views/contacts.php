@@ -64,7 +64,6 @@ use App\Core\DatabaseManager;
         $dateFormated = dateFormat($contact['contacts_created_at']);
         echo "<tr>";
         echo "<td><a href='" . BASE_URL . "contacts/details?id=" . ($contact['contacts_id'] ?? '') . "'>" . $contact['contacts_name'] . "</a></td>";
-        echo "<td>$contact[contacts_name]</td>";
         echo "<td>$contact[contacts_phone]</td>";
         echo "<td>$contact[contacts_email]</td>";
         echo "<td>$contact[companies_name]</td>";
