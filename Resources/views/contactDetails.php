@@ -16,11 +16,10 @@ include VIEWS . 'includes/dateFormat.php';
     if(isset($contact)){
     echo"<div class='detail-container'>";
     echo "<h2>$contact[contacts_name]</h2>";
-    echo"<img src='./public/assets/img/background-title.png' alt='background yellow title'>";
-    echo "<p>Contact : " . $contact['contacts_name'] . "</p>";
-    echo "<p>Phone : " . $contact['contacts_phone'] . "</p>";
-    echo "<p>Mail : " . $contact['contacts_email'] . "</p>";
-    echo "<p>Company : " . $contact['companies_name'] ."</p>";
+    echo "<p><span>Contact : </span>" . $contact['contacts_name'] . "</p>";
+    echo "<p><span>Phone : </span>" . $contact['contacts_phone'] . "</p>";
+    echo "<p><span>Mail : </span>" . $contact['contacts_email'] . "</p>";
+    echo "<p><span>Company : </span>" . $contact['companies_name'] ."</p>";
     echo "</div>"; 
     } else {
         echo "Contact details not found.";

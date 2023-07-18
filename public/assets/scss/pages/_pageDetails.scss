@@ -1,0 +1,54 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+@import "../abstracts/mixin";
+
+.detail-container{
+
+    font-family: 'Inter',sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    color: $Noir;
+
+    display: flex;
+    flex-direction: column;
+    // align-items:flex-start;
+    margin: 20px 30px;
+    // width: 100%;
+
+    // font-family: 'Roboto',sans-serif;
+    // font-weight: 900;
+    // font-weight: 600;
+    // font-size: 25px;
+
+    h2{
+        display: inline;
+        font-size: 30px;
+        padding: 20px 10px;
+        // margin: 20px 10px 40px 10px;
+        position:relative;
+        z-index:1;
+        &::before{
+            height: 20px;
+            width: 80%;
+            content:"";
+            display:inline-block;
+            background-color: $Jaune;
+            position: absolute;
+            z-index:-1;
+            left: 60px ;
+            top : calc(100% - 37px);
+        }
+        @include responsive-desktop {
+            font-size: 60px;
+            padding: 30px 20px;
+        }
+    }
+    p{
+        font-family: 'Roboto',sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        & span{
+            font-weight: 900;
+        }
+    }
+}
