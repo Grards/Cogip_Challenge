@@ -4,9 +4,9 @@
 
 <nav class="breadcrumb">
     <h2>Dashboard</h2>
-    <span>
-        <?php echo breadcrumb(); ?>
-    </span>
+    <div class="breadcrumb-links">
+    <?php echo breadcrumb(); ?>
+    </div>
 </nav>
 <!-- Placer ici l'image du Dashboard -->
 <div class="dash-welcome-container">

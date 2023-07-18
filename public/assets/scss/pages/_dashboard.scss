@@ -34,6 +34,19 @@ header{
 
 .breadcrumb{
     margin-bottom: 20px;
+    & .breadcrumb-links{
+        display: flex;
+        & p{
+            margin-right: 5px;
+            & a{
+                text-decoration: none;
+                color: $Noir;
+                font-family: 'Inter',sans-serif;
+                font-weight: 300;
+                font-size: 15px;
+            }
+        }
+    }
     @include responsive-desktop{
         margin-bottom: 60px;
     }
