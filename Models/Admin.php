@@ -157,5 +157,20 @@ class Admin
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
-    } 
+    }
+
+    public function updateCompany($company_id, $company_name, $type_id, $company_country, $company_tva, $company_update_at){
+        $query = "UPDATE companies
+        SET name = :name, type_id = :typeId, country = :country, tva = :tva, updated_at = :updatedAt
+        WHERE id = " . $company_id;
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':name', $company_name, \PDO ::PARAM_STR);
+        $statement->bindValue(':typeId', $type_id, \PDO ::PARAM_INT);
+        $statement->bindValue(':country', $company_country, \PDO ::PARAM_STR);
+        $statement->bindValue(':tva', $company_tva, \PDO ::PARAM_STR);
+        $statement->bindValue(':updatedAt', $company_update_at, \PDO ::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }  
 }

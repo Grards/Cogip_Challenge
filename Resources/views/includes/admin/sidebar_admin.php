@@ -10,25 +10,25 @@
             <ul>
                 <li class="log--link">
                     <a href="<?php echo BASE_URL.'dashboard'; ?>">
-                        <img src="assets\img\sidebar_logo\dashboard_logo.png" alt="dashboard logo">
+                        <img src="<?= IMG.'sidebar_logo/dashboard_logo.png' ?>" alt="dashboard logo">
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="log--link">
                     <a href="<?php echo BASE_URL.'dashboard/new-invoice'; ?>">
-                        <img src="assets\img\sidebar_logo\invoices_logo.png" alt="invoice logo">
+                        <img src="<?= IMG.'sidebar_logo/invoices_logo.png'; ?>" alt="invoice logo">
                         <span>Invoices</span>
                     </a>
                 </li>
                 <li class="log--link">
                     <a href="<?php echo BASE_URL.'dashboard/new-company'; ?>">
-                         <img src="assets/img/sidebar_logo/companies_logo.png" alt="logo company">
+                         <img src="<?= IMG.'sidebar_logo/companies_logo.png'; ?>" alt="logo company">
                         <span>Companies</span>
                     </a>
                 </li>
                 <li class="log--link">
                     <a href="<?php echo BASE_URL.'dashboard/new-contact'; ?>">
-                        <img src="assets\img\sidebar_logo\contacts_logo.png" alt="contacts logo">
+                        <img src="<?= IMG.'sidebar_logo\contacts_logo.png'; ?>" alt="contacts logo">
                         <span>Contacts</span
                     ></a>
                 </li>
