@@ -15,19 +15,19 @@
                     </a>
                 </li>
                 <li class="log--link">
-                    <a href="<?php echo BASE_URL.'dashboard/new-invoice'; ?>">
+                    <a href="<?php echo BASE_URL.'dashboard/invoices'; ?>">
                         <img src="<?= IMG.'sidebar_logo/invoices_logo.png'; ?>" alt="invoice logo">
                         <span>Invoices</span>
                     </a>
                 </li>
                 <li class="log--link">
-                    <a href="<?php echo BASE_URL.'dashboard/new-company'; ?>">
+                    <a href="<?php echo BASE_URL.'dashboard/companies'; ?>">
                          <img src="<?= IMG.'sidebar_logo/companies_logo.png'; ?>" alt="logo company">
                         <span>Companies</span>
                     </a>
                 </li>
                 <li class="log--link">
-                    <a href="<?php echo BASE_URL.'dashboard/new-contact'; ?>">
+                    <a href="<?php echo BASE_URL.'dashboard/contacts'; ?>">
                         <img src="<?= IMG.'sidebar_logo\contacts_logo.png'; ?>" alt="contacts logo">
                         <span>Contacts</span
                     ></a>

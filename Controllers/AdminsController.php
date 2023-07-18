@@ -64,8 +64,11 @@ class AdminsController extends Controller
                     $company_id= $adminModel->getIdOfCompany($contact_company);
               
                     $adminModel->addContact($contact_name, $company_id['company_id'], $contact_email, $contact_phone, $contact_created_at, $contact_picture);
+
+                    $user = $adminModel->getUser();
                     
                     return $this->viewAdmin('treatment',[
+                        "user" => $user[0],
                         "contact_name" => $contact_name,
                         "contact_company" => $contact_company,
                         "contact_email" => $contact_email,
@@ -89,8 +92,11 @@ class AdminsController extends Controller
                     $company_id= $adminModel->getIdOfCompany($invoice_company);
               
                     $adminModel->addInvoice($invoice_ref, $company_id['company_id'], $invoice_due_date, $invoice_price, $invoice_created_at);
+
+                    $user = $adminModel->getUser();
                     
                     return $this->viewAdmin('treatment',[
+                        "user" => $user[0],
                         "invoice_ref" => $invoice_ref,
                         "invoice_company" => $invoice_company,
                         "invoice_due_date" => $invoice_due_date,
@@ -113,8 +119,11 @@ class AdminsController extends Controller
                     $type_id= $adminModel->getIdOfType($company_type);
               
                     $adminModel->addCompany($company_name, $type_id['type_id'], $company_country, $company_tva, $company_created_at);
+
+                    $user = $adminModel->getUser();
                     
                     return $this->viewAdmin('treatment',[
+                        "user" => $user[0],
                         "company_name" => $company_name,
                         "company_type" => $company_type,
                         "company_country" => $company_country,
@@ -141,8 +150,11 @@ class AdminsController extends Controller
                     $company_id= $adminModel->getIdOfCompany($contact_company);
               
                     $adminModel->updateContact($contact_id, $contact_name, $company_id['company_id'], $contact_email, $contact_phone, $contact_update_at, $contact_picture);
+
+                    $user = $adminModel->getUser();
                     
                     return $this->viewAdmin('treatment',[
+                        "user" => $user[0],
                         "contact_name" => $contact_name,
                         "contact_company" => $contact_company,
                         "contact_email" => $contact_email,
@@ -157,7 +169,27 @@ class AdminsController extends Controller
             }
             if(isset($_POST['update-invoice'])){
                 if(empty($_POST['update-invoice__password'])){
+                    $invoice_id = filter_var(htmlspecialchars($_POST['update-invoice__id']), FILTER_SANITIZE_NUMBER_INT);
+                    $invoice_ref = htmlspecialchars($_POST['update-invoice__ref']);
+                    $invoice_company = htmlspecialchars($_POST['update-invoice__company']);
+                    $invoice_due_date = htmlspecialchars($_POST['update-invoice__due_date']);
+                    $invoice_price = htmlspecialchars($_POST['update-invoice__price']);
+                    $invoice_update_at = date("Y/m/d H:m:s");
 
+                    $company_id= $adminModel->getIdOfType($invoice_company);
+              
+                    $adminModel->updateinvoice($invoice_id, $invoice_ref, $company_id['id_company'], $invoice_due_date, $invoice_price, $invoice_update_at);
+                    
+                    $user = $adminModel->getUser();
+                    
+                    return $this->viewAdmin('treatment',[
+                        "user" => $user[0],
+                        "invoice_ref" => $invoice_ref,
+                        "invoice_company" => $invoice_company,
+                        "invoice_due_date" => $invoice_due_date,
+                        "invoice_price" => $invoice_price,
+                        "invoice_update_at" => $invoice_update_at
+                    ]);
                 }else{
                     header("Location: ".BASE_URL."dashboard?&crud-success");
                     exit;
@@ -175,8 +207,11 @@ class AdminsController extends Controller
                     $type_id= $adminModel->getIdOfType($company_type);
               
                     $adminModel->updateCompany($company_id, $company_name, $type_id['type_id'], $company_country, $company_tva, $company_update_at);
+
+                    $user = $adminModel->getUser();
                     
                     return $this->viewAdmin('treatment',[
+                        "user" => $user[0],
                         "company_name" => $company_name,
                         "company_type" => $company_type,
                         "company_country" => $company_country,
@@ -262,9 +297,62 @@ class AdminsController extends Controller
         $user = $adminModel->getUser();
         $companiesNames =  $adminModel->getNamesOfCompanies();
 
-        return $this->viewAdmin('new-invoice',[
+
+        $invoicesModel = new Invoice();
+        
+        $page = ($_GET['page'] ?? 1); // ?? -> if doesn't exist.
+        if(!filter_var($page, FILTER_VALIDATE_INT)){
+            header("Location: ".BASE_URL."dashboard/invoices?error_page");
+            exit();
+        }
+        if($page === '1'){
+            header("Location: ".BASE_URL."dashboard/invoices");
+            exit();
+        }
+
+        $currentPage = (int)$page;
+        if($currentPage <= 0){
+            header("Location: ".BASE_URL."dashbaord/invoices?&error_page");
+            exit();
+        }
+
+        $searchQuery = $_GET['search'] ?? '';
+        $sortField = $_GET['sort_field'] ?? '';
+        $sortOrder = $_GET['sort_order'] ?? '';
+
+        $validSortFields = ['ref', 'due_date', 'companies_name', 'price', 'invoices.created_at'];
+        $validSortOrder = ['asc', 'desc'];
+
+        if (!in_array($sortField, $validSortFields)) {
+            $sortField = 'ref';
+        }
+    
+        if (!in_array($sortOrder, $validSortOrder)) {
+            $sortOrder = 'asc';
+        }
+
+        $countOfInvoices = $invoicesModel->getCountOfInvoices($searchQuery, $sortField, $sortOrder);
+        $invoicesPerPage = 10;
+         
+        $pages = ceil($countOfInvoices[0] / $invoicesPerPage);
+        if($currentPage > $pages){
+            header("Location: ".BASE_URL."dashboard/invoices?&error_page");
+            exit();
+        }
+        
+        $offset = $invoicesPerPage * ($currentPage-1);
+       
+        $invoicesLimitedPerPage = $invoicesModel->getInvoicesLimitedPerPage($invoicesPerPage, $offset, $searchQuery, $sortField, $sortOrder);
+
+        return $this->viewAdmin('invoices',[
             "user" => $user[0],
-            "companiesNames" => $companiesNames
+            "companiesNames" => $companiesNames,
+            'currentPage' => $currentPage,
+            'pages' => $pages,
+            'invoicesLimitedPerPage' => $invoicesLimitedPerPage,
+            'searchQuery' => $searchQuery,
+            'sortField' => $sortField,
+            'sortOrder' => $sortOrder
         ]);
     }
 
@@ -273,9 +361,63 @@ class AdminsController extends Controller
         $user = $adminModel->getUser();
         $typesNames = $adminModel->getNamesOfTypes();
 
-        return $this->viewAdmin('new-company',[
+
+        $companiesModel = new Company();
+        
+        $page = ($_GET['page'] ?? 1); // ?? -> if doesn't exist.
+        if(!filter_var($page, FILTER_VALIDATE_INT)){
+            header("Location: ".BASE_URL."dashboard/companies?error_page");
+            exit();
+        }
+        if($page === '1'){
+            header("Location: ".BASE_URL."dashboard/companies");
+            exit();
+        }
+
+        $currentPage = (int)$page;
+        if($currentPage <= 0){
+            header("Location: ".BASE_URL."dashboard/companies?&error_page");
+            exit();
+        }
+
+        $searchQuery = $_GET['search'] ?? '';
+        $sortField = $_GET['sort_field'] ?? '';
+        $sortOrder = $_GET['sort_order'] ?? '';
+
+        $validSortFields = ['companies.name', 'tva', 'country', 'type_id', 'companies.created_at'];
+        $validSortOrder = ['asc', 'desc'];
+
+        if (!in_array($sortField, $validSortFields)) {
+            $sortField = 'companies.name';
+        }
+    
+        if (!in_array($sortOrder, $validSortOrder)) {
+            $sortOrder = 'asc';
+        }
+
+        $countOfCompanies = $companiesModel->getCountOfCompanies($searchQuery, $sortField, $sortOrder);
+        $companiesPerPage = 10;
+         
+        $pages = ceil($countOfCompanies[0] / $companiesPerPage);
+        if($currentPage > $pages){
+            header("Location: ".BASE_URL."dashboard/companies?&error_page");
+            exit();
+        }
+        
+        $offset = $companiesPerPage * ($currentPage-1);
+        
+        $companiesLimitedPerPage = $companiesModel->getCompaniesLimitedPerPage($companiesPerPage, $offset, $searchQuery, $sortField, $sortOrder);
+
+
+        return $this->viewAdmin('companies',[
             "user" => $user[0],
-            "typesNames" => $typesNames
+            "typesNames" => $typesNames,
+            'currentPage' => $currentPage,
+            'pages' => $pages,
+            'companiesLimitedPerPage' => $companiesLimitedPerPage,
+            'searchQuery' => $searchQuery,
+            'sortField' => $sortField,
+            'sortOrder' => $sortOrder
         ]);
     }
 
@@ -284,9 +426,61 @@ class AdminsController extends Controller
         $user = $adminModel->getUser();
         $companiesNames =  $adminModel->getNamesOfCompanies();
 
-        return $this->viewAdmin('new-contact',[
+        $contactsModel = new Contact();
+        
+        $page = ($_GET['page'] ?? 1); // ?? -> if doesn't exist.
+        if(!filter_var($page, FILTER_VALIDATE_INT)){
+            header("Location: ".BASE_URL."dashboard/contacts?error_page");
+            exit();
+        }
+        if($page === '1'){
+            header("Location: ".BASE_URL."dashboard/contacts");
+            exit();
+        }
+
+        $currentPage = (int)$page;
+        if($currentPage <= 0){
+            header("Location: ".BASE_URL."dashboard/contacts?&error_page");
+            exit();
+        }
+
+        $searchQuery = $_GET['search'] ?? '';
+        $sortField = $_GET['sort_field'] ?? '';
+        $sortOrder = $_GET['sort_order'] ?? '';
+
+        $validSortFields = ['contacts_name', 'contacts_phone', 'contacts_email', 'company_id', 'contacts_created_at'];
+        $validSortOrder = ['asc', 'desc'];
+
+    if (!in_array($sortField, $validSortFields)) {
+        $sortField = 'contacts_name';
+    }
+
+    if (!in_array($sortOrder, $validSortOrder)) {
+        $sortOrder = 'asc';
+    }
+
+        $countOfContacts = $contactsModel->getCountOfContacts($searchQuery, $sortField, $sortOrder);
+        $contactsPerPage = 10;
+         
+        $pages = ceil($countOfContacts[0] / $contactsPerPage);
+        if($currentPage > $pages){
+            header("Location: ".BASE_URL."dashboard/contacts?&error_page");
+            exit();
+        }
+        
+        $offset = $contactsPerPage * ($currentPage-1);
+        
+        $contactsLimitedPerPage = $contactsModel->getContactsLimitedPerPage($contactsPerPage, $offset, $searchQuery, $sortField, $sortOrder);
+
+        return $this->viewAdmin('contacts',[
             "user" => $user[0],
-            "companiesNames" => $companiesNames
+            "companiesNames" => $companiesNames,
+            'currentPage' => $currentPage,
+            'pages' => $pages,
+            'contactsLimitedPerPage' => $contactsLimitedPerPage,
+            'searchQuery' => $searchQuery,
+            'sortField' => $sortField,
+            'sortOrder' => $sortOrder
         ]);
     }
 
@@ -316,18 +510,26 @@ class AdminsController extends Controller
 
     public function updateInvoice(){
         if(isset($_GET['id']) && !empty($_GET['id'])){
-            
+            $adminModel = new Admin();
+            $user = $adminModel->getUser();
+            $companiesNames =  $adminModel->getNamesOfCompanies();
+
+            $idInvoice = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $invoice = $adminModel->getInvoice($idInvoice);
+            $countOfInvoices= $adminModel->getLastId('invoices');
+    
+            return $this->viewAdmin('update-invoice',[
+                "user" => $user[0],
+                "crud" => "update_invoice",
+                "companiesNames" => $companiesNames,
+                "invoice" => $invoice,
+                "idInvoice" => $idInvoice,
+                "countOfInvoices" => $countOfInvoices
+            ]);
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
         }
-
-        $adminModel = new Admin();
-        $user = $adminModel->getUser();
-        $companiesNames =  $adminModel->getNamesOfCompanies();
-
-        return $this->viewAdmin('update-invoice',[
-            "user" => $user[0],
-            "crud" => "update_invoice",
-            "companiesNames" => $companiesNames
-        ]);
     }
     
     public function updateCompany(){
@@ -348,6 +550,45 @@ class AdminsController extends Controller
                 "idCompany" => $idCompany,
                 "countOfCompanies" => $countOfCompanies
             ]);
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
+    }
+
+    public function deleteContact(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $id = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $adminModel->deleteContact($id); 
+
+            header("Location: ".BASE_URL."dashboard/contacts#dash_invoices_table?deleted=ok");
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
+    }
+
+    public function deleteCompany(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $id = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $adminModel->deleteCompany($id); 
+
+            header("Location: ".BASE_URL."dashboard/companies#dash_invoices_table?deleted=ok");
+        }else{
+            header("Location: ".BASE_URL."dashboard?no-entry");
+            exit;
+        }
+    }
+
+    public function deleteInvoice(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $adminModel = new Admin();
+            $id = filter_var(htmlspecialchars($_GET['id']), FILTER_SANITIZE_NUMBER_INT);
+            $adminModel->deleteInvoice($id); 
+
+            header("Location: ".BASE_URL."dashboard/invoices#dash_invoices_table?deleted=ok");
         }else{
             header("Location: ".BASE_URL."dashboard?no-entry");
             exit;

@@ -1,0 +1,45 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+@import "../abstracts/mixin";
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background-color: $Blanc;
+    width: 250px;
+    border-radius: 10px;
+    @include responsive-desktop{
+        width: 800px;
+    }
+
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color:$Noir;
+
+    & .form-title{
+        border-bottom: solid 1px $GrisFonce;
+        padding-bottom: 10px;
+    }
+    & input,select{
+        border: none;
+        outline: none;
+        background-color: $GrisMoyen;
+        border-radius: 5px;
+        margin-top : 20px;
+        height: 30px;
+    }
+    & label{
+        display: none;
+    }
+}
+
+#new-invoice__submit,
+#new-company__submit,
+#new-contact__submit
+{
+    background-color: $bleuDashboard;
+    color : $Blanc;
+}

@@ -1,0 +1,36 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+@import "../abstracts/mixin";
+
+.table-container-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-bottom: 50px;
+    overflow-x: auto;
+    background-color: $Blanc;
+    // background-color: $Jaune;
+    &.withoutSlogan{
+        margin-top: 0px;
+    }
+    @include responsive-tablet {
+        // width: 700px;
+    }
+    @include responsive-desktop {
+        margin-left: 50px;
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        // padding: 10px 30px;
+    }
+
+    &.table-title{
+        border-bottom: 2px solid #E0E0E0;
+        background-color: $Blanc;
+    }
+
+    & table, th, tr {
+        background-color: $Blanc;
+
+    }
+    }

@@ -55,15 +55,15 @@ $router->all('/dashboard/treatment', function() {
     (new AdminsController)->treatment();
 });
 
-$router->get('/dashboard/new-invoice', function() {
+$router->get('/dashboard/invoices', function() {
     (new AdminsController)->newInvoice();
 });
 
-$router->get('/dashboard/new-company', function() {
+$router->get('/dashboard/companies', function() {
     (new AdminsController)->newCompany();
 });
 
-$router->get('/dashboard/new-contact', function() {
+$router->get('/dashboard/contacts', function() {
     (new AdminsController)->newContact();
 });
 
@@ -77,6 +77,18 @@ $router->get('/dashboard/update-company', function() {
 
 $router->get('/dashboard/update-contact', function() {
     (new AdminsController)->updateContact();
+});
+
+$router->get('/dashboard/delete-contact', function() {
+    (new AdminsController)->deleteContact();
+});
+
+$router->get('/dashboard/delete-company', function() {
+    (new AdminsController)->deleteCompany();
+});
+
+$router->get('/dashboard/delete-invoice', function() {
+    (new AdminsController)->deleteInvoice();
 });
 
 

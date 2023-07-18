@@ -1,0 +1,67 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+@import "../abstracts/mixin";
+
+.contacts-details{
+
+    font-family: 'Inter',sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    color: $Noir;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    @include responsive-desktop {
+      flex-direction: row;
+    }
+
+    h2{
+        display: inline;
+        font-size: 30px;
+        padding: 20px 10px;
+        position:relative;
+        z-index:1;
+        &::before{
+            height: 20px;
+            width: 80%;
+            content:"";
+            display:inline-block;
+            background-color: $Jaune;
+            position: absolute;
+            z-index:-1;
+            left: 60px ;
+            top : calc(100% - 37px);
+            @include responsive-desktop {
+                left: 200px ;
+                top : calc(100% - 60px);
+            }
+        }
+        @include responsive-desktop {
+            font-size: 60px;
+            padding: 30px 20px;
+        }
+    }
+
+    p{
+        font-family: 'Roboto',sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        margin-top: 20px;
+        & span{
+            font-weight: 900;
+        }
+    }
+}
+
+.detail-container-img{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    & img{
+        width: 150px;
+        margin-top: 20px;
+    }
+}
