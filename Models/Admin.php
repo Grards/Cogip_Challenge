@@ -48,6 +48,18 @@ class Admin
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function getInvoice($idInvoice){
+        $query = "SELECT invoices.id as invoices_id, invoices.ref as invoices_ref, invoices.id_company as invoices_id_company, invoices.due_date as invoices_due_date, invoices.price as invoices_price, invoices.created_at as invoices_created_at, invoices.updated_at as invoices_updated_at, companies.id as companies_id, companies.name as companies_name 
+        FROM invoices
+        JOIN companies ON invoices.id_company = companies.id
+        WHERE invoices.id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':id', $idInvoice, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function getNamesOfCompanies(){
         $query = "SELECT DISTINCT companies.name as companies_name
         FROM companies";
