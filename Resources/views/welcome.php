@@ -9,6 +9,7 @@
     <div class="table-container top">
       <div class="table-title">
           <h2>Last invoices</h2>
+          <!-- <img src='assets/img/background-title.png' alt='background yellow title'> -->
       </div>
         <table class="table">
           <thead class="tableHead">

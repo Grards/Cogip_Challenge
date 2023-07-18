@@ -7,7 +7,6 @@ include VIEWS . 'includes/errors.php';
 include VIEWS . 'includes/dateFormat.php';
 
 ?>
-
 <main>
     <div class="table-shape">
         <div class="test-clip">
@@ -20,12 +19,14 @@ include VIEWS . 'includes/dateFormat.php';
     <div class="contacts-details">
     <?php
     if(isset($contact)){
-    echo "<h1>$contact[contacts_name]</h1>";
+    echo"<div class='detail-container'>";
+    echo "<h2>$contact[contacts_name]</h2>";
     echo "<img class='contact-picture' src='" . IMG."contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
-    echo "<p>Contact : " . $contact['contacts_name'] . "</p>";
-    echo "<p>Phone : " . $contact['contacts_phone'] . "</p>";
-    echo "<p>Mail : " . $contact['contacts_email'] . "</p>";
-    echo "<p>Company : " . $contact['companies_name'] ."</p>";
+    echo "<p><span>Contact : </span>" . $contact['contacts_name'] . "</p>";
+    echo "<p><span>Phone : </span>" . $contact['contacts_phone'] . "</p>";
+    echo "<p><span>Mail : </span>" . $contact['contacts_email'] . "</p>";
+    echo "<p><span>Company : </span>" . $contact['companies_name'] ."</p>";
+    echo "</div>"; 
     } else {
         echo "<p>Contact details not found.</p>";
     }
