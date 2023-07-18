@@ -8,7 +8,7 @@
     // include VIEWS.'includes/admin/aside_admin.php';
 ?>  
 
-<main class="dash-main">
+<main class="dash_main">
     <!-- dashboard aside container -->
     <?php
         include VIEWS.'includes/admin/sidebar_admin.php';

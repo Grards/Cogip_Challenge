@@ -9,7 +9,7 @@
     include VIEWS.'includes/countriesList.php';
 ?>  
 
-<main>
+<main class="dash_main">
     <!-- dashboard aside container -->
     <?php
         include VIEWS.'includes/admin/sidebar_admin.php';
