@@ -47,7 +47,3 @@
         <input type="submit" id="new-contact__submit" value="Send new contact" onclick="return confirm('Is the encoded information correct ?')">
     </form>
 </main>
-
-<?php 
-    include VIEWS.'includes/footer.php';
-?>

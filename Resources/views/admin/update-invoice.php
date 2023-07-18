@@ -8,7 +8,13 @@
     include VIEWS.'includes/admin/sidebar_admin.php';
 ?>  
 
-<main>
+<main class="dash_main">
+    <!-- dashboard aside container -->
+    <?php
+     include VIEWS.'includes/admin/sidebar_admin.php';
+    ?>
+    <!-- dashboard main container -->
+    <div class="dashboard-main-container">
     <?php 
         if($crud === 'update_invoice' && $idInvoice > 0 && $idInvoice <= $countOfInvoices && isset($invoice['invoices_id'])){
             $invoice_id = filter_var(htmlspecialchars($idInvoice), FILTER_SANITIZE_NUMBER_INT);
@@ -63,5 +69,5 @@
             echo "<p><a href='".BASE_URL."dashboard'>Return to Dashboard</a></p>";
         }
     ?>
-
+    </div>
 </main>
