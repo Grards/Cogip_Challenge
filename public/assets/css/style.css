@@ -22,6 +22,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -267,23 +272,29 @@ header span {
   }
 }
 
-.detail-container {
+.contacts-details {
   font-family: "Inter", sans-serif;
   font-weight: 900;
   font-size: 25px;
   color: #000;
   display: flex;
   flex-direction: column;
-  margin: 20px 30px;
+  align-items: center;
+  justify-content: space-between;
 }
-.detail-container h2 {
+@media screen and (min-width: 1080px) {
+  .contacts-details {
+    flex-direction: row;
+  }
+}
+.contacts-details h2 {
   display: inline;
   font-size: 30px;
   padding: 20px 10px;
   position: relative;
   z-index: 1;
 }
-.detail-container h2::before {
+.contacts-details h2::before {
   height: 20px;
   width: 80%;
   content: "";
@@ -295,18 +306,36 @@ header span {
   top: calc(100% - 37px);
 }
 @media screen and (min-width: 1080px) {
-  .detail-container h2 {
+  .contacts-details h2::before {
+    left: 200px;
+    top: calc(100% - 60px);
+  }
+}
+@media screen and (min-width: 1080px) {
+  .contacts-details h2 {
     font-size: 60px;
     padding: 30px 20px;
   }
 }
-.detail-container p {
+.contacts-details p {
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 18px;
+  margin-top: 20px;
 }
-.detail-container p span {
+.contacts-details p span {
   font-weight: 900;
+}
+
+.detail-container-img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+}
+.detail-container-img img {
+  width: 150px;
+  margin-top: 20px;
 }
 
 #navbar {
@@ -912,8 +941,9 @@ svg {
 
 .table-title {
   padding-left: 10px;
-  margin-bottom: 20px;
   position: relative;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 .table-title h2 {
   display: inline;
@@ -935,6 +965,12 @@ svg {
   z-index: -1;
   left: 60px;
   top: calc(100% - 37px);
+}
+@media screen and (min-width: 1080px) {
+  .table-title h2::before {
+    left: 200px;
+    top: calc(100% - 60px);
+  }
 }
 @media screen and (min-width: 1080px) {
   .table-title h2 {
