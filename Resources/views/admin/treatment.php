@@ -1,4 +1,6 @@
 <?php 
+    header("Location: ".BASE_URL."dashboard?&crud-send");
+    exit;
     use App\Core\DatabaseManager;
 ?>  
 
