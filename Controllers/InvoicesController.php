@@ -28,6 +28,12 @@ class InvoicesController extends Controller
         }
 
         $searchQuery = $_GET['search'] ?? '';
+        $searchQuery = preg_replace('/[^a-zA-Z]/', '', $searchQuery);
+        $searchQuery = htmlspecialchars($searchQuery);
+        $searchQuery = trim($searchQuery);
+        $maxCharacters = 10;
+        $searchQuery = substr($searchQuery, 0, $maxCharacters);
+
         $sortField = $_GET['sort_field'] ?? '';
         $sortOrder = $_GET['sort_order'] ?? '';
 

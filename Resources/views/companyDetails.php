@@ -15,10 +15,13 @@ include VIEWS . 'includes/dateFormat.php';
     </div>
     <div class="company-details-container main">
         <div class="company-title">
+                  <?php
+        if (isset($company)) {
             <?php
                 echo "<h2>$company[companies_name]</h2>";
             ?>
         </div>
+
         <?php
         if (isset($company)) {
             echo "<p><span>Name :</span> " . $company['companies_name'] . "</p>";
@@ -38,10 +41,12 @@ include VIEWS . 'includes/dateFormat.php';
         foreach ($contacts as $contact) {
             if (!empty($contact['contacts_picture'])) {
                 echo "<img class='contact-picture' src='" . IMG . "contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
+                echo "$contact[contacts_name]";
             } else {
                 echo "<p>No picture available for this contact</p>";
             }
         }
+        
         ?>
     </div>
     <div class="company-details-container table">
