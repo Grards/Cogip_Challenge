@@ -78,12 +78,12 @@ class Admin
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function getIDOfCompany($contact_company){
+    public function getIDOfCompany($company){
         $query = "SELECT DISTINCT companies.id as company_id
         FROM companies
-        WHERE companies.name = :contact_company";
+        WHERE companies.name = :company";
         $statement = $this->db->prepare($query);
-        $statement->bindValue(':contact_company', $contact_company, \PDO::PARAM_INT);
+        $statement->bindValue(':company', $company, \PDO::PARAM_STR);
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_ASSOC);
@@ -181,6 +181,21 @@ class Admin
         $statement->bindValue(':country', $company_country, \PDO ::PARAM_STR);
         $statement->bindValue(':tva', $company_tva, \PDO ::PARAM_STR);
         $statement->bindValue(':updatedAt', $company_update_at, \PDO ::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
+    public function updateInvoice($invoice_id, $invoice_ref, $company_id, $invoice_due_date, $invoice_price, $invoice_update_at){
+        $query = "UPDATE invoices
+        SET ref = :ref, id_company = :companyId, due_date = :dueDate, price = :price, updated_at = :updatedAt
+        WHERE id = " . $invoice_id;
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':ref', $invoice_ref, \PDO ::PARAM_STR);
+        $statement->bindValue(':companyId', $company_id, \PDO ::PARAM_INT);
+        $statement->bindValue(':dueDate', $invoice_due_date, \PDO ::PARAM_STR);
+        $statement->bindValue(':price', $invoice_price, \PDO ::PARAM_STR);
+        $statement->bindValue(':updatedAt', $invoice_update_at, \PDO ::PARAM_STR);
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
