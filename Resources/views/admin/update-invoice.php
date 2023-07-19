@@ -56,7 +56,7 @@
                 </select>
 
                 <label for="update-invoice__due_date">Due date : </label>
-                <input type="date" id="update-invoice__due_date" name="update-invoice__due_date" max=50 value="<?= $invoice_due_date ?>" required>
+                <input type="date" id="update-invoice__due_date" name="update-invoice__due_date" max=50 value="<?= dateValueInput($invoice_due_date); ?>" required>
 
                 <label for="update-invoice__price">Price : </label>
                 <input type="tel" id="update-invoice__price" name="update-invoice__price" min=3 max=50 value="<?= $invoice_price ?>" required>

@@ -38,6 +38,22 @@ class Invoice {
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getLatestInvoicesByCompanyId($limit, $companyId){
+        
+        $query = "SELECT invoices.id as invoices_id, invoices.ref as invoices_ref, invoices.id_company as invoices_id_company, invoices.created_at as invoices_created_at, invoices.updated_at as invoices_updated_at, invoices.due_date as invoices_due_date, invoices.price as invoices_price, companies.id as companies_id, companies.name as companies_name
+        FROM invoices
+        INNER JOIN companies ON invoices.id_company = companies.id
+        WHERE companies.id = :companyId
+        ORDER BY invoices.due_date ASC
+        LIMIT :limit";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
+        $statement->bindValue(':companyId', $companyId, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function getAllInvoices() {
         $query = "SELECT id, ref, id_company, created_at, updated_at FROM invoices";
         $statement = $this->db->prepare($query);

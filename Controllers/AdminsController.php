@@ -176,9 +176,9 @@ class AdminsController extends Controller
                     $invoice_price = htmlspecialchars($_POST['update-invoice__price']);
                     $invoice_update_at = date("Y/m/d H:m:s");
 
-                    $company_id= $adminModel->getIdOfType($invoice_company);
+                    $company_id= $adminModel->getIDOfCompany($invoice_company);
               
-                    $adminModel->updateinvoice($invoice_id, $invoice_ref, $company_id['id_company'], $invoice_due_date, $invoice_price, $invoice_update_at);
+                    $adminModel->updateInvoice($invoice_id, $invoice_ref, $company_id['company_id'], $invoice_due_date, $invoice_price, $invoice_update_at);
                     
                     $user = $adminModel->getUser();
                     

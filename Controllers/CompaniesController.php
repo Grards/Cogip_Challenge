@@ -5,6 +5,8 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Models\Company;
+use App\Models\Invoice;
+use App\Models\Contact;
 
 class CompaniesController extends Controller
 {
@@ -72,15 +74,22 @@ class CompaniesController extends Controller
         }
     
         $companyId = $_GET['id'];
-    
         $companyModel = new Company();
         $company = $companyModel->getcompanyById($companyId);
+        
     
         if (!$company) {
             return $this->view('error', ['message' => 'Company not found']);
         }
+
+        $invoiceModel = new Invoice();
+        $limit = 5;
+        $invoices = $invoiceModel->getLatestInvoicesByCompanyId($limit, $companyId);
+
+        $contactModel = new Contact();
+        $contacts = $contactModel->getContactsByCompanyId($companyId);
     
-        return $this->view('companyDetails', ['company' => $company]);
+        return $this->view('companyDetails', ['company' => $company, 'invoices' => $invoices, 'contacts' => $contacts]);
     }    
 }
 ?>
