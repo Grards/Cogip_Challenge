@@ -2,22 +2,15 @@
 @import "../abstracts/fonts";
 @import "../abstracts/mixin";
 
-.contacts-details{
-
+.company-details-container{
     font-family: 'Inter',sans-serif;
     font-weight: 900;
     font-size: 25px;
     color: $Noir;
-
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    @include responsive-desktop {
-      flex-direction: row;
-    }
-
+    justify-content: center;
+    margin-bottom: 50px;
     h2{
         display: inline;
         font-size: 30px;
@@ -44,35 +37,24 @@
             padding: 30px 20px;
         }
     }
-
     p{
         font-family: 'Roboto',sans-serif;
         font-weight: 600;
         font-size: 18px;
-        margin-top: 20px;
         & span{
             font-weight: 900;
         }
     }
     img{
-        width: 150px;
+        width: 75px;
         margin-top: 20px;
     }
 }
 
-.detail-container-img{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 100%;
-    & img{
-        width: 150px;
-        margin-top: 20px;
-    }
+.main{
+    height: 366px;
 }
 
-.company-details-container{
-    border-bottom: 1px solid $GrisFonce;
-    display: flex;
-    flex-direction: column;
-}
+// .contact{
+//     height: 461px;
+// }
