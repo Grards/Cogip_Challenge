@@ -22,6 +22,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
@@ -210,13 +213,13 @@ header span {
 .stats .stats__informations {
   display: flex;
   font-size: 12px;
-  line-height: none;
 }
 .stats .stats__informations ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  line-height: 14.52px;
   margin: auto;
   color: #FFF;
 }
@@ -230,22 +233,22 @@ header span {
 .stats__informations--invoices {
   background-color: #4D4CAC;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
 }
 
 .stats__informations--contacts {
   background-color: #9698D6;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
 }
 
 .stats__informations--companies {
   background-color: #FF808B;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
 }
 
 .table-container-dashboard {
@@ -339,6 +342,10 @@ header span {
 .contacts-details p span {
   font-weight: 900;
 }
+.contacts-details img {
+  width: 150px;
+  margin-top: 20px;
+}
 
 .detail-container-img {
   display: flex;
@@ -349,6 +356,69 @@ header span {
 .detail-container-img img {
   width: 150px;
   margin-top: 20px;
+}
+
+.company-details-container {
+  border-bottom: 1px solid #919EAB;
+  display: flex;
+  flex-direction: column;
+}
+
+.company-details-container {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.company-details-container h2 {
+  display: inline;
+  font-size: 30px;
+  padding: 20px 10px;
+  position: relative;
+  z-index: 1;
+}
+.company-details-container h2::before {
+  height: 20px;
+  width: 80%;
+  content: "";
+  display: inline-block;
+  background-color: #F9DE4E;
+  position: absolute;
+  z-index: -1;
+  left: 60px;
+  top: calc(100% - 37px);
+}
+@media screen and (min-width: 1080px) {
+  .company-details-container h2::before {
+    left: 200px;
+    top: calc(100% - 60px);
+  }
+}
+@media screen and (min-width: 1080px) {
+  .company-details-container h2 {
+    font-size: 60px;
+    padding: 30px 20px;
+  }
+}
+.company-details-container p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+.company-details-container p span {
+  font-weight: 900;
+}
+.company-details-container img {
+  width: 75px;
+  margin-top: 20px;
+}
+
+.main {
+  height: 366px;
 }
 
 #navbar {
@@ -722,6 +792,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 @media screen and (min-width: 1080px) {
   #footer-navbar-container {
@@ -736,16 +807,10 @@ footer {
   }
 }
 
-@media screen and (min-width: 1080px) {
-  #footer-text-gris-container {
-    justify-self: flex-end;
-  }
-}
-
 #footer-navbar a {
   font-family: "Assistant", sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
   margin-right: 5px;
@@ -775,7 +840,6 @@ footer {
   font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  margin-top: 10px;
 }
 @media screen and (min-width: 1080px) {
   .footer-text-gris {

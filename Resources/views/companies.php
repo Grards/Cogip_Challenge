@@ -2,10 +2,10 @@
 
 use App\Core\DatabaseManager;
 
-    include VIEWS.'includes/header.php';
-    include VIEWS.'includes/errors.php';
-    include VIEWS.'includes/dateFormat.php';
-    include VIEWS.'includes/columnSort.php';
+include VIEWS . 'includes/header.php';
+include VIEWS . 'includes/errors.php';
+include VIEWS . 'includes/dateFormat.php';
+include VIEWS . 'includes/columnSort.php';
 ?>
 <main>
     <div class="table-shape">
@@ -33,32 +33,31 @@ use App\Core\DatabaseManager;
         <?php endif; ?>
 
         <table class="table">
-            <thead class="tableHead">   
-            <th>
-                <!----------------------------------- Enlever le style des liens ci dessous en CSS please :) --------------------------->
-            <a href="?search=<?php echo $searchQuery?>&sort_field=companies.name&sort_order=<?php echo ($sortField === 'companies.name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Name <?php echo ($sortField === 'companies.name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
-            </a>
-        </th>
-        <th>
-            <a href="?search=<?php echo $searchQuery?>&sort_field=type_id&sort_order=<?php echo ($sortField === 'type_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Type <?php echo ($sortField === 'type_id') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
-            </a>
-        </th>
-        <th>
-            <a href="?search=<?php echo $searchQuery?>&sort_field=country&sort_order=<?php echo ($sortField === 'country' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Country <?php echo ($sortField === 'country') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
-            </a>
-        </th>
-        <th>
-            <a href="?search=<?php echo $searchQuery?>&sort_field=tva&sort_order=<?php echo ($sortField === 'tva' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                TVA <?php echo ($sortField === 'tva') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
-            </a>
-        </th>
-        <th>
-            <a href="?search=<?php echo $searchQuery?>&sort_field=companies.created_at&sort_order=<?php echo ($sortField === 'companies.created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
-                Created at <?php echo ($sortField === 'companies.created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
-            </a>
+            <thead class="tableHead">
+                <th>
+                    <a href="?search=<?php echo $searchQuery ?>&sort_field=companies.name&sort_order=<?php echo ($sortField === 'companies.name' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                        Name <?php echo ($sortField === 'companies.name') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+                    </a>
+                </th>
+                <th>
+                    <a href="?search=<?php echo $searchQuery ?>&sort_field=type_id&sort_order=<?php echo ($sortField === 'type_id' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                        Type <?php echo ($sortField === 'type_id') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+                    </a>
+                </th>
+                <th>
+                    <a href="?search=<?php echo $searchQuery ?>&sort_field=country&sort_order=<?php echo ($sortField === 'country' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                        Country <?php echo ($sortField === 'country') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+                    </a>
+                </th>
+                <th>
+                    <a href="?search=<?php echo $searchQuery ?>&sort_field=tva&sort_order=<?php echo ($sortField === 'tva' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                        TVA <?php echo ($sortField === 'tva') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+                    </a>
+                </th>
+                <th>
+                    <a href="?search=<?php echo $searchQuery ?>&sort_field=companies.created_at&sort_order=<?php echo ($sortField === 'companies.created_at' && $sortOrder === 'asc') ? 'desc' : 'asc'; ?>">
+                        Created at <?php echo ($sortField === 'companies.created_at') ? ($sortOrder === 'asc' ? '▲' : '▼') : ''; ?>
+                    </a>
 
             </thead>
             </thead>
@@ -80,9 +79,9 @@ use App\Core\DatabaseManager;
     include VIEWS . 'includes/pagination.php';
     ?>
 </main>
-    <?php
-        include 'includes/footer.php';
-    ?>
+<?php
+include 'includes/footer.php';
+?>
 </body>
 
 </html>

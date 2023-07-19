@@ -13,27 +13,27 @@ include VIEWS . 'includes/dateFormat.php';
         <div class="test-clip">
         </div>
     </div>
-    <div class="table-container withoutSlogan">
-        <div id="test-clip">
-        </div>
-    </div>
-    <div class="table-container">
+    <div class="company-details-container main">
         <div class="company-title">
-            <h1><?php $company['companies_name'] ?></h1>
+                  <?php
+        if (isset($company)) {
+            <?php
+                echo "<h2>$company[companies_name]</h2>";
+            ?>
         </div>
+
         <?php
         if (isset($company)) {
-            echo "<h1>$company[companies_name]</h1>";
-            echo "<p> Name : " . $company['companies_name'] . "</p>";
+            echo "<p><span>Name :</span> " . $company['companies_name'] . "</p>";
             echo "<p> TVA : " . $company['tva'] . "</p>";
-            echo "<p> Country : " . $company['country'] . "</p>";
-            echo "<p> Type : " . $company['types_name'] . "</p>";
+            echo "<p><span>Country : </span>" . $company['country'] . "</p>";
+            echo "<p><span> Type : </span>" . $company['types_name'] . "</p>";
         } else {
             echo "<p>Company details not found.</p>";
         }
         ?>
     </div>
-    <div class="table-container">
+    <div class="company-details-container contact">
         <div class="contact-title">
             <h2>Contact people</h2>
         </div>
@@ -41,13 +41,15 @@ include VIEWS . 'includes/dateFormat.php';
         foreach ($contacts as $contact) {
             if (!empty($contact['contacts_picture'])) {
                 echo "<img class='contact-picture' src='" . IMG . "contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
+                echo "$contact[contacts_name]";
             } else {
                 echo "<p>No picture available for this contact</p>";
             }
         }
+        
         ?>
     </div>
-    <div class="table-container">
+    <div class="company-details-container table">
         <div class="invoice-title">
             <h2>Last invoices</h2>
         </div>
