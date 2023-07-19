@@ -17,9 +17,9 @@ include VIEWS . 'includes/dateFormat.php';
         <div id="test-clip">
         </div>
     </div>
-    <div class="company-details">
-    <div class="table-title">
-            <h2>Contact people</h2>
+    <div class="table-container">
+        <div class="company-title">
+            <h1><?php $company['companies_name'] ?></h1>
         </div>
         <?php
         if (isset($company)) {
@@ -33,28 +33,48 @@ include VIEWS . 'includes/dateFormat.php';
         }
         ?>
     </div>
-    <div class="contact-people-picture">
+    <div class="table-container">
+        <div class="contact-title">
+            <h2>Contact people</h2>
+        </div>
         <?php
-        // TODO: Add picture of the contacts working in this company
-        // echo "<img class='contact-picture' src='" . IMG."contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
-        // echo "<img class='contact-picture' src='" . IMG."contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
+        foreach ($contacts as $contact) {
+            if (!empty($contact['contacts_picture'])) {
+                echo "<img class='contact-picture' src='" . IMG . "contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
+            } else {
+                echo "<p>No picture available for this contact</p>";
+            }
+        }
         ?>
     </div>
     <div class="table-container">
-        <div class="table-title">
+        <div class="invoice-title">
             <h2>Last invoices</h2>
         </div>
         <table class="table">
             <thead class="tableHead">
                 <th>Invoice Number</th>
-                <th>Dates</th>
+                <th>Due Date</th>
                 <th>Company</th>
                 <th>Created at</th>
             </thead>
+            <?php
+
+            foreach ($invoices as $invoice) {
+                $dateFormated_due = dateFormat($invoice['invoices_due_date']);
+                $dateFormated_created = dateFormat($invoice['invoices_created_at']);
+                echo "<tr>";
+                echo "<td>$invoice[invoices_ref]</td>";
+                echo "<td>$dateFormated_due</td>";
+                echo "<td>$invoice[companies_name]</td>";
+                echo "<td>$dateFormated_created</td>";
+                echo "</tr>";
+            }
+
+            ?>
+
         </table>
     </div>
-            <!-- TODO : Add last invoices of this specific company -->
-
 </main>
 
 <?php
