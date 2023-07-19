@@ -19,11 +19,11 @@ include VIEWS . 'includes/dateFormat.php';
     </div>
     <div class="table-container">
         <div class="company-title">
-            <h1><?php $company['companies_name'] ?></h1>
+            <h2><?php $company['companies_name'] ?></h2>
         </div>
         <?php
         if (isset($company)) {
-            echo "<h1>$company[companies_name]</h1>";
+            echo "<p>$company[companies_name]</p>";
             echo "<p> Name : " . $company['companies_name'] . "</p>";
             echo "<p> TVA : " . $company['tva'] . "</p>";
             echo "<p> Country : " . $company['country'] . "</p>";
@@ -41,10 +41,12 @@ include VIEWS . 'includes/dateFormat.php';
         foreach ($contacts as $contact) {
             if (!empty($contact['contacts_picture'])) {
                 echo "<img class='contact-picture' src='" . IMG . "contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
+                echo "$contact[contacts_name]";
             } else {
                 echo "<p>No picture available for this contact</p>";
             }
         }
+        
         ?>
     </div>
     <div class="table-container">
