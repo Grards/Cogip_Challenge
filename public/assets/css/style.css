@@ -421,6 +421,22 @@ header span {
   height: 366px;
 }
 
+.contacts {
+  margin-bottom: 50px;
+  justify-content: space-between;
+}
+.contacts .contact-infos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.contacts .contact-title {
+  margin-bottom: 50px;
+}
+
 #navbar {
   display: flex;
   justify-content: space-between;

@@ -17,8 +17,7 @@ include VIEWS . 'includes/dateFormat.php';
         <div class="company-title">
                   <?php
         if (isset($company)) {
-            <?php
-                echo "<h2>$company[companies_name]</h2>";
+                echo "<h2>$company[companies_name]</h2>";}
             ?>
         </div>
 
@@ -33,21 +32,24 @@ include VIEWS . 'includes/dateFormat.php';
         }
         ?>
     </div>
-    <div class="company-details-container contact">
+    <div class="company-details-container contacts">
         <div class="contact-title">
             <h2>Contact people</h2>
         </div>
-        <?php
-        foreach ($contacts as $contact) {
-            if (!empty($contact['contacts_picture'])) {
-                echo "<img class='contact-picture' src='" . IMG . "contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
-                echo "$contact[contacts_name]";
-            } else {
-                echo "<p>No picture available for this contact</p>";
+            <?php
+            foreach ($contacts as $contact) {
+                if (!empty($contact['contacts_picture'])) {
+                    echo"<div class='contact-infos'>";
+                    echo "<img class='contact-picture' src='" . IMG . "contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
+                    echo "<p>$contact[contacts_name]</p>";
+                    echo"   </div>";
+                } else {
+                    echo "<p>No picture available for this contact</p>";
+                }
             }
-        }
-        
-        ?>
+            
+            ?>
+       
     </div>
     <div class="company-details-container table">
         <div class="invoice-title">
