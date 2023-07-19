@@ -27,7 +27,7 @@ include VIEWS . 'includes/dateFormat.php';
                 echo "<p><span>Company : </span>" . $contact['companies_name'] ."</p>";
             echo "</div>";
             echo"<div class='detail-container-img'>";
-                echo "<img class='contact-picture' src='" . IMG."contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
+                echo "<img class='contact-picture' src='" . IMG ."contacts/$contact[contacts_picture]' alt=' . $contact[contacts_name] .'s picture>";
             echo "</div>";
         } else {
             echo "<p>Contact details not found.</p>";
