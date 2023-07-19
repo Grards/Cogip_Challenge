@@ -54,7 +54,19 @@
 .main{
     height: 366px;
 }
+.contacts{
+    margin-bottom: 50px;
+    justify-content: space-between;
+    & .contact-infos{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $Gris;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
 
-// .contact{
-//     height: 461px;
-// }
+    & .contact-title{
+        margin-bottom: 50px;
+    }
+}
